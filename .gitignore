@@ -4,10 +4,12 @@ __pycache__/
 .venv/
 env/
 
-# LTSpice (Ignorar resultados temporales gigantes)
+# LTSpice (Ignorar resultados temporales gigantes y exportaciones masivas)
 *.raw
 *.op.raw
 *.log
+*out_signals*.txt
+simulaciones/scripts/*_signals*.txt
 
 # C / C++ / Microcontroladores
 build/
