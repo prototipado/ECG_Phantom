@@ -22,6 +22,7 @@ build/
 *.hex
 *.dis
 *.map
+*.uf2
 
 # KiCad (Copias de seguridad automáticas y configuración local de usuario)
 *-backups/
@@ -34,4 +35,7 @@ _autosave-*
 *.zip
 .DS_Store
 Thumbs.db
+desktop.ini
 .vscode/
+.qodo/
+

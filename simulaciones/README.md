@@ -27,8 +27,10 @@ Modelos en **LTSpice** y scripts de procesamiento en **Python** para el diseño,
   * Genera dos vistas clave:
     1. **Desglose individual:** Visualización multicanal de tensiones intermedias y nodos del circuito.
     2. **Comparación de fidelidad:** Superposición directa entre la señal de referencia/original (`V(v_sig)`) y la señal analógica filtrada (`V(n002)`).
+* **`pwm_gen.py`**: Convierte tablas de bioseñales en formato C (`.h`) a archivos de estímulo por tramos `PWL` (`ecg_pwl.txt`) para su uso directo en LTSpice, normalizando la amplitud al rango dinámico del PWM (0 a 3.3V / 16 bits).
 * **`Figure_1.png`**: Gráfica resultante del análisis temporal por canal individual.
 * **`Figure_2.png`**: Gráfica comparativa de reconstrucción de bioseñal (Original vs. Filtrada).
+
 
 ---
 
