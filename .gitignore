@@ -1,8 +1,10 @@
-# Python
+# Python / Jupyter
 __pycache__/
 *.py[cod]
 .venv/
 env/
+.ipynb_checkpoints/
+*.h5
 
 # LTSpice (Ignorar resultados temporales gigantes y exportaciones masivas)
 *.raw
