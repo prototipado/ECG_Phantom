@@ -1,0 +1,6 @@
+numpy>=1.22.0
+scipy>=1.9.0
+matplotlib>=3.5.0
+pyserial>=3.5
+# GUI framework opcional según implementación (PyQt5, PyQt6 o PySide6)
+PyQt5>=5.15.0

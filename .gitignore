@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+env/
+
+# LTSpice (Ignorar resultados temporales gigantes)
+*.raw
+*.op.raw
+*.log
+
+# C / C++ / Microcontroladores
+build/
+*.elf
+*.bin
+*.hex
+*.dis
+*.map
+
+# KiCad (Copias de seguridad automáticas y configuración local de usuario)
+*-backups/
+*.kicad_prl
+*.lck
+_autosave-*
+*.bak
+
+# Archivos de sistema y comprimidos pesados
+*.zip
+.DS_Store
+Thumbs.db
+.vscode/
