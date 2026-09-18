@@ -90,7 +90,8 @@ python ecg_gui.py
 - [x] Integración de firmware inicial `01_pico_ecg` (reproductor clínico Flash/RAM).
 - [ ] Subida sucesiva de firmwares modulares (`02_pico_conduction_model` a `05_pace_sim`).
 - [ ] Liberación de esquemáticos finales de PCB y circuito de adaptación.
-- [ ] Consolidación de la GUI en Python v1.3 con soporte de guardado en formato EDF / CSV.
+- [x] Consolidación de la GUI en Python (v1.2.0) con streaming serie USB a 2000 SPS, registro CSV y script de compilación a ejecutable Windows.
+- [ ] Soporte de exportación a formato EDF en la GUI.
 
 ---
 

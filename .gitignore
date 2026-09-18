@@ -1,10 +1,12 @@
-# Python / Jupyter
+# Python / Jupyter / PyInstaller
 __pycache__/
 *.py[cod]
 .venv/
 env/
 .ipynb_checkpoints/
 *.h5
+dist/
+*.exe
 
 # LTSpice (Ignorar resultados temporales gigantes y exportaciones masivas)
 *.raw
