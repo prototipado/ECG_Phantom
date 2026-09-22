@@ -362,6 +362,10 @@ class SerialThread(threading.Thread):
         # keeps its own sequence number for display.
         self._pkt_fwd_div = 100
         self._pkt_log_count = 0
+        # Persistent receive buffer: accumulates bytes across loop iterations
+        # so partial frames (common at high baud rates) are never lost.
+        self._rx_buf = bytearray()
+        self._text_buf = bytearray()
 
     def stop(self):
         self._stop_event.set()
@@ -377,9 +381,17 @@ class SerialThread(threading.Thread):
     def run(self):
         try:
             self.ser = serial.Serial(self.port, BAUD_RATE, timeout=0.1)
-            time.sleep(2)
+            time.sleep(1.0)
+            # Stop any leftover stream from a previous session so text
+            # commands (ver, info, list) are not interleaved with binary
+            # frames. Without this, the byte stream gets misaligned and
+            # the parser treats binary data as garbage text.
+            self.ser.write(b"> stream off\r\n")
+            time.sleep(0.2)
+            self.ser.reset_input_buffer()
+            self._rx_buf = bytearray()
+            self._text_buf = bytearray()
             self.status_callback("connected")
-            self._send_cmd("ver")
         except Exception as e:
             self.status_callback(f"error: {e}")
             return
@@ -397,6 +409,8 @@ class SerialThread(threading.Thread):
                         # residual binary data so text parsing is clean.
                         time.sleep(0.15)
                         self.ser.reset_input_buffer()
+                        self._rx_buf = bytearray()
+                        self._text_buf = bytearray()
                 except serial.SerialException:
                     self.status_callback("disconnected")
                     self._close_serial()
@@ -405,54 +419,101 @@ class SerialThread(threading.Thread):
                     pass
 
             try:
-                if self.streaming:
-                    data_size = self.num_channels * 4
-                    frame_size = data_size + 4
-                    END_SYNC = b'\x55\xAA'
+                available = self.ser.in_waiting
+                if available > 0:
+                    self._rx_buf += self.ser.read(available)
 
-                    available = self.ser.in_waiting
-                    if available >= frame_size:
-                        raw = self.ser.read(available)
-                        i = 0
-                        while i <= len(raw) - frame_size:
-                            if raw[i] == 0xAA and raw[i+1] == 0x55:
-                                data = raw[i+2:i+2+data_size]
-                                end = raw[i+2+data_size:i+2+data_size+2]
-                                if len(data) == data_size and end == END_SYNC:
-                                    fmt = '<%df' % self.num_channels
-                                    values = list(struct.unpack(fmt, data))
-                                    # Sanity bounds: ECG/PPG channels (raw mV)
-                                    # within +-mv_max; pace-sense ADC channels
-                                    # (V at the pin) within +-10 V.
-                                    ok = True
-                                    for ch_i, v in enumerate(values):
-                                        limit = 10.0 if ch_i in self.adc_indexes else self.mv_max
-                                        if not (-limit <= v <= limit):
-                                            ok = False
-                                            break
-                                    if ok and len(values) == self.num_channels:
-                                        with self.queue_lock:
-                                            self.data_queue.append(values)
-                                            self.total_samples_count += 1
-                                            self.sample_seq += 1
-                                            max_samples = MAX_DISPLAY_SECONDS * SAMPLE_RATE + 12000
-                                            while len(self.data_queue) > max_samples:
-                                                self.data_queue.popleft()
-                                        if self.pkt_callback:
-                                            self._pkt_log_count += 1
-                                            if self._pkt_log_count % self._pkt_fwd_div == 0:
-                                                self.pkt_callback(raw[i:i + frame_size], values)
-                                i += frame_size
-                            else:
-                                i += 1
-                else:
-                    if self.ser.in_waiting > 0:
-                        line = self.ser.readline().decode('utf-8', errors='replace').replace('\r', '').replace('\n', '').strip()
-                        if line:
-                            print(f"[RX] {line}")
-                            self.info_callback(line)
+                import math as _math
+                data_size = self.num_channels * 4
+
+                i = 0
+                buf = self._rx_buf
+                while i < len(buf):
+                    b = buf[i]
+
+                    # -- Look for frame header [0xAA, 0x55] --
+                    if b == 0xAA:
+                        if i + 1 >= len(buf):
+                            break  # Need second header byte
+
+                        if buf[i + 1] == 0x55:
+                            # Search for matching trailer [0x55, 0xAA].
+                            # Clean frame has trailer at offset i + 2 + data_size (e.g. 38 for 9 ch).
+                            # If Pico SDK USB CDC converted \n -> \r\n, trailer is at 38 + k (up to ~46).
+                            found_frame = False
+                            max_search = min(i + 2 + data_size + 8, len(buf))
+                            for end_idx in range(i + 2 + data_size, max_search):
+                                if end_idx + 1 < len(buf) and buf[end_idx] == 0x55 and buf[end_idx + 1] == 0xAA:
+                                    raw_payload = buf[i + 2 : end_idx]
+                                    if len(raw_payload) > data_size:
+                                        clean_payload = raw_payload.replace(b'\r\n', b'\n')
+                                    else:
+                                        clean_payload = raw_payload
+
+                                    if len(clean_payload) == data_size:
+                                        fmt = '<%df' % self.num_channels
+                                        values = list(struct.unpack(fmt, clean_payload))
+                                        ok = True
+                                        for ch_i, v in enumerate(values):
+                                            if not _math.isfinite(v):
+                                                ok = False; break
+                                            limit = 10.0 if ch_i in self.adc_indexes else self.mv_max
+                                            if not (-limit <= v <= limit):
+                                                ok = False; break
+                                        if ok and len(values) == self.num_channels:
+                                            self.streaming = True
+                                            with self.queue_lock:
+                                                self.data_queue.append(values)
+                                                self.total_samples_count += 1
+                                                self.sample_seq += 1
+                                                max_samples = MAX_DISPLAY_SECONDS * SAMPLE_RATE + 12000
+                                                while len(self.data_queue) > max_samples:
+                                                    self.data_queue.popleft()
+                                            if self.pkt_callback:
+                                                self._pkt_log_count += 1
+                                                if self._pkt_log_count % self._pkt_fwd_div == 0:
+                                                    self.pkt_callback(bytes(buf[i : end_idx + 2]), values)
+
+                                        # Flush any pending text accumulated before this frame
+                                        if self._text_buf:
+                                            try:
+                                                line = self._text_buf.decode('utf-8', errors='replace').strip()
+                                                if line:
+                                                    self.info_callback(line)
+                                            except Exception:
+                                                pass
+                                            self._text_buf = bytearray()
+
+                                        i = end_idx + 2
+                                        found_frame = True
+                                        break
+
+                            if found_frame:
+                                continue
+
+                            # If we haven't received enough bytes to verify whether the frame is complete
+                            if i + 2 + data_size + 8 > len(buf):
+                                break  # Wait for more bytes to arrive
+
+                    # -- Not a frame header: accumulate printable text --
+                    if b == 0x0A:   # \n
+                        if self._text_buf:
+                            try:
+                                line = self._text_buf.decode('utf-8', errors='replace').strip()
+                                if line:
+                                    self.info_callback(line)
+                            except Exception:
+                                pass
+                            self._text_buf = bytearray()
+                    elif b != 0x0D:  # skip \r
+                        # Only accumulate printable ASCII and tabs (never arbitrary binary garbage)
+                        if 32 <= b <= 126 or b == 9:
+                            self._text_buf.append(b)
+                    i += 1
+
+                # Keep only unprocessed bytes for next iteration
+                self._rx_buf = bytearray(buf[i:])
             except serial.SerialException:
-                # Port disappeared (device unplugged/reset) -> no busy-loop.
                 self.status_callback("disconnected")
                 self._close_serial()
                 return
@@ -1643,6 +1704,7 @@ class ECGApp:
         self.pace_indexes = None
         if self.serial_thread:
             self.serial_thread.num_channels = 9
+            self.serial_thread.mv_max = 50.0
         try:
             self.pace_bench_frame.pack_forget()
         except Exception:
@@ -1661,7 +1723,7 @@ class ECGApp:
 
     def _pico_ecg_auto_stream(self):
         """Start streaming automatically after device detection."""
-        if self.connected and not self.streaming:
+        if self.connected and not self.streaming and self.project_type == PICO_ECG_KEY:
             self._send_cmd("stream on")
             self.streaming = True
             self.pico_ecg_stream_btn.config(text="Stream OFF")
@@ -1687,7 +1749,7 @@ class ECGApp:
 
     def _pico_ecg_request_list(self):
         """Send 'list' to the device and start collecting the response."""
-        if not self.connected:
+        if not self.connected or self.project_type != PICO_ECG_KEY:
             return
         self._pico_ecg_list_lines = []
         self._pico_ecg_collecting = True
@@ -2019,6 +2081,7 @@ class ECGApp:
 
     def _auto_stream(self):
         if self.connected and not self.streaming:
+            self._send_cmd("play")
             self._send_cmd("stream on")
             self.streaming = True
             self.stream_btn.config(text="Stream OFF")
@@ -2037,10 +2100,20 @@ class ECGApp:
             if self._pico_ecg_collecting:
                 self._pico_ecg_list_lines.append(line)
 
-            # ---- pico_ecg: detect 'ver' response ----
-            if self.project_type is None and ("pico_ecg" in line.lower() or "ecg monitor" in line.lower()):
-                self.project_type = PICO_ECG_KEY
-                self._setup_pico_ecg_ui()
+            # ---- project detection via 'ver' response ----
+            if self.project_type is None:
+                lower = line.lower()
+                matched_proj = None
+                for p_key in PROJECTS:
+                    if p_key in lower or PROJECTS[p_key]["name"].lower() in lower:
+                        matched_proj = p_key
+                        break
+                if matched_proj:
+                    self.project_type = matched_proj
+                    self._setup_project_ui(matched_proj)
+                elif "pico_ecg" in lower or "ecg monitor" in lower:
+                    self.project_type = PICO_ECG_KEY
+                    self._setup_pico_ecg_ui()
 
             # Parse 'get' response to sync sliders
             if "=" in line:
@@ -2112,6 +2185,7 @@ class ECGApp:
             self.stream_btn.config(text="Stream ON")
             self.status_label.config(text="Connected (menu)", foreground="green")
         else:
+            self._send_cmd("play")
             self._send_cmd("stream on")
             self.streaming = True
             self.stream_btn.config(text="Stream OFF")
@@ -2447,6 +2521,7 @@ class ECGApp:
                                     bg=C_ACCENT, fg='white', font=FBB, abg='#0F766E')
         self.stream_btn.pack(side=tk.LEFT)
         if not self.streaming:
+            self._send_cmd("play")
             self._send_cmd("stream on")
         self.streaming = True
 
@@ -2604,7 +2679,6 @@ class ECGApp:
         parts = key_val.split("=", 1)
         key = parts[0].strip()
         val = parts[1].strip()
-        print(f"[GET] key='{key}' val='{val}'")
 
         mappings = {
             "hr": self._sync_hr,
@@ -2902,8 +2976,9 @@ class ECGApp:
     def _run_plot_update(self):
         try:
             self._update_plot()
-        except Exception:
-            pass
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
         try:
             self._drain_terminal_queue()
         except Exception:
@@ -3046,10 +3121,6 @@ class ECGApp:
                          f'S [{lo[2]:.3f}–{hi[2]:.3f}]')
             except Exception:
                 pass
-        else:
-            for line in self.pace_threshold_lines:
-                line.set_data([], [])
-
             if self.pace_fixed_scale:
                 # Full 0-3.5 V scale (3.5 tops the ~3.3 V idle rail so the
                 # idle-high traces are not pinned to the top edge): lets you
@@ -3072,6 +3143,11 @@ class ECGApp:
                     if hi_v - lo_v < 0.02:
                         hi_v = lo_v + 0.02
                     self.ax_pace.set_ylim(lo_v, hi_v)
+        else:
+            for line in self.pace_threshold_lines:
+                line.set_data([], [])
+            for line in self.pace_lines:
+                line.set_data([], [])
 
         # Show the time axis only on the bottom-most visible subplot: the
         # pace ADC panel when in pace_sim mode, otherwise the ECG panel.

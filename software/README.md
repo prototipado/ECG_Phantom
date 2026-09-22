@@ -15,6 +15,9 @@ Aplicación de escritorio desarrollada en Python (Tkinter + Matplotlib) para la 
 - **Terminal serie**: Monitor integrado para ver la transmisión de datos y comandos.
 - **Cálculo de frecuencia cardíaca**: Detección de picos R y estimación de BPM en tiempo real.
 
+![Interface ECG conectado al Firmware 01_pico_ecg](images/gui.png)
+
+
 ## Ejecución desde código fuente (Python)
 
 ### 1. Requisitos previos

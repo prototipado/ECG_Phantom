@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "pico/stdlib.h"
+#include "pico/stdio_usb.h"
 #include "pico/multicore.h"
 #include "hardware/gpio.h"
 #include "interface.h"
@@ -24,6 +25,7 @@ int main(void) {
     
     // Now init stdio
     stdio_init_all();
+    stdio_set_translate_crlf(&stdio_usb, false);
     sleep_ms(500);
 
     printf("\n\n=== ECG Monitor Starting ===\n");
