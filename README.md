@@ -1,25 +1,23 @@
-# 🫀 Fantoma ECG — Simulador y Calibrador Electrocardíaco Multicanal
+# Fantoma ECG
 
 [![Status](https://img.shields.io/badge/Status-In%20Development-yellow.svg)](#)
 [![Hardware](https://img.shields.io/badge/Hardware-Raspberry%20Pi%20Pico%20%2F%20Pico%202-blue.svg)](#)
 [![Python](https://img.shields.io/badge/Software-Python%203.9%2B-green.svg)](#)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](#)
 
-Ecosistema abierto para el diseño, simulación, generación de bioseñales electrocardíacas y monitoreo en tiempo real. Este repositorio integra desde el diseño de hardware analógico/digital y simulaciones SPICE, hasta múltiples implementaciones de firmware para microcontroladores **RP2040 / RP2350** y una suite de software de escritorio en **Python**.
+Simulador y calibrador de señales electrocardíacas multicanal. Este proyecto integra el diseño de hardware analógico/digital, simulaciones de filtrado en LTSpice, implementaciones de firmware para RP2040 y RP2350, y software de control en Python.
 
----
-
-## 🧭 Visión General de la Arquitectura
+## Arquitectura del sistema
 
 ```mermaid
 flowchart TD
-    subgraph HW["🔌 Hardware & Señal"]
+    subgraph HW["Hardware y Señal"]
         MCU["RP2040 / RP2350<br/>(Raspberry Pi Pico)"]
         FILT["Filtros Reconstrucción PWM/DAC<br/>(Simulados en LTSpice)"]
         OUT["Salida 9-12 Derivaciones ECG + PPG"]
         MCU --> FILT --> OUT
     end
-    subgraph FW["🧠 Firmwares Sucesivos"]
+    subgraph FW["Firmware"]
         FW1["01. Reproductor Clínico (Flash/PhysioNet)"]
         FW2["02. Modelo Conducción (VdP + FHN)"]
         FW3["03. Síntesis Gaussiana + PPG"]
@@ -27,74 +25,67 @@ flowchart TD
         FW5["05. Simulador Marcapasos (Pacer)"]
     end
     FW -.->|Carga según aplicación| MCU
-    subgraph SW["💻 Software de Control Host"]
+    subgraph SW["Software Host"]
         PY["ecg_gui.py (Python)"]
         PLOT["Monitoreo multicanal en tiempo real"]
-        CFG["Configuración de parámetros y patologías"]
+        CFG["Configuración de parámetros"]
         PY --> PLOT
         PY --> CFG
     end
     MCU <== "Streaming Serie USB (Handshake binario / 2000 SPS)" ==> PY
 ```
 
----
+## Estructura del repositorio
 
-## 📁 Estructura del Proyecto
+* [`hardware/`](./hardware/): Proyecto KiCad (`pico_ecg`), esquemáticos, PCB, huellas, modelos 3D, Gerber y BOM.
+* [`simulaciones/`](./simulaciones/): Circuitos LTSpice para filtrado analógico (PWM a voltaje), detección de impulsos y scripts en Python.
+* [`firmware/`](./firmware/): Código para Raspberry Pi Pico y Pico 2:
+  * [`01_pico_ecg`](./firmware/01_pico_ecg/): Reproductor de registros clínicos guardados en memoria Flash.
+  * Módulos adicionales en desarrollo (`02_pico_conduction_model` a `05_pace_sim`).
+* [`software/`](./software/): Interfaz de escritorio en Python para visualización multicanal, registro de datos y control remoto.
+* [`datasets/`](./datasets/): Registros de bases clínicas (PhysioNet, LUDB) y scripts para convertirlos a arreglos en C (`.h`).
+* [`docs/`](./docs/): Protocolo de comunicación, referencias bibliográficas y notas de diseño.
 
-* **[`/hardware`](./hardware/)**: Proyecto completo KiCad (`pico_ecg`), esquemático (`.kicad_sch`), diseño de PCB (`.kicad_pcb`), librerías de huellas (`.pretty`), modelos 3D, gerbers y lista de materiales (BOM).
-* **[`/simulaciones`](./simulaciones/)**: Modelos en LTSpice de las etapas de filtrado analógico (PWM a tensión analógica continua), detección de espigas y scripts de análisis en Python.
-* **[`/firmware`](./firmware/)**: Módulos de firmware para Raspberry Pi Pico / Pico 2:
-  * [`01_pico_ecg`](./firmware/01_pico_ecg/) *(Disponible)*: Reproductor de bases de datos clínicas en Flash SPI y ondas patrón.
-  * *(Próximamente)*: `02_pico_conduction_model`, `03_pico_gaussian_ppg`, `04_pico_multimodel` y `05_pace_sim` (ver detalle en [`firmware/README.md`](./firmware/README.md)).
-* **[`/software`](./software/)**: Aplicación de escritorio desarrollada en Python para control remoto, visualización multicanal en vivo y registro de datos.
-* **[`/datasets`](./datasets/)**: Registros clínicos (PhysioNet, MIT-BIH, Lobachevsky) y herramientas de conversión a tablas de memoria C (`.h`).
-* **[`/docs`](./docs/)**: Especificación del protocolo de comunicación USB, artículos científicos de referencia y notas de diseño.
+## Características
 
----
+* Salida de derivaciones estándar (I, II, III, aVR, aVL, aVF, V1-V6) y canal auxiliar PPG.
+* Generación analógica a electrodos y transmisión serie por USB (hasta 2000 SPS).
+* Control local mediante menú en pantalla OLED y encoder rotativo, o remoto desde la GUI en Python.
+* Simulación de ritmos normales y patologías (taquicardia, bradicardia, fibrilación, bloqueos AV, deriva de línea base).
 
-## ⚡ Características Principales
+## Inicio rápido
 
-- **Salida multicanal:** Emulación de derivaciones estándar (I, II, III, aVR, aVL, aVF, V1-V6) y canal PPG auxiliar.
-- **Doble modo de operación:** Generación analógica real (salida a electrodos) y streaming serie binario de alta velocidad (hasta 2000 SPS).
-- **Control interactivo:** Compatible con pantalla OLED SPI y rotary encoder local, o control total desde la interfaz gráfica de PC.
-- **Modelado patológico:** Simulación de taquicardias, bradicardias, fibrilaciones, bloqueos AV, arritmia sinusal respiratoria (RSA) y derivas de línea base.
-
----
-
-## 🚀 Inicio Rápido
-
-### 1. Requisitos de Software (Python)
-Para ejecutar la interfaz de control y monitoreo:
+### Dependencias de software (GUI)
 
 ```bash
 cd software
 python -m venv .venv
+
 # En Windows:
 .venv\Scripts\activate
-# En Linux/Mac:
+
+# En Linux/macOS:
 source .venv/bin/activate
+
 pip install -r requirements.txt
 python ecg_gui.py
 ```
 
-### 2. Grabación de Firmware
-1. Entra en la carpeta del firmware disponible ([`firmware/01_pico_ecg/`](./firmware/01_pico_ecg/)).
-2. Conecta la Raspberry Pi Pico manteniendo presionado el botón **BOOTSEL**.
-3. Copia el archivo `.uf2` generado al disco de la Pico.
+### Carga de firmware
 
----
+1. Navegar a la carpeta del firmware deseado (por ejemplo, [`firmware/01_pico_ecg/`](./firmware/01_pico_ecg/)).
+2. Conectar la Raspberry Pi Pico manteniendo presionado el botón BOOTSEL.
+3. Copiar el archivo `.uf2` compilado a la unidad USB generada.
 
-## 📝 Hoja de Ruta (Roadmap)
+## Estado del desarrollo
 
-- [x] Caracterización de filtros pasabajos en LTSpice.
-- [x] Integración de firmware inicial `01_pico_ecg` (reproductor clínico Flash/RAM).
-- [ ] Subida sucesiva de firmwares modulares (`02_pico_conduction_model` a `05_pace_sim`).
-- [x] Liberación de esquemáticos finales de PCB y circuito de adaptación.
-- [x] Consolidación de la GUI en Python (v1.2.0) con streaming serie USB a 2000 SPS, registro CSV y script de compilación a ejecutable Windows.
+- [x] Caracterización y simulación de filtros pasa-bajos en LTSpice.
+- [x] Firmware base `01_pico_ecg` para reproducción de registros clínicos.
+- [ ] Desarrollo e integración de firmwares sintéticos (`02_pico_conduction_model` a `05_pace_sim`).
+- [x] Diseños finales de PCB y acondicionamiento de señal en KiCad.
+- [x] GUI en Python para captura en tiempo real, registro a CSV y compilación a ejecutable.
 
+## Licencia
 
----
+Este proyecto está bajo la Licencia MIT. Ver el archivo [`LICENSE`](./LICENSE) para más detalles.
 
-## 📄 Licencia
-
-Distribuido bajo la Licencia MIT. Consulta `LICENSE` para más información.

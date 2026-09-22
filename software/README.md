@@ -1,29 +1,21 @@
-# 💻 Software Host en Python (GUI de Monitoreo y Control)
+# Software Host en Python (GUI de Monitoreo y Control)
 
-Aplicación de escritorio desarrollada en Python (**Tkinter + Matplotlib**) para la conexión en tiempo real, configuración de parámetros y visualización multicanal de señales del Fantoma ECG.
+Aplicación de escritorio desarrollada en Python (Tkinter + Matplotlib) para la conexión, configuración de parámetros y visualización multicanal de señales del Fantoma ECG.
 
----
+## Características principales
 
-## ⚡ Características Principales
+- **Streaming serie USB**: Comunicación a 921600 baudios para recepción de tramas binarias a tasas de hasta 2000 SPS.
+- **Autodetección de firmware**: Identifica el módulo de hardware conectado y adapta los controles y derivaciones disponibles (reproducción clínica, modelos electrofisiológicos, síntesis, etc.).
+- **Visualizador multicanal**: Renderizado de señales utilizando búferes de NumPy y submuestreo para mantener fluidez en diferentes ventanas de tiempo.
+- **Control de parámetros**: Ajuste en tiempo real de variables electrofisiológicas.
+- **Detección de marcapasos**: Panel de configuración de umbrales atriales/ventriculares y tiempos refractarios (disponible según el firmware).
+- **Registro de datos**:
+  - Exportación de muestras a CSV con marcas de tiempo en microsegundos.
+  - Guardado de capturas de pantalla de las gráficas.
+- **Terminal serie**: Monitor integrado para ver la transmisión de datos y comandos.
+- **Cálculo de frecuencia cardíaca**: Detección de picos R y estimación de BPM en tiempo real.
 
-- **Streaming serie USB de alta velocidad:** Conexión a **921600 baudios** con recepción y desempacado de tramas binarias (`0xAA 0x55 ... 0x55 0xAA`) a tasas de hasta **2000 SPS**.
-- **Handshake y autodetección de modelo:** Identifica dinámicamente el firmware conectado mediante el comando CLI `ver` y reconfigura los deslizadores, derivaciones y opciones disponibles:
-  - *Conduction Model* (Quiroz-Juárez 2018: Van der Pol + FitzHugh-Nagumo).
-  - *Gaussian ECG + PPG* (Huynh/Tran 2026: 9 derivaciones ECG + canal óptico PPG).
-  - *Pace Sim / Intracardiac Bench* (bancos de prueba con canales ADC para espigas de marcapasos y electrogramas EGM).
-  - *pico_ecg* (reproductor de registros clínicos en bucle).
-- **Visualizador multicanal optimizado:** Renderizado con búfer circular NumPy y **decimación inteligente**, evitando saturar la interfaz gráfica incluso en ventanas de tiempo prolongadas (1 a 30 s).
-- **Control dinámico de parámetros:** Deslizadores con actualización inmediata (`> set <param> <valor>`) y *tooltips* explicativos sobre cada parámetro electrofisiológico.
-- **Detección Pace-sense (Banco de Marcapasos):** Panel dedicado para calibración de umbrales atriales/ventriculares (`athresh`, `vthresh`, `acrossback`, `vcrossback`), tiempos de rebote y períodos refractarios.
-- **Grabación y exportación de datos:**
-  - ⏺ **Record CSV:** Registro continuo de todas las muestras con marcas de tiempo en microsegundos.
-  - 📷 **Snapshot PNG:** Exportación de capturas vectoriales/rasterizadas en alta resolución (150 DPI).
-- **Terminal de datos integrado:** Monitor serie en vivo con decodificación de tramas y visor hexadecimal.
-- **Medición de HR (BPM):** Algoritmo de detección de picos R con cálculo de frecuencia cardíaca instantánea.
-
----
-
-## 🚀 Ejecución desde Código Fuente (Python)
+## Ejecución desde código fuente (Python)
 
 ### 1. Requisitos previos
 - Python 3.9 o superior.
@@ -50,20 +42,18 @@ pip install -r requirements.txt
 python ecg_gui.py
 ```
 
----
+## Compilación a ejecutable independiente (.exe)
 
-## 📦 Compilación a Ejecutable Independiente (.exe)
+Para distribuir la aplicación a usuarios de Windows sin requerir instalación de Python:
 
-Para distribuir la aplicación a usuarios que no dispongan de Python instalado en Windows:
-
-1. Ejecuta el script automatizado de compilación:
+1. Ejecutar el script automatizado de compilación:
    ```cmd
    build_exe.bat
    ```
-2. El script verificará las dependencias (`PyInstaller`), compilará la aplicación en modo ventana de un solo archivo (`--onefile --windowed`) y generará el ejecutable en:
+2. El script verificará las dependencias (PyInstaller) y generará un ejecutable en:
    ```
    software/dist/ECG_GUI.exe
    ```
 
-> [!NOTE]
-> La carpeta `dist/` y los ejecutables `.exe` están excluidos del repositorio Git mediante `.gitignore` para no sobrecargar el historial con binarios pesados (~47 MB). Se recomienda publicar los binarios compilados en la sección de **Releases** de GitHub.
+Nota: La carpeta `dist/` y los ejecutables `.exe` están excluidos del repositorio Git.
+
