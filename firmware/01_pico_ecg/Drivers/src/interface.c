@@ -27,6 +27,7 @@
 
 // Battery and System
 #define PIN_BATT_ADC 29  // ADC3
+#define PIN_CAL_ADC  26  // ADC0, startup calibration input
 #define PIN_USB_DET  24
 
 // ==================== Global Variables ====================
@@ -153,6 +154,7 @@ void interface_init(void) {
     // --- Battery ADC ---
     adc_init();
     adc_gpio_init(PIN_BATT_ADC);
+    adc_gpio_init(PIN_CAL_ADC);
     
     // --- USB Detection ---
     // Onboard LED
@@ -388,6 +390,11 @@ float interface_get_battery_voltage(void) {
     float factor = interface_is_usb_connected() ? 0.9739f : 1.183f;
     
     return pin_voltage * 3.0f * factor;
+}
+
+uint16_t interface_read_calibration_adc(void) {
+    adc_select_input(0);
+    return adc_read();
 }
 
 bool interface_is_usb_connected(void) {

@@ -2,6 +2,7 @@
 #define SIGNAL_GEN_H
 
 #include "ecg_types.h"
+#include <stdbool.h>
 #include <stdint.h>
 
 typedef enum {
@@ -33,9 +34,15 @@ void signal_gen_set_amplitude(uint16_t amplitude);
 void signal_gen_set_frequency(uint16_t frequency);
 void signal_gen_set_bpm(uint16_t bpm);
 void signal_gen_set_offset(int16_t offset);  // Vertical offset
+bool signal_gen_calibrate_startup(void);
+
+// Set calibration gain for stored ECG output (0.01x to 100x)
+void signal_gen_set_cal_gain(float gain);
 
 // Get current signal type and metrics
 signal_type_t signal_gen_get_signal_type(void);
 uint16_t signal_gen_get_bpm(void);
+int16_t signal_gen_get_offset(void);
+float signal_gen_get_cal_gain(void);
 
 #endif // SIGNAL_GEN_H

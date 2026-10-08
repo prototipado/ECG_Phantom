@@ -18,6 +18,7 @@ Plataforma de reproducción de señales clínicas reales almacenadas en memoria 
 - **Salida multicanal:** 9 potenciales analógicos de electrodos (RA, LA, LL, V1–V6) generados vía moduladores PWM a 100 kHz.
 - **Interfaz local:** Menú gráfico en pantalla OLED (SSD1306/SH1106 vía SPI) administrado con encoder rotativo mediante la librería GEM y u8g2.
 - **Consola interactiva CLI USB:** Comandos serie (`> set`, `> get`, `> list`, `> play`, `> stop`, `> stream on/off`, `> ver`).
+- **Controles de salida ECG:** Offset DC (`-16384..16384`) y Cal Gain (`0.01..100x`) para registros guardados; consultables con `> get offset` y `> get cal`.
 - **Streaming de alta velocidad:** Transmisión binaria IEEE 754 a 500 SPS compatible con `software/ecg_gui.py`.
 - **Indicación auditiva y visual:** LED indicador y buzzer piezoeléctrico sincronizados con la onda R (complejo QRS).
 - *Documentación detallada, pinout completo y comandos:* Consultar [firmware/01_pico_ecg/README.md](./01_pico_ecg/README.md).
@@ -110,4 +111,3 @@ En la carpeta `build/` se generará un archivo `.uf2`:
 2. Aparecerá una unidad de almacenamiento USB (`RPI-RP2` o `RP2350`).
 3. Copiar el archivo `.uf2` dentro de la unidad.
 4. El microcontrolador se reiniciará automáticamente.
-

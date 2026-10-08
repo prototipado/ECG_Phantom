@@ -31,5 +31,6 @@ bool interface_get_button_long_pressed(void);
 // Battery and System Power
 float interface_get_battery_voltage(void);
 bool interface_is_usb_connected(void);
+uint16_t interface_read_calibration_adc(void);
 
 #endif // INTERFACE_H

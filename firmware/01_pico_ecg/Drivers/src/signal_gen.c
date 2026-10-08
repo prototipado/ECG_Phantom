@@ -14,6 +14,13 @@ volatile bool stream_mode_active = false;
 // Pins: 0, 1, 2, 3, 4, 6, 7, 8, 9
 static const uint signal_pins[] = {0, 1, 2, 3, 4, 6, 7, 8, 9};
 #define NUM_SIGNAL_PINS (sizeof(signal_pins) / sizeof(signal_pins[0]))
+#define STARTUP_CAL_POINTS 256
+#define STARTUP_CAL_SETTLE_POINTS 64
+#define STARTUP_CAL_AMPLITUDE 10000
+#define STARTUP_CAL_SAFE_ADC_MIN 300
+#define STARTUP_CAL_SAFE_ADC_MAX 3100
+#define OUTPUT_DIVIDER_TOP_OHMS 100000.0f
+#define OUTPUT_DIVIDER_BOTTOM_OHMS 1000.0f
 
 static volatile const ecg_struct_t* active_signal = NULL;
 static volatile bool is_running = true;
@@ -21,6 +28,12 @@ static volatile signal_type_t current_signal_type = SIGNAL_TYPE_ECG;
 static volatile uint16_t signal_amplitude = 8000;  // 0-16384 (half of 32768)
 static volatile uint16_t signal_bpm = 60;          // Latidos por minuto (BPM)
 static volatile int16_t signal_offset = 0;  // Vertical offset in ADC units
+static volatile float signal_cal_gain = 1.0f;
+static volatile uint16_t ecg_output_min = 0;
+static volatile uint16_t ecg_output_max = 65535;
+static volatile float calibration_adc_mean = 2047.5f;
+static volatile float calibration_adc_counts_per_pwm_count = 0.0f;
+static volatile bool startup_calibration_valid = false;
 static uint32_t sampling_period_us = 500; // Default 500us (2000Hz) for periodic signals
 
 // 256-entry sine lookup table for one standard period (0 to 2*pi)
@@ -110,6 +123,134 @@ void signal_gen_set_offset(int16_t offset) {
     signal_offset = offset;
 }
 
+int16_t signal_gen_get_offset(void) {
+    return signal_offset;
+}
+
+bool signal_gen_calibrate_startup(void) {
+    const uint pin = signal_pins[0];
+    const uint slice_num = pwm_gpio_to_slice_num(pin);
+    const uint channel = pwm_gpio_to_channel(pin);
+    const uint32_t wrap = clock_get_hz(clk_sys) / 100000;
+    int32_t minimum = 4095;
+    int32_t maximum = 0;
+    uint32_t sum = 0;
+    uint32_t sample_count = 0;
+    bool adc_clipped = false;
+    int32_t ecg_min = INT32_MAX;
+    int32_t ecg_max = INT32_MIN;
+    startup_calibration_valid = false;
+
+    if (active_signal == NULL || active_signal->array == NULL ||
+        active_signal->rows <= 0 || active_signal->cols <= 1) {
+        printf("Startup calibration failed; no ECG signal loaded.\r\n");
+        fflush(stdout);
+        return false;
+    }
+
+    printf("Startup calibration: RA sine on GPIO0, read ADC0/GPIO26...\r\n");
+    fflush(stdout);
+
+    for (int i = 0; i < STARTUP_CAL_POINTS; i++) {
+        uint8_t phase = (uint8_t)((i % (STARTUP_CAL_POINTS / 4)) * 4);
+        int32_t test_value = 32768
+            + ((int32_t)sine_lut[phase] * STARTUP_CAL_AMPLITUDE) / 16384;
+        uint32_t level = ((uint32_t)test_value * (wrap - 1)) / 65535;
+        pwm_set_chan_level(slice_num, channel, (uint16_t)level);
+        sleep_ms(2);
+
+        uint16_t raw = interface_read_calibration_adc();
+        if (i < STARTUP_CAL_SETTLE_POINTS) continue;
+
+        if (raw <= 3 || raw >= 4092) adc_clipped = true;
+        if (raw < minimum) minimum = raw;
+        if (raw > maximum) maximum = raw;
+        sum += raw;
+        sample_count++;
+    }
+
+    pwm_set_chan_level(slice_num, channel, 0);
+
+    float measured_amplitude = (float)(maximum - minimum) * 0.5f;
+    float measured_mean = (float)sum / (float)sample_count;
+    float counts_per_pwm_count =
+        measured_amplitude / (float)STARTUP_CAL_AMPLITUDE;
+    const int* samples = active_signal->array;
+    for (int row = 0; row < active_signal->rows; row++) {
+        for (int col = 1; col < active_signal->cols; col++) {
+            int32_t ac_component =
+                samples[row * active_signal->cols + col] - 30000;
+            int32_t amplified =
+                (ac_component * (int32_t)signal_amplitude) / 400;
+            if (amplified < ecg_min) ecg_min = amplified;
+            if (amplified > ecg_max) ecg_max = amplified;
+        }
+    }
+
+    float target_adc_mid =
+        ((float)STARTUP_CAL_SAFE_ADC_MIN + STARTUP_CAL_SAFE_ADC_MAX) * 0.5f;
+    float gain = ((float)STARTUP_CAL_SAFE_ADC_MAX
+                  - STARTUP_CAL_SAFE_ADC_MIN)
+        / (counts_per_pwm_count * (float)(ecg_max - ecg_min));
+    float offset = ((target_adc_mid - measured_mean) / counts_per_pwm_count)
+        - (((float)ecg_min + ecg_max) * 0.5f) * gain;
+    float safe_min = 32768.0f
+        + ((float)STARTUP_CAL_SAFE_ADC_MIN - measured_mean)
+            / counts_per_pwm_count;
+    float safe_max = 32768.0f
+        + ((float)STARTUP_CAL_SAFE_ADC_MAX - measured_mean)
+            / counts_per_pwm_count;
+
+    if (adc_clipped || measured_amplitude < 8.0f ||
+        measured_mean < 100.0f || measured_mean > 3995.0f ||
+        ecg_min >= ecg_max ||
+        !(gain >= 0.01f && gain <= 100.0f) ||
+        !(offset >= -16384.0f && offset <= 16384.0f) ||
+        !(safe_min >= 0.0f && safe_min < safe_max && safe_max <= 65535.0f)) {
+        printf("Startup calibration failed; keeping offset=0, cal=1.00 "
+               "(range/clipping or ADC0 wiring).\r\n");
+        fflush(stdout);
+        return false;
+    }
+
+    signal_offset = (int16_t)(offset >= 0.0f ? offset + 0.5f : offset - 0.5f);
+    signal_cal_gain = gain;
+    ecg_output_min = (uint16_t)(safe_min + 0.5f);
+    ecg_output_max = (uint16_t)(safe_max + 0.5f);
+    calibration_adc_mean = measured_mean;
+    calibration_adc_counts_per_pwm_count = counts_per_pwm_count;
+    startup_calibration_valid = true;
+    printf("Startup calibration OK: ADC mean=%u, amplitude=%u, offset=%d, cal=",
+           (unsigned int)(measured_mean + 0.5f),
+           (unsigned int)(measured_amplitude + 0.5f), signal_offset);
+    unsigned int gain_milli = (unsigned int)(gain * 1000.0f + 0.5f);
+    printf("%u.%03u\r\n", gain_milli / 1000, gain_milli % 1000);
+    printf("ECG amplified range: %ld..%ld; ADC target: %u..%u\r\n",
+           (long)ecg_min, (long)ecg_max,
+           STARTUP_CAL_SAFE_ADC_MIN, STARTUP_CAL_SAFE_ADC_MAX);
+    fflush(stdout);
+    return true;
+}
+
+static float pwm_value_to_stream_mv(int32_t pwm_value) {
+    float adc_value = calibration_adc_mean
+        + ((float)pwm_value - 32768.0f)
+            * calibration_adc_counts_per_pwm_count;
+    if (adc_value < 0.0f) adc_value = 0.0f;
+    if (adc_value > 4095.0f) adc_value = 4095.0f;
+
+    float voltage_at_filter_mv = (adc_value - calibration_adc_mean)
+        * (3300.0f / 4095.0f);
+    float divider_ratio = OUTPUT_DIVIDER_BOTTOM_OHMS
+        / (OUTPUT_DIVIDER_TOP_OHMS + OUTPUT_DIVIDER_BOTTOM_OHMS);
+    return voltage_at_filter_mv * divider_ratio;
+}
+
+void signal_gen_set_cal_gain(float gain) {
+    if (!(gain >= 0.01f && gain <= 100.0f)) return;
+    signal_cal_gain = gain;
+}
+
 signal_type_t signal_gen_get_signal_type(void) {
     return current_signal_type;
 }
@@ -125,6 +266,10 @@ uint16_t signal_gen_get_bpm(void) {
         // For waveforms, BPM is directly set
         return signal_bpm;
     }
+}
+
+float signal_gen_get_cal_gain(void) {
+    return signal_cal_gain;
 }
 
 // Generate sine wave value (0-32768 range)
@@ -221,6 +366,7 @@ void signal_gen_core1_entry(void) {
                         const int* data_row = (const int*)active_signal->array + (current_row * active_signal->cols);
                         uint32_t clock_rate = clock_get_hz(clk_sys);
                         uint32_t wrap = clock_rate / 100000;
+                        float stream_buf[STREAM_NUM_CHANNELS] = {0};
 
                         // Set PWM outputs and Print CSV
                         for (int col = 0; col < active_signal->cols; col++) {
@@ -232,10 +378,18 @@ void signal_gen_core1_entry(void) {
                             // 2. Amplify using signal_amplitude (0-16384)
                             // Gain = signal_amplitude / 400 (Default 8000 -> Gain 20)
                             int32_t amplified = (ac_component * (int32_t)signal_amplitude) / 400;
-                            // 3. Re-center in 16-bit range (32768) and clamp
-                            int32_t final_val = 32768 + amplified;
+                            // 3. Apply calibration gain and DC offset, then re-center and clamp
+                            int32_t final_val = 32768
+                                + (int32_t)((float)amplified * signal_cal_gain)
+                                + (int32_t)signal_offset;
                             if (final_val < 0) final_val = 0;
                             if (final_val > 65535) final_val = 65535;
+                            if (final_val < (int32_t)ecg_output_min) {
+                                final_val = ecg_output_min;
+                            }
+                            if (final_val > (int32_t)ecg_output_max) {
+                                final_val = ecg_output_max;
+                            }
 
                             // Scale for current PWM wrap capacity
                             uint32_t level = ((uint32_t)final_val * (wrap - 1)) / 65535;
@@ -257,20 +411,21 @@ void signal_gen_core1_entry(void) {
                                 } else {
                                     pwm_set_chan_level(slice_num, channel, (uint16_t)level);
                                 }
+
+                                if (col > 0) {
+                                    if (startup_calibration_valid) {
+                                        stream_buf[col] =
+                                            pwm_value_to_stream_mv(final_val);
+                                    } else {
+                                        stream_buf[col] =
+                                            (float)(val - 30000) / 1000.0f;
+                                    }
+                                }
                             }
                         }
 
                         // --- Streaming: push normalised mV values to ring buffer ---
                         if (stream_mode_active) {
-                            float stream_buf[STREAM_NUM_CHANNELS];
-                            // Convert raw 15-bit values to millivolts (baseline ~30000, ~1000 counts/mV).
-                            for (int s = 0; s < active_signal->cols && s < STREAM_NUM_CHANNELS; s++) {
-                                int32_t raw = (int32_t)((const int*)active_signal->array)[current_row * active_signal->cols + s];
-                                stream_buf[s] = (float)(raw - 30000) / 1000.0f;
-                            }
-                            for (int s = active_signal->cols; s < STREAM_NUM_CHANNELS; s++) {
-                                stream_buf[s] = 0.0f;
-                            }
                             stream_buffer_add(stream_buf);
                         }
 

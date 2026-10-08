@@ -155,7 +155,7 @@ void callback_signal_type_cardiac(gem_callback_data_t data) {
         signal_gen_set_signal(signal);
     }
     signal_gen_set_amplitude(settings.amplitude * 240);  // Apply amplitude to ECG
-    signal_gen_set_offset(settings.offset * 16);  // Apply offset to ECG
+    signal_gen_set_offset(settings.offset);  // Offset is stored in PWM counts
     interface_buzzer_beep(1500, 100);
 }
 

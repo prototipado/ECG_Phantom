@@ -32,6 +32,31 @@ Plataforma de reproducción y monitoreo de electrocardiografía basada en Raspbe
 | **USB Sense** | GPIO 24 | Detección VBUS |
 | **Pico LED** | GPIO 25 | LED integrado |
 | **Batería ADC** | GPIO 29 (ADC3) | Medición de batería (divisor de tensión) |
+| **Calibración ADC** | GPIO 26 (ADC0) | Entrada temporal desde la salida post-filtro de RA |
+
+### Autocalibración durante el encendido
+
+Antes de iniciar la reproducción, el firmware genera durante aproximadamente
+medio segundo una senoide de baja frecuencia por RA (GPIO0) y mide con ADC0
+(GPIO26) la salida del filtro pasabajos, antes del divisor resistivo. Al
+terminar la medición, RA vuelve a nivel PWM cero y permanece como referencia
+durante la reproducción ECG. La transferencia medida y el rango del ECG
+seleccionado se usan juntos para calcular `offset` y `cal`, y se informa el
+resultado por la consola CLI.
+
+El firmware centra y escala los extremos de todos los canales no referentes
+del ECG para mantenerlos entre ADC0=300 y 3100 (aproximadamente 0.24–2.50 V),
+dejando margen frente a la saturación del op-amp observada cerca de 2.8 V.
+Durante la reproducción ECG, también limita los códigos PWM a ese margen por
+si un QRS excede la envolvente calculada. Así la corrección de ganancia se basa
+en la señal elegida, no solo en la amplitud de prueba. Este límite presupone
+que los canales de salida comparten la misma escala que RA.
+
+Para habilitar la autocalibración, conectar la salida del filtro pasabajos de
+RA a GPIO26, con masa común, y verificar que la señal en el pin ADC permanezca
+entre 0 y 3.3 V. Si la medición presenta recorte, amplitud insuficiente o una
+corrección fuera de rango, el firmware informa el fallo y conserva `offset=0`
+y `cal=1.00`. Sin esta conexión la calibración no se aplica.
 
 ## Interfaz de línea de comandos (CLI)
 
@@ -43,7 +68,7 @@ El puerto USB CDC opera a 115200 baudios. Los comandos se ingresan utilizando el
 | :--- | :--- | :--- |
 | `> help` | Lista de comandos | `> help` |
 | `> set <param> <val>`| Modifica un parámetro | `> set hr 75` |
-| `> get [param]` | Consulta parámetros | `> get hr` |
+| `> get [param]` | Consulta parámetros | `> get cal` |
 | `> list` | Lista archivos ECG en memoria | `> list` |
 | `> play` | Inicia la generación | `> play` |
 | `> stop` | Detiene la generación | `> stop` |
@@ -55,10 +80,17 @@ El puerto USB CDC opera a 115200 baudios. Los comandos se ingresan utilizando el
 - `type <ecg|sine|tri|sq|pulse>`: Tipo de onda.
 - `hr <30-240>`: Frecuencia cardíaca (BPM).
 - `amp <0-100>`: Amplitud de salida (%).
-- `offset <-16384 a 16384>`: Desplazamiento DC.
+- `offset <-16384 a 16384>`: Desplazamiento DC de la salida (cuentas PWM).
+- `cal <0.01-100>`: Ganancia multiplicadora de amplitud para ECG guardado.
 - `file <0-N>`: Índice del registro ECG en flash.
 - `buzzer <on|off>`: Activa/desactiva sonido.
 - `led <on|off>`: Activa/desactiva indicador QRS.
+
+En la reproducción de ECG guardados, la amplitud conserva el cálculo existente
+y luego se multiplica por `cal`; `offset` se suma al valor resultante antes del
+recorte al rango `0..65535` y su conversión al nivel PWM. El centro PWM se
+mantiene en `32768`. Estos dos controles no cambian las formas de onda de prueba.
+`get` informa `offset` y `cal` para permitir la sincronización con la GUI.
 
 ## Protocolo binario de streaming
 
@@ -72,6 +104,10 @@ Al ejecutar `> stream on`, se transmiten paquetes binarios a 500 Hz por puerto U
 - **Datos**: 9 valores `float` (32 bits, IEEE-754 little-endian) correspondientes a RA, LA, LL, V1 a V6.
 - **Cierre**: 2 bytes Sync `0x55 0xAA`.
 - **Tamaño total**: 40 bytes.
+- **Unidades**: Los canales LA, LL y V1–V6 se transmiten como mV de señal
+  (respecto al punto medio calibrado), estimados desde el mismo valor PWM
+  aplicado, la medición ADC de arranque y el divisor resistivo de 100 kΩ/1 kΩ.
+  RA se transmite como 0 mV porque su salida física es la referencia fija.
 
 ## Diagrama de flujo del firmware
 

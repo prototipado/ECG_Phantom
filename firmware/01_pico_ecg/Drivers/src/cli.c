@@ -125,6 +125,12 @@ static char* find_arg(char* input) {
     return NULL;
 }
 
+static void cli_print_cal_gain(void) {
+    unsigned int gain_milli =
+        (unsigned int)(signal_gen_get_cal_gain() * 1000.0f + 0.5f);
+    printf("cal = %u.%03u\r\n", gain_milli / 1000, gain_milli % 1000);
+}
+
 static void cli_execute(const char* input) {
     char work[CLI_BUF_SIZE];
     strncpy(work, input, CLI_BUF_SIZE - 1);
@@ -153,15 +159,16 @@ static void cli_cmd_help(const char* args) {
     for (uint8_t i = 0; i < NUM_COMMANDS; i++) {
         printf("  %-8s %s\r\n", commands[i].name, commands[i].help);
     }
-    printf("\r\nSet params: type, hr, amp, offset, file, buzzer, led\r\n");
+    printf("\r\nSet params: type, hr, amp, offset, cal, file, buzzer, led\r\n");
     printf("Signal types: ecg, sine, tri, sq, pulse\r\n");
+    printf("ECG output: offset -16384..16384, cal 0.01..100\r\n");
     fflush(stdout);
 }
 
 static void cli_cmd_set(const char* args) {
     if (!args || *args == '\0') {
         printf("Usage: > set <param> <value>\r\n");
-        printf("Params: type, hr, amp, offset, file, buzzer, led\r\n");
+        printf("Params: type, hr, amp, offset, cal, file, buzzer, led\r\n");
         fflush(stdout);
         return;
     }
@@ -246,6 +253,17 @@ static void cli_cmd_set(const char* args) {
             signal_gen_set_offset(settings.offset);
             printf("Offset: %d\r\n", settings.offset);
         }
+    } else if (strcmp(param, "cal") == 0) {
+        char* end = NULL;
+        float val = strtof(val_str, &end);
+        while (end && (*end == ' ' || *end == '\t')) end++;
+        if (end == val_str || !end || *end != '\0' ||
+            !(val >= 0.01f && val <= 100.0f)) {
+            printf("Invalid calibration gain. Range: 0.01 to 100\r\n");
+        } else {
+            signal_gen_set_cal_gain(val);
+            cli_print_cal_gain();
+        }
     } else if (strcmp(param, "file") == 0) {
         int val = atoi(val_str);
         uint8_t count = signal_registry_get_count();
@@ -284,7 +302,7 @@ static void cli_cmd_set(const char* args) {
         }
     } else {
         printf("Unknown parameter: '%s'\r\n", param);
-        printf("Params: type, hr, amp, offset, file, buzzer, led\r\n");
+        printf("Params: type, hr, amp, offset, cal, file, buzzer, led\r\n");
     }
     fflush(stdout);
 }
@@ -306,6 +324,8 @@ static void cli_cmd_get(const char* args) {
         printf("  hr        = %u bpm\r\n", settings.heart_rate);
         printf("  amp       = %u%%\r\n", settings.amplitude);
         printf("  offset    = %d\r\n", settings.offset);
+        printf("  ");
+        cli_print_cal_gain();
         printf("  file      = %d (%s)\r\n", settings.selected_file,
                signal_registry_get_filename(settings.selected_file));
         printf("  buzzer    = %s\r\n", settings.buzzer_enabled ? "on" : "off");
@@ -337,6 +357,8 @@ static void cli_cmd_get(const char* args) {
         printf("amp = %u%%\r\n", settings.amplitude);
     } else if (strcmp(param, "offset") == 0) {
         printf("offset = %d\r\n", settings.offset);
+    } else if (strcmp(param, "cal") == 0) {
+        cli_print_cal_gain();
     } else if (strcmp(param, "file") == 0) {
         printf("file = %d (%s)\r\n", settings.selected_file,
                signal_registry_get_filename(settings.selected_file));

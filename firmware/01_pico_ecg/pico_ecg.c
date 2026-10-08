@@ -8,6 +8,7 @@
 #include "menu.h"
 #include "cli.h"
 #include "signal_gen.h"
+#include "signal_registry.h"
 #include "terminal_control.h"
 
 int main(void) {
@@ -41,6 +42,11 @@ int main(void) {
     printf("Initializing signal generator...\n");
     fflush(stdout);
     signal_gen_init();
+    signal_gen_set_amplitude(settings.amplitude * 240);
+    signal_gen_set_signal(signal_registry_get_by_index(settings.selected_file));
+    if (signal_gen_calibrate_startup()) {
+        settings.offset = signal_gen_get_offset();
+    }
     signal_gen_start();
     sleep_ms(100);
     

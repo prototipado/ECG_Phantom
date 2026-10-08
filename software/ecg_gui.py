@@ -1674,15 +1674,15 @@ class ECGApp:
         calgain_tt = ('Ganancia de calibración (x) aplicada a la señal de '
                       'salida. Ajusta la amplitud global frente al front-end; '
                       'súbela para compensar atenuación, bájala para evitar '
-                      'saturación.')
+                      'saturación. Rango: 0.01–100x.')
         self.cal_gain_var = tk.DoubleVar(value=1.0)
         self.cal_gain_label = tk.Label(r, text='1.00', bg=C_CARD, fg=C_TEXT,
                                         font=FBB, width=7, anchor=tk.E)
         self.cal_gain_label.pack(side=tk.RIGHT)
         _flat_btn(r, 'Set', self._apply_cal_gain, bg=C_BTN, font=FS).pack(
             side=tk.RIGHT, padx=(3, 0))
-        calgain_scale = ttk.Scale(r, variable=self.cal_gain_var, from_=0.05,
-                                  to=10.0, orient=tk.HORIZONTAL,
+        calgain_scale = ttk.Scale(r, variable=self.cal_gain_var, from_=0.01,
+                                  to=100.0, orient=tk.HORIZONTAL,
                                   command=self._on_cal_change)
         calgain_scale.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(4, 4))
         ToolTip(calgain_scale, calgain_tt)
@@ -1717,9 +1717,10 @@ class ECGApp:
         # Re-pack pico_ecg panel (after display section)
         self.pico_ecg_frame.pack(fill=tk.X, padx=5, pady=(3, 3))
 
-        # Request the signal list from the device, then auto-start streaming
-        self.root.after(400, self._pico_ecg_request_list)
-        self.root.after(2200, self._pico_ecg_auto_stream)
+        # Read output controls before streaming, then request the signal list.
+        self.root.after(400, self._get_settings)
+        self.root.after(1400, self._pico_ecg_request_list)
+        self.root.after(2800, self._pico_ecg_auto_stream)
 
     def _pico_ecg_auto_stream(self):
         """Start streaming automatically after device detection."""
@@ -2687,6 +2688,7 @@ class ECGApp:
             "delay": self._sync_delay,
             "baseline": self._sync_baseline,
             "cal": self._sync_cal,
+            "offset": self._sync_offset,
         }
         for pattern, handler in mappings.items():
             if key == pattern:
@@ -2767,6 +2769,11 @@ class ECGApp:
             self.cal_gain_label.config(text=f"{v:.2f}")
         except Exception:
             pass
+
+    def _sync_offset(self, val):
+        offset = int(val.split()[0])
+        self.offset_var.set(offset)
+        self.offset_label.config(text=str(offset))
 
     def _on_lead_toggle(self):
         for i, var in enumerate(self.lead_vars):
