@@ -195,7 +195,7 @@ void interface_show_info_screen(void) {
         u8g2_DrawStr(&u8g2, 28, 15, "Open-ECG");
         u8g2_DrawStr(&u8g2, 23, 31, "Generator");
         u8g2_DrawStr(&u8g2, 32, 47, "FI-UNER");
-        u8g2_DrawStr(&u8g2, 18, 63, "v1.1-2026");
+        u8g2_DrawStr(&u8g2, 18, 63, "v1.2-2026");
     } while (u8g2_NextPage(&u8g2));
     sleep_ms(2000);
 }

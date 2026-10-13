@@ -402,9 +402,9 @@ static void cli_cmd_stop(const char* args) {
 }
 
 static void cli_cmd_ver(const char* args) {
-    printf("pico_ecg v1.1 (2026) - ECG Monitor\r\n");
+    printf("pico_ecg v1.2 (2026) - ECG Monitor\r\n");
     printf("Board: RP2350 (Pico 2)\r\n");
-    printf("CLI: v1.1\r\n");
+    printf("CLI: v1.2\r\n");
     fflush(stdout);
 }
 

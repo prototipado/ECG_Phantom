@@ -547,7 +547,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "pdfs/",
+      "plot": "gerber/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "pico_ecg.step",
@@ -718,7 +718,7 @@
         "uuid": "a3247d59-0731-497b-bc35-078a7530072f"
       }
     ],
-    "used_designators": "",
+    "used_designators": "JP4,J12,C29-30,C36-42,#PWR78-81,#PWR87-88,#PWR93-95",
     "variants": []
   },
   "sheets": [

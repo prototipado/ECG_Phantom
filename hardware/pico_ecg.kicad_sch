@@ -3703,6 +3703,12 @@
 		)
 		(uuid "cb627f53-ca29-4f0d-aeb6-6505dd35dafe")
 	)
+	(junction
+		(at 198.12 124.46)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f7150cf6-ff01-421c-8d5a-9d7aa64fb2c1")
+	)
 	(no_connect
 		(at 107.95 121.92)
 		(uuid "16154c4d-7d51-4cc6-b446-5eb982ff2f2d")
@@ -3947,6 +3953,16 @@
 	)
 	(wire
 		(pts
+			(xy 259.08 31.75) (xy 247.65 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a55d8dd-e6fa-498a-b000-eea67d2e8737")
+	)
+	(wire
+		(pts
 			(xy 130.81 147.32) (xy 130.81 151.13)
 		)
 		(stroke
@@ -3997,7 +4013,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 124.46) (xy 209.55 124.46)
+			(xy 153.67 124.46) (xy 198.12 124.46)
 		)
 		(stroke
 			(width 0)
@@ -4014,6 +4030,26 @@
 			(type default)
 		)
 		(uuid "45b11bba-c960-4723-905d-134fe7c09aa9")
+	)
+	(wire
+		(pts
+			(xy 198.12 102.87) (xy 198.12 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4de0289c-bb6d-41a5-9479-494d05feaf8d")
+	)
+	(wire
+		(pts
+			(xy 198.12 100.33) (xy 187.96 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e6e6fc3-de71-4310-89ea-0d6db99d1688")
 	)
 	(wire
 		(pts
@@ -4034,6 +4070,16 @@
 			(type default)
 		)
 		(uuid "56cc21c5-2138-4a39-8567-76e486ee7db4")
+	)
+	(wire
+		(pts
+			(xy 198.12 86.36) (xy 198.12 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "589d000d-4713-4293-a7f2-c39708b46782")
 	)
 	(wire
 		(pts
@@ -4187,6 +4233,16 @@
 	)
 	(wire
 		(pts
+			(xy 187.96 102.87) (xy 198.12 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a548a2c0-b260-4054-9758-ab1f407d5cd5")
+	)
+	(wire
+		(pts
 			(xy 130.81 69.85) (xy 130.81 73.66)
 		)
 		(stroke
@@ -4274,6 +4330,16 @@
 			(type default)
 		)
 		(uuid "becb1178-2b5b-4cfe-bbd4-14d078e4a985")
+	)
+	(wire
+		(pts
+			(xy 205.74 86.36) (xy 198.12 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c344fb0c-9547-4e54-95ce-3f6d374f1cc1")
 	)
 	(wire
 		(pts
@@ -4404,6 +4470,16 @@
 			(type default)
 		)
 		(uuid "f5b67fc2-6830-4cf3-b761-8d5fc03f644a")
+	)
+	(wire
+		(pts
+			(xy 198.12 124.46) (xy 209.55 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f95c2221-1c16-4e05-a9dc-d9a6a3675bd1")
 	)
 	(label "OUT_1"
 		(at 250.19 67.31 0)
@@ -6875,7 +6951,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
-		(at 252.73 31.75 180)
+		(at 264.16 31.75 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6885,7 +6961,7 @@
 		(dnp no)
 		(uuid "68513c68-4253-4624-b84a-b209cbad9518")
 		(property "Reference" "J1"
-			(at 252.349 30.353 0)
+			(at 263.779 30.353 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6895,7 +6971,7 @@
 			)
 		)
 		(property "Value" "Conn_01x01_Pin"
-			(at 261.366 31.75 0)
+			(at 272.796 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6905,7 +6981,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Pin:Pin_D1.4mm_L8.5mm_W2.8mm_FlatFork"
-			(at 252.73 31.75 0)
+			(at 264.16 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6916,7 +6992,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 252.73 31.75 0)
+			(at 264.16 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6927,7 +7003,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 252.73 31.75 0)
+			(at 264.16 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6938,7 +7014,7 @@
 			)
 		)
 		(property "Distribuitor" ""
-			(at 252.73 31.75 0)
+			(at 264.16 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6949,7 +7025,7 @@
 			)
 		)
 		(property "Distribuitor PN" ""
-			(at 252.73 31.75 0)
+			(at 264.16 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6960,7 +7036,7 @@
 			)
 		)
 		(property "Manufacturer" ""
-			(at 252.73 31.75 0)
+			(at 264.16 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6971,7 +7047,7 @@
 			)
 		)
 		(property "Manufacturer PN" ""
-			(at 252.73 31.75 0)
+			(at 264.16 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8591,6 +8667,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 182.88 100.33 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d0a86971-f751-426d-a7c8-47a09b300e1b")
+		(property "Reference" "J12"
+			(at 183.515 95.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x02_Pin"
+			(at 183.515 97.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 182.88 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated"
+			(at 182.88 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "22e0b2f9-5292-4765-b539-ecfe88509fe9")
+		)
+		(pin "2"
+			(uuid "37e0863a-9b01-43a5-89f2-461fbb389a9a")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f"
+					(reference "J12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x06_Socket")
 		(at 25.273 57.15 180)
 		(unit 1)
@@ -9630,6 +9786,16 @@
 		(pin "IN_CH10" input
 			(at 205.74 77.47 180)
 			(uuid "b1d6e68c-8be0-49c5-b910-b3cfe35df5d8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAL_SIGNAL" output
+			(at 205.74 86.36 180)
+			(uuid "c787cd6b-0910-4990-b10a-f49f3c2fdc82")
 			(effects
 				(font
 					(size 1.27 1.27)

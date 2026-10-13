@@ -364,7 +364,7 @@ void menu_init(void) {
     // 8. Setup System Page
     gem_page_init(&page_system, "System", &page_main);
     gem_item_init_label(&item_system_model, "Model: Real ECG 9ch");
-    gem_item_init_label(&item_system_version, "Firmware: v1.1-2026");
+    gem_item_init_label(&item_system_version, "Firmware: v1.2-2026");
     gem_item_init_button(&item_system_back, "Back", callback_back);
     gem_page_add_item(&page_system, &item_system_model);
     gem_page_add_item(&page_system, &item_system_version);

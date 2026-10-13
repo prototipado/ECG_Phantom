@@ -829,31 +829,25 @@
 		)
 	)
 	(junction
-		(at 188.595 87.63)
+		(at 179.07 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "00764bd6-6054-4a7e-aa81-8eb4405c344e")
 	)
 	(junction
-		(at 191.77 25.4)
+		(at 182.245 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "02274ff4-a165-43bc-84b3-1c7077788286")
 	)
 	(junction
-		(at 85.09 116.84)
+		(at 232.41 27.94)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "030450b4-1e69-4f1a-b4a0-1a8b83a7aa46")
+		(uuid "08c0ea81-135d-4d59-a8bf-ba7e0909b8cf")
 	)
 	(junction
-		(at 241.935 27.94)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0b2faa49-06c5-41e8-9afa-52d494b47b74")
-	)
-	(junction
-		(at 198.12 87.63)
+		(at 188.595 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0c441ad1-25c1-4b58-856f-4a0c74a4d2df")
@@ -865,25 +859,31 @@
 		(uuid "0f61e205-4390-4bef-92ef-2c06fd08f97c")
 	)
 	(junction
-		(at 200.66 115.57)
+		(at 191.135 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "114d09b1-e2dc-4ab0-a28f-267dc074737b")
 	)
 	(junction
-		(at 261.62 151.13)
+		(at 259.08 151.13)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1da551fa-996d-45e2-8ef6-cc4adca8ebd1")
 	)
 	(junction
-		(at 88.265 149.86)
+		(at 233.68 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "2a3c7fb2-fe03-4499-9171-c15f1d81728d")
+		(uuid "273442a9-ea86-4748-b92e-4254c09bc39e")
 	)
 	(junction
-		(at 230.505 148.59)
+		(at 85.09 116.84)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "29227346-151c-4bad-bfda-4282ef2ac8f3")
+	)
+	(junction
+		(at 220.98 148.59)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2e559b14-e5fa-48af-a307-2dd553040c3d")
@@ -895,13 +895,13 @@
 		(uuid "2f227870-7efb-4d15-b238-58d04662cfaa")
 	)
 	(junction
-		(at 86.36 82.55)
+		(at 72.39 17.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "39aa492b-c95f-41af-bce1-04bc592cdd28")
+		(uuid "2f4110da-43ee-4d94-9cc2-af36c1dde507")
 	)
 	(junction
-		(at 262.89 30.48)
+		(at 260.35 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "45038a41-64a5-4671-b745-0c07e30cb7a7")
@@ -913,13 +913,19 @@
 		(uuid "490520b9-6221-4aa5-bdc7-cb1d34717cfb")
 	)
 	(junction
-		(at 259.715 92.71)
+		(at 236.22 118.11)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4ea7fb4d-477e-4638-8fce-afe738cc4878")
+	)
+	(junction
+		(at 257.81 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "50b5066f-2b96-4764-878b-06fe08db1184")
 	)
 	(junction
-		(at 231.775 27.94)
+		(at 222.25 27.94)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "52812611-9222-4c26-af96-0effa3800c8e")
@@ -931,22 +937,52 @@
 		(uuid "52cdad77-64b6-4909-8bdd-27c70fd01863")
 	)
 	(junction
-		(at 262.255 120.65)
+		(at 88.9 116.84)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "587d2d2f-25a3-40ba-9d73-7b3d5d377665")
+	)
+	(junction
+		(at 260.35 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "76683e34-0957-406a-8a17-ea3be42529a2")
 	)
 	(junction
-		(at 240.665 148.59)
+		(at 82.55 26.67)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "76d09316-9482-41a3-9a1d-fd452303f6cc")
+	)
+	(junction
+		(at 88.9 54.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "779eb6d2-5e2a-4261-9de1-8e9afc36a3cd")
+	)
+	(junction
+		(at 85.09 54.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7bf3d8e7-b3b2-4d48-8492-40930fe02522")
+	)
+	(junction
+		(at 231.14 148.59)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7d6dd58f-e658-42a6-9aef-44d94e0f64c2")
 	)
 	(junction
-		(at 106.045 119.38)
+		(at 111.76 119.38)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "80ef4711-21ce-4f5d-af3b-4d8336b545a5")
+	)
+	(junction
+		(at 86.36 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8755d942-bf68-4d39-9af7-8a65a9bc8a37")
 	)
 	(junction
 		(at 44.45 114.3)
@@ -961,22 +997,28 @@
 		(uuid "8db8e97c-ac56-4a8a-a5bb-262f2c8400fc")
 	)
 	(junction
+		(at 237.49 27.94)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8efc9d9d-ab8f-4c45-9065-1ac29827bf68")
+	)
+	(junction
 		(at 32.385 24.13)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8f1b7f2b-ec66-4f12-aa7e-2a5ee4a42979")
 	)
 	(junction
-		(at 85.09 54.61)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "926c311a-742a-4e3c-a930-cfac4b9762b6")
-	)
-	(junction
-		(at 191.135 115.57)
+		(at 181.61 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "93026bde-6b26-4082-ae7b-103be9da14d9")
+	)
+	(junction
+		(at 236.22 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "95e77734-30f3-444b-92aa-916223680e1f")
 	)
 	(junction
 		(at 41.91 24.13)
@@ -985,7 +1027,7 @@
 		(uuid "98fcd1e8-b630-4d71-b6e8-701fe2cf304c")
 	)
 	(junction
-		(at 107.315 85.09)
+		(at 113.03 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9efe71f6-5736-4509-a452-b675455a1699")
@@ -997,19 +1039,25 @@
 		(uuid "a66d8793-9271-4553-ae45-4bb8c7fb8871")
 	)
 	(junction
-		(at 106.045 57.15)
+		(at 90.17 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ad6d5e96-df23-4e22-a404-2e10ca429b63")
+	)
+	(junction
+		(at 111.76 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "afec7278-d65e-47e7-93b2-42594c136c13")
 	)
 	(junction
-		(at 241.3 118.11)
+		(at 231.775 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b11fd269-2a67-45e1-b5ec-b8ff6df42755")
 	)
 	(junction
-		(at 103.505 29.21)
+		(at 109.22 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b4ea5e91-005e-41a1-898b-9355c8d9dd2f")
@@ -1039,28 +1087,40 @@
 		(uuid "bf03d196-122a-4732-a6f8-0726f4ec4396")
 	)
 	(junction
-		(at 201.295 25.4)
+		(at 191.77 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c27df11d-6890-4d47-8ddf-8af90f316f89")
 	)
 	(junction
-		(at 109.22 152.4)
+		(at 86.36 26.67)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c489c8e2-a315-4b93-9743-51b84164f619")
+	)
+	(junction
+		(at 114.3 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c88feb23-498e-4ab0-8999-f336b729c9e8")
 	)
 	(junction
-		(at 231.14 118.11)
+		(at 221.615 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cbf27a19-e382-43d0-9197-bf15ec2ddbf9")
 	)
 	(junction
-		(at 82.55 26.67)
+		(at 88.265 149.86)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ce8421de-bc74-4db6-a3c3-3af339d63e83")
+		(uuid "d031eaf8-af04-49fb-b8e9-eda183172f4d")
+	)
+	(junction
+		(at 92.71 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d227be9a-7265-4dda-a752-74dd668a570a")
 	)
 	(junction
 		(at 47.625 147.32)
@@ -1075,13 +1135,13 @@
 		(uuid "dcbaeffe-c258-445d-921e-df061e61ddd8")
 	)
 	(junction
-		(at 200.025 146.05)
+		(at 190.5 146.05)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e17e918e-139d-4e28-a26e-add3f5139669")
 	)
 	(junction
-		(at 228.6 90.17)
+		(at 219.075 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e32a6ab9-43fc-452d-a5b3-8632dafdb33d")
@@ -1093,13 +1153,13 @@
 		(uuid "ef6edc62-1b57-435c-a369-33f21f4148ca")
 	)
 	(junction
-		(at 190.5 146.05)
+		(at 180.975 146.05)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f11e4904-fde9-4523-9cb3-b8a4b6e6b157")
 	)
 	(junction
-		(at 238.76 90.17)
+		(at 229.235 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f4cf2464-0fbd-415c-9cf6-1067979cb505")
@@ -1116,7 +1176,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 87.63) (xy 91.44 92.71)
+			(xy 97.155 87.63) (xy 97.155 92.71)
 		)
 		(stroke
 			(width 0)
@@ -1126,7 +1186,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 64.77) (xy 106.045 64.77)
+			(xy 95.885 64.77) (xy 111.76 64.77)
 		)
 		(stroke
 			(width 0)
@@ -1146,7 +1206,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.775 36.83) (xy 231.775 27.94)
+			(xy 222.25 36.83) (xy 222.25 27.94)
 		)
 		(stroke
 			(width 0)
@@ -1166,7 +1226,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.255 120.65) (xy 264.16 120.65)
+			(xy 260.35 120.65) (xy 262.255 120.65)
 		)
 		(stroke
 			(width 0)
@@ -1176,7 +1236,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.045 127) (xy 106.045 119.38)
+			(xy 111.76 127) (xy 111.76 119.38)
 		)
 		(stroke
 			(width 0)
@@ -1206,7 +1266,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 54.61) (xy 90.805 54.61)
+			(xy 85.09 54.61) (xy 96.52 54.61)
 		)
 		(stroke
 			(width 0)
@@ -1216,7 +1276,7 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 106.045) (xy 191.135 106.045)
+			(xy 206.375 106.045) (xy 181.61 106.045)
 		)
 		(stroke
 			(width 0)
@@ -1246,7 +1306,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 15.875) (xy 191.77 25.4)
+			(xy 182.245 15.875) (xy 182.245 25.4)
 		)
 		(stroke
 			(width 0)
@@ -1256,7 +1316,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 146.05) (xy 190.5 146.05)
+			(xy 178.435 146.05) (xy 180.975 146.05)
 		)
 		(stroke
 			(width 0)
@@ -1266,7 +1326,7 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 127) (xy 200.66 128.27)
+			(xy 191.135 127) (xy 191.135 128.27)
 		)
 		(stroke
 			(width 0)
@@ -1286,7 +1346,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 90.17) (xy 244.475 90.17)
+			(xy 229.235 90.17) (xy 242.57 90.17)
 		)
 		(stroke
 			(width 0)
@@ -1306,7 +1366,7 @@
 	)
 	(wire
 		(pts
-			(xy 259.715 100.33) (xy 259.715 92.71)
+			(xy 257.81 100.33) (xy 257.81 92.71)
 		)
 		(stroke
 			(width 0)
@@ -1316,7 +1376,7 @@
 	)
 	(wire
 		(pts
-			(xy 271.78 30.48) (xy 273.685 30.48)
+			(xy 269.24 30.48) (xy 271.145 30.48)
 		)
 		(stroke
 			(width 0)
@@ -1326,7 +1386,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 36.83) (xy 103.505 36.83)
+			(xy 93.345 36.83) (xy 109.22 36.83)
 		)
 		(stroke
 			(width 0)
@@ -1336,7 +1396,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 78.105) (xy 228.6 90.17)
+			(xy 219.075 78.105) (xy 219.075 90.17)
 		)
 		(stroke
 			(width 0)
@@ -1356,7 +1416,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 90.17) (xy 222.25 90.17)
+			(xy 219.075 90.17) (xy 212.725 90.17)
 		)
 		(stroke
 			(width 0)
@@ -1366,7 +1426,7 @@
 	)
 	(wire
 		(pts
-			(xy 223.52 106.045) (xy 231.14 106.045)
+			(xy 213.995 106.045) (xy 221.615 106.045)
 		)
 		(stroke
 			(width 0)
@@ -1376,7 +1436,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 119.38) (xy 118.11 119.38)
+			(xy 122.555 119.38) (xy 123.825 119.38)
 		)
 		(stroke
 			(width 0)
@@ -1386,7 +1446,7 @@
 	)
 	(wire
 		(pts
-			(xy 271.78 92.71) (xy 275.59 92.71)
+			(xy 269.875 92.71) (xy 273.685 92.71)
 		)
 		(stroke
 			(width 0)
@@ -1396,7 +1456,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.045 64.77) (xy 106.045 57.15)
+			(xy 111.76 64.77) (xy 111.76 57.15)
 		)
 		(stroke
 			(width 0)
@@ -1436,7 +1496,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 121.92) (xy 90.17 127)
+			(xy 95.885 121.92) (xy 95.885 127)
 		)
 		(stroke
 			(width 0)
@@ -1453,6 +1513,16 @@
 			(type default)
 		)
 		(uuid "23552157-fda1-4327-b0a6-54c9a5152118")
+	)
+	(wire
+		(pts
+			(xy 237.49 35.56) (xy 237.49 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23930147-20f6-4337-8b7a-c959385057a2")
 	)
 	(wire
 		(pts
@@ -1496,7 +1566,7 @@
 	)
 	(wire
 		(pts
-			(xy 174.625 87.63) (xy 178.435 87.63)
+			(xy 165.1 87.63) (xy 168.91 87.63)
 		)
 		(stroke
 			(width 0)
@@ -1526,7 +1596,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 120.65) (xy 208.28 120.65)
+			(xy 200.025 120.65) (xy 198.755 120.65)
 		)
 		(stroke
 			(width 0)
@@ -1546,6 +1616,16 @@
 	)
 	(wire
 		(pts
+			(xy 72.39 17.78) (xy 72.39 26.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e4764d7-0b66-4271-afbb-d7a6a0a4d430")
+	)
+	(wire
+		(pts
 			(xy 24.13 147.32) (xy 27.94 147.32)
 		)
 		(stroke
@@ -1556,7 +1636,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.135 106.045) (xy 191.135 115.57)
+			(xy 181.61 106.045) (xy 181.61 115.57)
 		)
 		(stroke
 			(width 0)
@@ -1566,7 +1646,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.265 149.86) (xy 93.98 149.86)
+			(xy 88.265 149.86) (xy 92.71 149.86)
 		)
 		(stroke
 			(width 0)
@@ -1576,7 +1656,7 @@
 	)
 	(wire
 		(pts
-			(xy 271.78 120.65) (xy 274.32 120.65)
+			(xy 269.875 120.65) (xy 272.415 120.65)
 		)
 		(stroke
 			(width 0)
@@ -1586,7 +1666,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 160.02) (xy 109.22 152.4)
+			(xy 114.3 160.02) (xy 114.3 152.4)
 		)
 		(stroke
 			(width 0)
@@ -1596,7 +1676,7 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 95.25) (xy 243.84 100.33)
+			(xy 241.935 95.25) (xy 241.935 100.33)
 		)
 		(stroke
 			(width 0)
@@ -1616,7 +1696,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 118.11) (xy 224.79 118.11)
+			(xy 221.615 118.11) (xy 215.265 118.11)
 		)
 		(stroke
 			(width 0)
@@ -1626,7 +1706,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 25.4) (xy 191.77 25.4)
+			(xy 179.705 25.4) (xy 182.245 25.4)
 		)
 		(stroke
 			(width 0)
@@ -1636,7 +1716,7 @@
 	)
 	(wire
 		(pts
-			(xy 247.015 123.19) (xy 246.38 123.19)
+			(xy 245.11 123.19) (xy 244.475 123.19)
 		)
 		(stroke
 			(width 0)
@@ -1656,7 +1736,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 106.045) (xy 231.14 118.11)
+			(xy 221.615 106.045) (xy 221.615 118.11)
 		)
 		(stroke
 			(width 0)
@@ -1666,7 +1746,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 127) (xy 231.14 127)
+			(xy 198.755 127) (xy 221.615 127)
 		)
 		(stroke
 			(width 0)
@@ -1686,7 +1766,7 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 158.75) (xy 261.62 151.13)
+			(xy 259.08 158.75) (xy 259.08 151.13)
 		)
 		(stroke
 			(width 0)
@@ -1706,7 +1786,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.775 27.94) (xy 225.425 27.94)
+			(xy 222.25 27.94) (xy 215.9 27.94)
 		)
 		(stroke
 			(width 0)
@@ -1716,13 +1796,23 @@
 	)
 	(wire
 		(pts
-			(xy 247.015 38.1) (xy 262.89 38.1)
+			(xy 244.475 38.1) (xy 260.35 38.1)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "4629add5-449c-4026-aea8-5a7e5f92b800")
+	)
+	(wire
+		(pts
+			(xy 236.22 156.21) (xy 236.22 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "474dcc1a-6d8d-4f4b-9b45-0af0c8f8e671")
 	)
 	(wire
 		(pts
@@ -1736,7 +1826,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 98.425) (xy 228.6 90.17)
+			(xy 219.075 98.425) (xy 219.075 90.17)
 		)
 		(stroke
 			(width 0)
@@ -1746,7 +1836,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.775 15.875) (xy 231.775 27.94)
+			(xy 222.25 15.875) (xy 222.25 27.94)
 		)
 		(stroke
 			(width 0)
@@ -1756,7 +1846,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 118.11) (xy 233.68 118.11)
+			(xy 221.615 118.11) (xy 224.155 118.11)
 		)
 		(stroke
 			(width 0)
@@ -1786,7 +1876,7 @@
 	)
 	(wire
 		(pts
-			(xy 245.745 158.75) (xy 261.62 158.75)
+			(xy 243.205 158.75) (xy 259.08 158.75)
 		)
 		(stroke
 			(width 0)
@@ -1796,7 +1886,7 @@
 	)
 	(wire
 		(pts
-			(xy 212.09 97.79) (xy 212.09 100.33)
+			(xy 202.565 97.79) (xy 202.565 100.33)
 		)
 		(stroke
 			(width 0)
@@ -1806,7 +1896,7 @@
 	)
 	(wire
 		(pts
-			(xy 215.265 35.56) (xy 215.265 38.1)
+			(xy 205.74 35.56) (xy 205.74 38.1)
 		)
 		(stroke
 			(width 0)
@@ -1826,7 +1916,7 @@
 	)
 	(wire
 		(pts
-			(xy 201.295 36.83) (xy 201.295 38.1)
+			(xy 191.77 36.83) (xy 191.77 38.1)
 		)
 		(stroke
 			(width 0)
@@ -1846,13 +1936,23 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 57.15) (xy 118.11 57.15)
+			(xy 122.555 57.15) (xy 123.825 57.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "50d5e4d5-884c-433d-b963-eb7afb8dde6c")
+	)
+	(wire
+		(pts
+			(xy 72.39 17.78) (xy 77.47 17.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51572112-d29c-45a9-ae44-c8f3105d5841")
 	)
 	(wire
 		(pts
@@ -1886,7 +1986,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 78.105) (xy 228.6 78.105)
+			(xy 211.455 78.105) (xy 219.075 78.105)
 		)
 		(stroke
 			(width 0)
@@ -1896,7 +1996,7 @@
 	)
 	(wire
 		(pts
-			(xy 244.475 95.25) (xy 243.84 95.25)
+			(xy 242.57 95.25) (xy 241.935 95.25)
 		)
 		(stroke
 			(width 0)
@@ -1916,7 +2016,7 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 115.57) (xy 200.66 119.38)
+			(xy 191.135 115.57) (xy 191.135 119.38)
 		)
 		(stroke
 			(width 0)
@@ -1926,7 +2026,7 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 115.57) (xy 209.55 115.57)
+			(xy 191.135 115.57) (xy 200.025 115.57)
 		)
 		(stroke
 			(width 0)
@@ -1966,7 +2066,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.345 160.02) (xy 109.22 160.02)
+			(xy 98.425 160.02) (xy 114.3 160.02)
 		)
 		(stroke
 			(width 0)
@@ -1976,7 +2076,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 92.71) (xy 107.315 92.71)
+			(xy 97.155 92.71) (xy 113.03 92.71)
 		)
 		(stroke
 			(width 0)
@@ -1996,7 +2096,7 @@
 	)
 	(wire
 		(pts
-			(xy 103.505 29.21) (xy 107.95 29.21)
+			(xy 109.22 29.21) (xy 113.665 29.21)
 		)
 		(stroke
 			(width 0)
@@ -2006,7 +2106,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.805 121.92) (xy 90.17 121.92)
+			(xy 96.52 121.92) (xy 95.885 121.92)
 		)
 		(stroke
 			(width 0)
@@ -2016,7 +2116,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 127) (xy 231.14 118.11)
+			(xy 221.615 127) (xy 221.615 118.11)
 		)
 		(stroke
 			(width 0)
@@ -2046,7 +2146,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 29.21) (xy 118.11 29.21)
+			(xy 121.285 29.21) (xy 123.825 29.21)
 		)
 		(stroke
 			(width 0)
@@ -2056,7 +2156,7 @@
 	)
 	(wire
 		(pts
-			(xy 241.935 27.94) (xy 241.935 29.21)
+			(xy 232.41 27.94) (xy 232.41 29.21)
 		)
 		(stroke
 			(width 0)
@@ -2086,7 +2186,7 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 146.05) (xy 180.34 146.05)
+			(xy 167.005 146.05) (xy 170.815 146.05)
 		)
 		(stroke
 			(width 0)
@@ -2096,7 +2196,7 @@
 	)
 	(wire
 		(pts
-			(xy 230.505 157.48) (xy 230.505 148.59)
+			(xy 220.98 157.48) (xy 220.98 148.59)
 		)
 		(stroke
 			(width 0)
@@ -2106,7 +2206,7 @@
 	)
 	(wire
 		(pts
-			(xy 188.595 87.63) (xy 190.5 87.63)
+			(xy 179.07 87.63) (xy 180.975 87.63)
 		)
 		(stroke
 			(width 0)
@@ -2116,7 +2216,7 @@
 	)
 	(wire
 		(pts
-			(xy 245.745 63.5) (xy 245.745 66.04)
+			(xy 236.22 63.5) (xy 236.22 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2126,13 +2226,33 @@
 	)
 	(wire
 		(pts
-			(xy 177.165 115.57) (xy 180.975 115.57)
+			(xy 167.64 115.57) (xy 171.45 115.57)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "6c135d98-a98c-4a58-807a-02896a63a80d")
+	)
+	(wire
+		(pts
+			(xy 92.71 149.86) (xy 99.06 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ca5e32a-ada5-4d18-a5fc-25dd96514072")
+	)
+	(wire
+		(pts
+			(xy 86.36 34.29) (xy 86.36 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6cb90a3f-9bf7-4adb-8995-ac289d9e539d")
 	)
 	(wire
 		(pts
@@ -2156,7 +2276,7 @@
 	)
 	(wire
 		(pts
-			(xy 240.665 148.59) (xy 240.665 149.86)
+			(xy 231.14 148.59) (xy 231.14 149.86)
 		)
 		(stroke
 			(width 0)
@@ -2176,7 +2296,7 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 125.73) (xy 214.63 128.27)
+			(xy 205.105 125.73) (xy 205.105 128.27)
 		)
 		(stroke
 			(width 0)
@@ -2186,7 +2306,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.805 59.69) (xy 90.17 59.69)
+			(xy 96.52 59.69) (xy 95.885 59.69)
 		)
 		(stroke
 			(width 0)
@@ -2196,7 +2316,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 128.27) (xy 262.255 128.27)
+			(xy 244.475 128.27) (xy 260.35 128.27)
 		)
 		(stroke
 			(width 0)
@@ -2206,7 +2326,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 38.1) (xy 262.89 30.48)
+			(xy 260.35 38.1) (xy 260.35 30.48)
 		)
 		(stroke
 			(width 0)
@@ -2216,7 +2336,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 153.67) (xy 245.745 153.67)
+			(xy 243.84 153.67) (xy 243.205 153.67)
 		)
 		(stroke
 			(width 0)
@@ -2226,7 +2346,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.105 92.71) (xy 205.105 98.425)
+			(xy 195.58 92.71) (xy 195.58 98.425)
 		)
 		(stroke
 			(width 0)
@@ -2266,7 +2386,7 @@
 	)
 	(wire
 		(pts
-			(xy 230.505 148.59) (xy 224.155 148.59)
+			(xy 220.98 148.59) (xy 214.63 148.59)
 		)
 		(stroke
 			(width 0)
@@ -2286,7 +2406,7 @@
 	)
 	(wire
 		(pts
-			(xy 200.025 157.48) (xy 200.025 158.75)
+			(xy 190.5 157.48) (xy 190.5 158.75)
 		)
 		(stroke
 			(width 0)
@@ -2306,7 +2426,17 @@
 	)
 	(wire
 		(pts
-			(xy 200.025 146.05) (xy 200.025 149.86)
+			(xy 90.17 90.17) (xy 90.17 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c580259-964d-4036-b3c4-55df3e6e1855")
+	)
+	(wire
+		(pts
+			(xy 190.5 146.05) (xy 190.5 149.86)
 		)
 		(stroke
 			(width 0)
@@ -2316,7 +2446,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.045 119.38) (xy 109.22 119.38)
+			(xy 111.76 119.38) (xy 114.935 119.38)
 		)
 		(stroke
 			(width 0)
@@ -2326,7 +2456,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.045 57.15) (xy 109.22 57.15)
+			(xy 111.76 57.15) (xy 114.935 57.15)
 		)
 		(stroke
 			(width 0)
@@ -2336,7 +2466,7 @@
 	)
 	(wire
 		(pts
-			(xy 271.78 151.13) (xy 275.59 151.13)
+			(xy 269.24 151.13) (xy 273.05 151.13)
 		)
 		(stroke
 			(width 0)
@@ -2346,7 +2476,7 @@
 	)
 	(wire
 		(pts
-			(xy 247.015 33.02) (xy 247.015 38.1)
+			(xy 244.475 33.02) (xy 244.475 38.1)
 		)
 		(stroke
 			(width 0)
@@ -2406,7 +2536,7 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 92.71) (xy 205.105 92.71)
+			(xy 197.485 92.71) (xy 195.58 92.71)
 		)
 		(stroke
 			(width 0)
@@ -2416,7 +2546,7 @@
 	)
 	(wire
 		(pts
-			(xy 241.935 27.94) (xy 247.65 27.94)
+			(xy 232.41 27.94) (xy 245.11 27.94)
 		)
 		(stroke
 			(width 0)
@@ -2426,7 +2556,17 @@
 	)
 	(wire
 		(pts
-			(xy 259.715 92.71) (xy 264.16 92.71)
+			(xy 233.68 97.79) (xy 233.68 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8573e7f3-9b3f-421a-8435-fc208ba8c558")
+	)
+	(wire
+		(pts
+			(xy 257.81 92.71) (xy 262.255 92.71)
 		)
 		(stroke
 			(width 0)
@@ -2456,7 +2596,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 30.48) (xy 209.55 36.83)
+			(xy 200.025 30.48) (xy 200.025 36.83)
 		)
 		(stroke
 			(width 0)
@@ -2506,7 +2646,7 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 118.11) (xy 247.015 118.11)
+			(xy 231.775 118.11) (xy 245.11 118.11)
 		)
 		(stroke
 			(width 0)
@@ -2556,7 +2696,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 30.48) (xy 264.16 30.48)
+			(xy 260.35 30.48) (xy 261.62 30.48)
 		)
 		(stroke
 			(width 0)
@@ -2566,7 +2706,7 @@
 	)
 	(wire
 		(pts
-			(xy 245.745 54.61) (xy 245.745 55.88)
+			(xy 236.22 54.61) (xy 236.22 55.88)
 		)
 		(stroke
 			(width 0)
@@ -2576,7 +2716,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 82.55) (xy 92.075 82.55)
+			(xy 86.36 82.55) (xy 97.79 82.55)
 		)
 		(stroke
 			(width 0)
@@ -2586,7 +2726,17 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 90.17) (xy 238.76 91.44)
+			(xy 88.9 124.46) (xy 88.9 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "95d8f331-13fe-42bd-8843-563d09c6135d")
+	)
+	(wire
+		(pts
+			(xy 229.235 90.17) (xy 229.235 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2596,7 +2746,7 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 146.05) (xy 192.405 146.05)
+			(xy 180.975 146.05) (xy 182.88 146.05)
 		)
 		(stroke
 			(width 0)
@@ -2606,7 +2756,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.315 92.71) (xy 107.315 85.09)
+			(xy 113.03 92.71) (xy 113.03 85.09)
 		)
 		(stroke
 			(width 0)
@@ -2616,7 +2766,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 152.4) (xy 123.19 152.4)
+			(xy 125.73 152.4) (xy 128.27 152.4)
 		)
 		(stroke
 			(width 0)
@@ -2626,7 +2776,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 127) (xy 106.045 127)
+			(xy 95.885 127) (xy 111.76 127)
 		)
 		(stroke
 			(width 0)
@@ -2656,7 +2806,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.315 85.09) (xy 110.49 85.09)
+			(xy 113.03 85.09) (xy 116.205 85.09)
 		)
 		(stroke
 			(width 0)
@@ -2676,7 +2826,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 120.65) (xy 208.28 127)
+			(xy 198.755 120.65) (xy 198.755 127)
 		)
 		(stroke
 			(width 0)
@@ -2686,7 +2836,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.345 154.94) (xy 93.345 160.02)
+			(xy 98.425 154.94) (xy 98.425 160.02)
 		)
 		(stroke
 			(width 0)
@@ -2696,7 +2846,7 @@
 	)
 	(wire
 		(pts
-			(xy 250.825 54.61) (xy 245.745 54.61)
+			(xy 241.3 54.61) (xy 236.22 54.61)
 		)
 		(stroke
 			(width 0)
@@ -2706,7 +2856,7 @@
 	)
 	(wire
 		(pts
-			(xy 201.295 25.4) (xy 210.185 25.4)
+			(xy 191.77 25.4) (xy 200.66 25.4)
 		)
 		(stroke
 			(width 0)
@@ -2716,7 +2866,7 @@
 	)
 	(wire
 		(pts
-			(xy 103.505 36.83) (xy 103.505 29.21)
+			(xy 109.22 36.83) (xy 109.22 29.21)
 		)
 		(stroke
 			(width 0)
@@ -2726,7 +2876,7 @@
 	)
 	(wire
 		(pts
-			(xy 216.535 15.875) (xy 191.77 15.875)
+			(xy 207.01 15.875) (xy 182.245 15.875)
 		)
 		(stroke
 			(width 0)
@@ -2766,7 +2916,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 26.67) (xy 88.265 26.67)
+			(xy 82.55 26.67) (xy 93.98 26.67)
 		)
 		(stroke
 			(width 0)
@@ -2776,7 +2926,7 @@
 	)
 	(wire
 		(pts
-			(xy 188.595 78.105) (xy 188.595 87.63)
+			(xy 179.07 78.105) (xy 179.07 87.63)
 		)
 		(stroke
 			(width 0)
@@ -2786,7 +2936,7 @@
 	)
 	(wire
 		(pts
-			(xy 201.295 25.4) (xy 201.295 29.21)
+			(xy 191.77 25.4) (xy 191.77 29.21)
 		)
 		(stroke
 			(width 0)
@@ -2796,7 +2946,7 @@
 	)
 	(wire
 		(pts
-			(xy 224.155 15.875) (xy 231.775 15.875)
+			(xy 214.63 15.875) (xy 222.25 15.875)
 		)
 		(stroke
 			(width 0)
@@ -2836,7 +2986,17 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 87.63) (xy 198.12 91.44)
+			(xy 88.9 62.23) (xy 88.9 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b36cb51e-111c-41b1-a59f-4106090ec022")
+	)
+	(wire
+		(pts
+			(xy 188.595 87.63) (xy 188.595 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2846,7 +3006,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.885 136.525) (xy 230.505 136.525)
+			(xy 213.36 136.525) (xy 220.98 136.525)
 		)
 		(stroke
 			(width 0)
@@ -2856,7 +3016,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.255 128.27) (xy 262.255 120.65)
+			(xy 260.35 128.27) (xy 260.35 120.65)
 		)
 		(stroke
 			(width 0)
@@ -2866,7 +3026,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 123.19) (xy 246.38 128.27)
+			(xy 244.475 123.19) (xy 244.475 128.27)
 		)
 		(stroke
 			(width 0)
@@ -2886,7 +3046,7 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 100.33) (xy 259.715 100.33)
+			(xy 241.935 100.33) (xy 257.81 100.33)
 		)
 		(stroke
 			(width 0)
@@ -2896,7 +3056,7 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 87.63) (xy 207.01 87.63)
+			(xy 188.595 87.63) (xy 197.485 87.63)
 		)
 		(stroke
 			(width 0)
@@ -2916,7 +3076,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.075 87.63) (xy 91.44 87.63)
+			(xy 97.79 87.63) (xy 97.155 87.63)
 		)
 		(stroke
 			(width 0)
@@ -2936,7 +3096,7 @@
 	)
 	(wire
 		(pts
-			(xy 230.505 136.525) (xy 230.505 148.59)
+			(xy 220.98 136.525) (xy 220.98 148.59)
 		)
 		(stroke
 			(width 0)
@@ -2966,7 +3126,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 152.4) (xy 113.03 152.4)
+			(xy 114.3 152.4) (xy 118.11 152.4)
 		)
 		(stroke
 			(width 0)
@@ -3006,7 +3166,17 @@
 	)
 	(wire
 		(pts
-			(xy 207.645 157.48) (xy 230.505 157.48)
+			(xy 92.71 157.48) (xy 92.71 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c77c786b-724b-40c5-8328-0dc8adaa59ff")
+	)
+	(wire
+		(pts
+			(xy 198.12 157.48) (xy 220.98 157.48)
 		)
 		(stroke
 			(width 0)
@@ -3016,7 +3186,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.105 98.425) (xy 228.6 98.425)
+			(xy 195.58 98.425) (xy 219.075 98.425)
 		)
 		(stroke
 			(width 0)
@@ -3026,7 +3196,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.265 31.75) (xy 87.63 31.75)
+			(xy 93.98 31.75) (xy 93.345 31.75)
 		)
 		(stroke
 			(width 0)
@@ -3036,7 +3206,7 @@
 	)
 	(wire
 		(pts
-			(xy 245.745 153.67) (xy 245.745 158.75)
+			(xy 243.205 153.67) (xy 243.205 158.75)
 		)
 		(stroke
 			(width 0)
@@ -3046,7 +3216,7 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 118.11) (xy 241.3 119.38)
+			(xy 231.775 118.11) (xy 231.775 119.38)
 		)
 		(stroke
 			(width 0)
@@ -3056,7 +3226,7 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 14.605) (xy 72.39 26.67)
+			(xy 72.39 14.605) (xy 72.39 17.78)
 		)
 		(stroke
 			(width 0)
@@ -3066,7 +3236,7 @@
 	)
 	(wire
 		(pts
-			(xy 186.055 87.63) (xy 188.595 87.63)
+			(xy 176.53 87.63) (xy 179.07 87.63)
 		)
 		(stroke
 			(width 0)
@@ -3076,7 +3246,7 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 25.4) (xy 181.61 25.4)
+			(xy 168.275 25.4) (xy 172.085 25.4)
 		)
 		(stroke
 			(width 0)
@@ -3086,7 +3256,7 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 99.06) (xy 198.12 100.33)
+			(xy 188.595 99.06) (xy 188.595 100.33)
 		)
 		(stroke
 			(width 0)
@@ -3096,7 +3266,7 @@
 	)
 	(wire
 		(pts
-			(xy 207.645 151.13) (xy 207.645 157.48)
+			(xy 198.12 151.13) (xy 198.12 157.48)
 		)
 		(stroke
 			(width 0)
@@ -3116,7 +3286,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 90.17) (xy 231.14 90.17)
+			(xy 219.075 90.17) (xy 221.615 90.17)
 		)
 		(stroke
 			(width 0)
@@ -3136,7 +3306,17 @@
 	)
 	(wire
 		(pts
-			(xy 210.185 30.48) (xy 209.55 30.48)
+			(xy 236.22 125.73) (xy 236.22 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da672412-ca8f-4f60-a6ce-adad48cc7851")
+	)
+	(wire
+		(pts
+			(xy 200.66 30.48) (xy 200.025 30.48)
 		)
 		(stroke
 			(width 0)
@@ -3146,7 +3326,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 85.09) (xy 121.285 85.09)
+			(xy 123.825 85.09) (xy 127 85.09)
 		)
 		(stroke
 			(width 0)
@@ -3156,7 +3336,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.775 27.94) (xy 234.315 27.94)
+			(xy 222.25 27.94) (xy 224.79 27.94)
 		)
 		(stroke
 			(width 0)
@@ -3176,7 +3356,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 154.94) (xy 93.345 154.94)
+			(xy 99.06 154.94) (xy 98.425 154.94)
 		)
 		(stroke
 			(width 0)
@@ -3206,7 +3386,7 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 151.13) (xy 264.16 151.13)
+			(xy 259.08 151.13) (xy 261.62 151.13)
 		)
 		(stroke
 			(width 0)
@@ -3226,7 +3406,7 @@
 	)
 	(wire
 		(pts
-			(xy 188.595 115.57) (xy 191.135 115.57)
+			(xy 179.07 115.57) (xy 181.61 115.57)
 		)
 		(stroke
 			(width 0)
@@ -3236,7 +3416,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 31.75) (xy 87.63 36.83)
+			(xy 93.345 31.75) (xy 93.345 36.83)
 		)
 		(stroke
 			(width 0)
@@ -3256,7 +3436,7 @@
 	)
 	(wire
 		(pts
-			(xy 240.665 148.59) (xy 246.38 148.59)
+			(xy 231.14 148.59) (xy 243.84 148.59)
 		)
 		(stroke
 			(width 0)
@@ -3276,7 +3456,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 59.69) (xy 90.17 64.77)
+			(xy 95.885 59.69) (xy 95.885 64.77)
 		)
 		(stroke
 			(width 0)
@@ -3296,7 +3476,7 @@
 	)
 	(wire
 		(pts
-			(xy 200.025 146.05) (xy 208.915 146.05)
+			(xy 190.5 146.05) (xy 199.39 146.05)
 		)
 		(stroke
 			(width 0)
@@ -3306,7 +3486,7 @@
 	)
 	(wire
 		(pts
-			(xy 230.505 148.59) (xy 233.045 148.59)
+			(xy 220.98 148.59) (xy 223.52 148.59)
 		)
 		(stroke
 			(width 0)
@@ -3316,7 +3496,7 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 136.525) (xy 190.5 146.05)
+			(xy 180.975 136.525) (xy 180.975 146.05)
 		)
 		(stroke
 			(width 0)
@@ -3326,7 +3506,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.915 151.13) (xy 207.645 151.13)
+			(xy 199.39 151.13) (xy 198.12 151.13)
 		)
 		(stroke
 			(width 0)
@@ -3346,7 +3526,7 @@
 	)
 	(wire
 		(pts
-			(xy 18.415 24.13) (xy 22.225 24.13)
+			(xy 21.59 24.13) (xy 22.225 24.13)
 		)
 		(stroke
 			(width 0)
@@ -3356,7 +3536,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 78.105) (xy 188.595 78.105)
+			(xy 203.835 78.105) (xy 179.07 78.105)
 		)
 		(stroke
 			(width 0)
@@ -3376,7 +3556,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.135 115.57) (xy 193.04 115.57)
+			(xy 181.61 115.57) (xy 183.515 115.57)
 		)
 		(stroke
 			(width 0)
@@ -3386,7 +3566,7 @@
 	)
 	(wire
 		(pts
-			(xy 247.65 33.02) (xy 247.015 33.02)
+			(xy 245.11 33.02) (xy 244.475 33.02)
 		)
 		(stroke
 			(width 0)
@@ -3396,7 +3576,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 116.84) (xy 90.805 116.84)
+			(xy 85.09 116.84) (xy 96.52 116.84)
 		)
 		(stroke
 			(width 0)
@@ -3406,7 +3586,7 @@
 	)
 	(wire
 		(pts
-			(xy 215.265 136.525) (xy 190.5 136.525)
+			(xy 205.74 136.525) (xy 180.975 136.525)
 		)
 		(stroke
 			(width 0)
@@ -3416,7 +3596,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 36.83) (xy 231.775 36.83)
+			(xy 200.025 36.83) (xy 222.25 36.83)
 		)
 		(stroke
 			(width 0)
@@ -3426,7 +3606,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 25.4) (xy 193.675 25.4)
+			(xy 182.245 25.4) (xy 184.15 25.4)
 		)
 		(stroke
 			(width 0)
@@ -3466,7 +3646,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.995 156.21) (xy 213.995 158.75)
+			(xy 204.47 156.21) (xy 204.47 158.75)
 		)
 		(stroke
 			(width 0)
@@ -3914,7 +4094,7 @@
 	)
 	(hierarchical_label "OUT_CH3"
 		(shape output)
-		(at 121.285 85.09 0)
+		(at 127 85.09 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3925,7 +4105,7 @@
 	)
 	(hierarchical_label "IN_CH5"
 		(shape input)
-		(at 177.8 25.4 180)
+		(at 168.275 25.4 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3936,7 +4116,7 @@
 	)
 	(hierarchical_label "OUT_CH7"
 		(shape output)
-		(at 275.59 92.71 0)
+		(at 273.685 92.71 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3947,7 +4127,7 @@
 	)
 	(hierarchical_label "OUT_CH6"
 		(shape output)
-		(at 250.825 54.61 0)
+		(at 241.3 54.61 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3958,7 +4138,7 @@
 	)
 	(hierarchical_label "IN_CH7"
 		(shape input)
-		(at 174.625 87.63 180)
+		(at 165.1 87.63 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3969,7 +4149,7 @@
 	)
 	(hierarchical_label "OUT_CH1"
 		(shape output)
-		(at 118.11 29.21 0)
+		(at 123.825 29.21 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4035,7 +4215,7 @@
 	)
 	(hierarchical_label "IN_CH9"
 		(shape input)
-		(at 176.53 146.05 180)
+		(at 167.005 146.05 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4046,7 +4226,7 @@
 	)
 	(hierarchical_label "OUT_CH2"
 		(shape output)
-		(at 118.11 57.15 0)
+		(at 123.825 57.15 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4057,7 +4237,7 @@
 	)
 	(hierarchical_label "OUT_CH10"
 		(shape output)
-		(at 123.19 152.4 0)
+		(at 128.27 152.4 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4068,7 +4248,7 @@
 	)
 	(hierarchical_label "OUT_CH4"
 		(shape output)
-		(at 118.11 119.38 0)
+		(at 123.825 119.38 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4079,7 +4259,7 @@
 	)
 	(hierarchical_label "IN_CH1"
 		(shape input)
-		(at 18.415 24.13 180)
+		(at 21.59 24.13 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4088,9 +4268,20 @@
 		)
 		(uuid "a72bc28c-2320-4782-8998-e28102295eb2")
 	)
+	(hierarchical_label "CAL_SIGNAL"
+		(shape output)
+		(at 77.47 17.78 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ac0943c0-342a-4afd-b47a-0f8908e05730")
+	)
 	(hierarchical_label "OUT_CH9"
 		(shape output)
-		(at 275.59 151.13 0)
+		(at 273.05 151.13 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4112,7 +4303,7 @@
 	)
 	(hierarchical_label "IN_CH8"
 		(shape input)
-		(at 177.165 115.57 180)
+		(at 167.64 115.57 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4123,7 +4314,7 @@
 	)
 	(hierarchical_label "OUT_CH8"
 		(shape output)
-		(at 274.32 120.65 0)
+		(at 272.415 120.65 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4134,7 +4325,7 @@
 	)
 	(hierarchical_label "OUT_CH5"
 		(shape output)
-		(at 273.685 30.48 0)
+		(at 271.145 30.48 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4153,6 +4344,131 @@
 			(justify left)
 		)
 		(uuid "fc3a4cb4-068a-4ff6-80f7-333508f85d75")
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 236.22 152.4 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "027bb68f-8a52-44ae-a768-a6b61215dfa8")
+		(property "Reference" "C39"
+			(at 236.474 150.368 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100nF"
+			(at 236.22 155.194 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 235.2548 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+			(at 236.22 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor" "Digikey"
+			(at 236.22 152.4 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
+			(at 236.22 152.4 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 236.22 152.4 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer PN" "C0603C104K5RACTU"
+			(at 236.22 152.4 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a237de30-05b9-4ae5-8028-20b0567df67b")
+		)
+		(pin "2"
+			(uuid "08328fca-e0a0-4296-8e9d-06e8e29951f6")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "C39")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:+3.3V")
@@ -4233,7 +4549,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 217.17 78.105 90)
+		(at 207.645 78.105 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4243,7 +4559,7 @@
 		(dnp no)
 		(uuid "02ce302e-3a58-42c9-b2d6-aedc75c1add7")
 		(property "Reference" "C6"
-			(at 213.868 76.327 90)
+			(at 204.343 76.327 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4253,7 +4569,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 221.742 76.581 90)
+			(at 212.217 76.581 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4263,7 +4579,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 220.98 77.1398 0)
+			(at 211.455 77.1398 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4274,7 +4590,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 217.17 78.105 0)
+			(at 207.645 78.105 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4285,7 +4601,7 @@
 			)
 		)
 		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
-			(at 217.17 78.105 0)
+			(at 207.645 78.105 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4296,7 +4612,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 217.17 78.105 90)
+			(at 207.645 78.105 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4307,7 +4623,7 @@
 			)
 		)
 		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
-			(at 217.17 78.105 90)
+			(at 207.645 78.105 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4318,7 +4634,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 217.17 78.105 90)
+			(at 207.645 78.105 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4329,7 +4645,7 @@
 			)
 		)
 		(property "Manufacturer PN" "C0603C104K5RACTU"
-			(at 217.17 78.105 90)
+			(at 207.645 78.105 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4356,7 +4672,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 241.935 36.83 0)
+		(at 232.41 36.83 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4367,7 +4683,7 @@
 		(fields_autoplaced yes)
 		(uuid "035b949a-020e-42a0-8207-6887d635bd23")
 		(property "Reference" "#PWR03"
-			(at 241.935 43.18 0)
+			(at 232.41 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4378,7 +4694,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 241.935 41.91 0)
+			(at 232.41 41.91 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4388,7 +4704,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 241.935 36.83 0)
+			(at 232.41 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4399,7 +4715,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 241.935 36.83 0)
+			(at 232.41 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4410,7 +4726,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 241.935 36.83 0)
+			(at 232.41 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4433,8 +4749,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 241.935 33.02 0)
+		(lib_id "power:GND")
+		(at 233.68 99.06 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4442,9 +4758,11 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "04cc4470-3342-4944-a34a-8305ee9e9e7a")
-		(property "Reference" "R3"
-			(at 240.03 33.02 90)
+		(fields_autoplaced yes)
+		(uuid "046d7679-0a86-4c93-875e-3b0b9606d4a2")
+		(property "Reference" "#PWR094"
+			(at 233.68 105.41 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4453,8 +4771,8 @@
 				)
 			)
 		)
-		(property "Value" "1k"
-			(at 241.935 33.02 90)
+		(property "Value" "GND"
+			(at 233.68 104.14 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4463,8 +4781,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 240.157 33.02 90)
+		(property "Footprint" ""
+			(at 233.68 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4475,7 +4793,83 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 241.935 33.02 0)
+			(at 233.68 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 233.68 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b115e9ca-c76a-4aaf-b2d0-d06a62430656")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "#PWR094")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 232.41 33.02 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "04cc4470-3342-4944-a34a-8305ee9e9e7a")
+		(property "Reference" "R3"
+			(at 230.505 33.02 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 232.41 33.02 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 230.632 33.02 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 232.41 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4486,7 +4880,7 @@
 			)
 		)
 		(property "Description" "RES 1K OHM 5% 1/10W 0603"
-			(at 241.935 33.02 0)
+			(at 232.41 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4497,7 +4891,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 241.935 33.02 90)
+			(at 232.41 33.02 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4508,7 +4902,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-1.0KGRCT-ND"
-			(at 241.935 33.02 90)
+			(at 232.41 33.02 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4519,7 +4913,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 241.935 33.02 90)
+			(at 232.41 33.02 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4530,7 +4924,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-071KL"
-			(at 241.935 33.02 90)
+			(at 232.41 33.02 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4557,7 +4951,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 200.025 158.75 0)
+		(at 190.5 158.75 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4568,7 +4962,7 @@
 		(fields_autoplaced yes)
 		(uuid "05d4a164-25f5-46e6-aa6e-464154f8972a")
 		(property "Reference" "#PWR070"
-			(at 200.025 165.1 0)
+			(at 190.5 165.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4579,7 +4973,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 200.025 163.83 0)
+			(at 190.5 163.83 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4589,7 +4983,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 200.025 158.75 0)
+			(at 190.5 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4600,7 +4994,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 200.025 158.75 0)
+			(at 190.5 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4611,7 +5005,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 200.025 158.75 0)
+			(at 190.5 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4761,7 +5155,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 252.095 92.71 0)
+		(at 250.19 92.71 0)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4772,7 +5166,7 @@
 		(fields_autoplaced yes)
 		(uuid "0aaee152-e3ea-477c-8e75-ffadd406360e")
 		(property "Reference" "U4"
-			(at 252.095 82.931 0)
+			(at 250.19 82.931 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4782,7 +5176,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 252.095 85.471 0)
+			(at 250.19 85.471 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4792,7 +5186,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 252.095 92.71 0)
+			(at 250.19 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4803,7 +5197,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 252.095 92.71 0)
+			(at 250.19 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4814,7 +5208,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 252.095 92.71 0)
+			(at 250.19 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4825,7 +5219,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 252.095 92.71 0)
+			(at 250.19 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4836,7 +5230,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 252.095 92.71 0)
+			(at 250.19 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4847,7 +5241,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 252.095 92.71 0)
+			(at 250.19 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4858,7 +5252,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 252.095 92.71 0)
+			(at 250.19 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5027,7 +5421,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 201.295 33.02 0)
+		(at 191.77 33.02 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5038,7 +5432,7 @@
 		(fields_autoplaced yes)
 		(uuid "0adc65c6-4c4e-4d5c-a5e3-acf91162f745")
 		(property "Reference" "C2"
-			(at 204.47 31.75 0)
+			(at 194.945 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5049,7 +5443,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 204.47 34.29 0)
+			(at 194.945 34.29 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5060,7 +5454,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 202.2602 36.83 0)
+			(at 192.7352 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5071,7 +5465,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 201.295 33.02 0)
+			(at 191.77 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5082,7 +5476,7 @@
 			)
 		)
 		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
-			(at 201.295 33.02 0)
+			(at 191.77 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5093,7 +5487,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 201.295 33.02 0)
+			(at 191.77 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5104,7 +5498,7 @@
 			)
 		)
 		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
-			(at 201.295 33.02 0)
+			(at 191.77 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5115,7 +5509,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 201.295 33.02 0)
+			(at 191.77 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5126,7 +5520,7 @@
 			)
 		)
 		(property "Manufacturer PN" "C0603C104K5RACTU"
-			(at 201.295 33.02 0)
+			(at 191.77 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5153,7 +5547,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 217.805 27.94 0)
+		(at 208.28 27.94 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5163,7 +5557,7 @@
 		(dnp no)
 		(uuid "0efc53ea-9e7e-49bd-82a5-ebb6f5889b21")
 		(property "Reference" "U2"
-			(at 219.075 20.828 0)
+			(at 209.55 20.828 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5173,7 +5567,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 223.139 23.114 0)
+			(at 213.614 23.114 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5183,7 +5577,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5194,7 +5588,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5205,7 +5599,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5216,7 +5610,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5227,7 +5621,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5238,7 +5632,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5249,7 +5643,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5294,7 +5688,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 254 151.13 0)
+		(at 251.46 151.13 0)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5305,7 +5699,7 @@
 		(fields_autoplaced yes)
 		(uuid "107cac4f-aace-4110-a3dd-ae7869c4bdb7")
 		(property "Reference" "U11"
-			(at 254 141.351 0)
+			(at 251.46 141.351 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5315,7 +5709,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 254 143.891 0)
+			(at 251.46 143.891 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5325,7 +5719,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 254 151.13 0)
+			(at 251.46 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5336,7 +5730,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 254 151.13 0)
+			(at 251.46 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5347,7 +5741,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 254 151.13 0)
+			(at 251.46 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5358,7 +5752,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 254 151.13 0)
+			(at 251.46 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5369,7 +5763,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 254 151.13 0)
+			(at 251.46 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5380,7 +5774,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 254 151.13 0)
+			(at 251.46 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5391,7 +5785,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 254 151.13 0)
+			(at 251.46 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5513,7 +5907,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 184.15 146.05 270)
+		(at 174.625 146.05 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5524,7 +5918,7 @@
 		(fields_autoplaced yes)
 		(uuid "13834e9c-9dc9-4ea5-ae17-48b01720f442")
 		(property "Reference" "R33"
-			(at 184.15 139.7 90)
+			(at 174.625 139.7 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5534,7 +5928,7 @@
 			)
 		)
 		(property "Value" "6k2"
-			(at 184.15 142.24 90)
+			(at 174.625 142.24 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5544,7 +5938,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 184.15 144.272 90)
+			(at 174.625 144.272 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5555,7 +5949,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 184.15 146.05 0)
+			(at 174.625 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5566,7 +5960,7 @@
 			)
 		)
 		(property "Description" "RES 6.2K OHM 5% 1/10W 0603"
-			(at 184.15 146.05 0)
+			(at 174.625 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5577,7 +5971,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 184.15 146.05 90)
+			(at 174.625 146.05 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5588,7 +5982,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-6.2KGRCT-ND"
-			(at 184.15 146.05 90)
+			(at 174.625 146.05 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5599,7 +5993,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 184.15 146.05 90)
+			(at 174.625 146.05 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5610,7 +6004,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-076K2L"
-			(at 184.15 146.05 90)
+			(at 174.625 146.05 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5714,7 +6108,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 255.27 30.48 0)
+		(at 252.73 30.48 0)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5725,7 +6119,7 @@
 		(fields_autoplaced yes)
 		(uuid "178805f2-faf1-4873-9f71-901e01315fa8")
 		(property "Reference" "U2"
-			(at 255.27 20.701 0)
+			(at 252.73 20.701 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5735,7 +6129,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 255.27 23.241 0)
+			(at 252.73 23.241 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5745,7 +6139,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 255.27 30.48 0)
+			(at 252.73 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5756,7 +6150,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 255.27 30.48 0)
+			(at 252.73 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5767,7 +6161,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 255.27 30.48 0)
+			(at 252.73 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5778,7 +6172,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 255.27 30.48 0)
+			(at 252.73 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5789,7 +6183,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 255.27 30.48 0)
+			(at 252.73 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5800,7 +6194,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 255.27 30.48 0)
+			(at 252.73 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5811,7 +6205,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 255.27 30.48 0)
+			(at 252.73 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6057,6 +6451,131 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 92.71 153.67 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1dbb68da-e5f9-41e2-a4b0-ec50bf76515c")
+		(property "Reference" "C29"
+			(at 92.964 151.638 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100nF"
+			(at 92.71 156.464 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 91.7448 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 92.71 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+			(at 92.71 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor" "Digikey"
+			(at 92.71 153.67 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
+			(at 92.71 153.67 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 92.71 153.67 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer PN" "C0603C104K5RACTU"
+			(at 92.71 153.67 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b258a051-c6be-49fa-9648-f01ccfb4d0df")
+		)
+		(pin "2"
+			(uuid "0740a0d8-569c-4956-b2b6-6a711fc85b41")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "C29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 141.478 179.07 0)
 		(unit 1)
@@ -6258,7 +6777,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 240.665 157.48 0)
+		(at 231.14 157.48 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6269,7 +6788,7 @@
 		(fields_autoplaced yes)
 		(uuid "22facfc8-621f-456a-84e2-47f5ce9e5c19")
 		(property "Reference" "#PWR073"
-			(at 240.665 163.83 0)
+			(at 231.14 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6280,7 +6799,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 240.665 162.56 0)
+			(at 231.14 162.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6290,7 +6809,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 240.665 157.48 0)
+			(at 231.14 157.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6301,7 +6820,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 240.665 157.48 0)
+			(at 231.14 157.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6312,7 +6831,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 240.665 157.48 0)
+			(at 231.14 157.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6336,7 +6855,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 240.665 153.67 0)
+		(at 231.14 153.67 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6346,7 +6865,7 @@
 		(dnp no)
 		(uuid "24cf915d-6360-490e-a0d1-e5f829736893")
 		(property "Reference" "R36"
-			(at 238.76 153.67 90)
+			(at 229.235 153.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6356,7 +6875,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 240.665 153.67 90)
+			(at 231.14 153.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6366,7 +6885,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 238.887 153.67 90)
+			(at 229.362 153.67 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6377,7 +6896,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 240.665 153.67 0)
+			(at 231.14 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6388,7 +6907,7 @@
 			)
 		)
 		(property "Description" "RES 1K OHM 5% 1/10W 0603"
-			(at 240.665 153.67 0)
+			(at 231.14 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6399,7 +6918,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 240.665 153.67 90)
+			(at 231.14 153.67 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6410,7 +6929,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-1.0KGRCT-ND"
-			(at 240.665 153.67 90)
+			(at 231.14 153.67 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6421,7 +6940,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 240.665 153.67 90)
+			(at 231.14 153.67 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6432,7 +6951,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-071KL"
-			(at 240.665 153.67 90)
+			(at 231.14 153.67 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6458,8 +6977,86 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 88.9 63.5 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2580ba6e-3d48-4c60-a55f-471fc5b674e4")
+		(property "Reference" "#PWR081"
+			(at 88.9 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 88.9 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 88.9 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 88.9 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2ef0ba9f-d904-436b-8b22-be8004181230")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "#PWR081")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 217.805 27.94 0)
+		(at 208.28 27.94 0)
 		(unit 3)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6469,7 +7066,7 @@
 		(dnp no)
 		(uuid "26292f98-e931-4652-abde-7f15e1c5c2c8")
 		(property "Reference" "U2"
-			(at 217.551 31.75 0)
+			(at 208.026 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6480,7 +7077,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 216.408 33.401 0)
+			(at 206.883 33.401 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6491,7 +7088,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6502,7 +7099,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6513,7 +7110,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6524,7 +7121,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6535,7 +7132,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6546,7 +7143,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6557,7 +7154,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 217.805 27.94 0)
+			(at 208.28 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6680,7 +7277,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 267.97 151.13 270)
+		(at 265.43 151.13 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6690,7 +7287,7 @@
 		(dnp no)
 		(uuid "2997df4c-398a-46d6-9b37-275a570ce740")
 		(property "Reference" "R6"
-			(at 267.97 149.225 90)
+			(at 265.43 149.225 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6700,7 +7297,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 267.97 151.13 90)
+			(at 265.43 151.13 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6710,7 +7307,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 267.97 149.352 90)
+			(at 265.43 149.352 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6721,7 +7318,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 267.97 151.13 0)
+			(at 265.43 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6732,7 +7329,7 @@
 			)
 		)
 		(property "Description" "RES 470 OHM 5% 1/10W 0603"
-			(at 267.97 151.13 0)
+			(at 265.43 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6743,7 +7340,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 267.97 151.13 90)
+			(at 265.43 151.13 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6754,7 +7351,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-470GRCT-ND"
-			(at 267.97 151.13 90)
+			(at 265.43 151.13 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6765,7 +7362,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 267.97 151.13 90)
+			(at 265.43 151.13 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6776,7 +7373,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07470RL"
-			(at 267.97 151.13 90)
+			(at 265.43 151.13 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6802,8 +7399,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 214.63 110.49 0)
+		(lib_id "power:GND")
+		(at 92.71 158.75 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6811,9 +7408,10 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "2c5a7081-65e6-44ad-8870-a08346504112")
-		(property "Reference" "#PWR014"
-			(at 214.63 114.3 0)
+		(fields_autoplaced yes)
+		(uuid "2b57ea89-761f-4c37-9fe1-5fc65ff80bd9")
+		(property "Reference" "#PWR078"
+			(at 92.71 165.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6823,8 +7421,8 @@
 				)
 			)
 		)
-		(property "Value" "+3.3V"
-			(at 210.82 109.22 0)
+		(property "Value" "GND"
+			(at 92.71 163.83 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6834,7 +7432,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 214.63 110.49 0)
+			(at 92.71 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6845,7 +7443,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 214.63 110.49 0)
+			(at 92.71 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6856,7 +7454,209 @@
 			)
 		)
 		(property "Description" ""
-			(at 214.63 110.49 0)
+			(at 92.71 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "376414af-3e3c-42cc-a93e-f0bcb382ac8c")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "#PWR078")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 88.9 120.65 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2c0a55d4-4cfc-4cfd-93ac-21b07f24e194")
+		(property "Reference" "C30"
+			(at 89.154 118.618 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100nF"
+			(at 88.9 123.444 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 87.9348 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+			(at 88.9 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor" "Digikey"
+			(at 88.9 120.65 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
+			(at 88.9 120.65 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 88.9 120.65 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer PN" "C0603C104K5RACTU"
+			(at 88.9 120.65 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fd1752b6-612b-4732-9094-483c8b31f714")
+		)
+		(pin "2"
+			(uuid "349f05ce-ed98-4f5b-b19a-7a130594015b")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "C30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 205.105 110.49 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2c5a7081-65e6-44ad-8870-a08346504112")
+		(property "Reference" "#PWR014"
+			(at 205.105 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 201.295 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 205.105 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 205.105 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 205.105 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6957,7 +7757,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 212.09 100.33 0)
+		(at 202.565 100.33 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6967,7 +7767,7 @@
 		(dnp no)
 		(uuid "2dcab3c0-a4c6-4d3a-a0cd-a6a8d6ad2a17")
 		(property "Reference" "#PWR011"
-			(at 212.09 106.68 0)
+			(at 202.565 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6978,7 +7778,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 215.519 101.6 0)
+			(at 205.994 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6988,7 +7788,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 212.09 100.33 0)
+			(at 202.565 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6999,7 +7799,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 212.09 100.33 0)
+			(at 202.565 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7010,7 +7810,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 212.09 100.33 0)
+			(at 202.565 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7160,7 +7960,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 95.885 29.21 0)
+		(at 101.6 29.21 0)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7171,7 +7971,7 @@
 		(fields_autoplaced yes)
 		(uuid "309c33e5-6cd7-46fc-8cbb-1303b16ec434")
 		(property "Reference" "U6"
-			(at 95.885 19.431 0)
+			(at 101.6 19.431 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7181,7 +7981,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 95.885 21.971 0)
+			(at 101.6 21.971 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7191,7 +7991,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 95.885 29.21 0)
+			(at 101.6 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7202,7 +8002,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 95.885 29.21 0)
+			(at 101.6 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7213,7 +8013,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 95.885 29.21 0)
+			(at 101.6 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7224,7 +8024,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 95.885 29.21 0)
+			(at 101.6 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7235,7 +8035,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 95.885 29.21 0)
+			(at 101.6 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7246,7 +8046,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 95.885 29.21 0)
+			(at 101.6 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7257,7 +8057,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 95.885 29.21 0)
+			(at 101.6 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7829,7 +8629,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 217.17 118.11 0)
+		(at 207.645 118.11 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7839,7 +8639,7 @@
 		(dnp no)
 		(uuid "3ab82ae7-0c89-40b6-a89b-6cb356919ae8")
 		(property "Reference" "U5"
-			(at 218.44 110.998 0)
+			(at 208.915 110.998 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7849,7 +8649,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 222.504 113.284 0)
+			(at 212.979 113.284 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7859,7 +8659,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7870,7 +8670,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7881,7 +8681,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7892,7 +8692,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7903,7 +8703,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7914,7 +8714,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7925,7 +8725,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8093,7 +8893,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 254.635 120.65 0)
+		(at 252.73 120.65 0)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8104,7 +8904,7 @@
 		(fields_autoplaced yes)
 		(uuid "3e5b1c06-bc29-466b-9a10-3a2372b8a3a5")
 		(property "Reference" "U5"
-			(at 254.635 110.871 0)
+			(at 252.73 110.871 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8114,7 +8914,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 254.635 113.411 0)
+			(at 252.73 113.411 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8124,7 +8924,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 254.635 120.65 0)
+			(at 252.73 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8135,7 +8935,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 254.635 120.65 0)
+			(at 252.73 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8146,7 +8946,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 254.635 120.65 0)
+			(at 252.73 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8157,7 +8957,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 254.635 120.65 0)
+			(at 252.73 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8168,7 +8968,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 254.635 120.65 0)
+			(at 252.73 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8179,7 +8979,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 254.635 120.65 0)
+			(at 252.73 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8190,7 +8990,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 254.635 120.65 0)
+			(at 252.73 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8235,7 +9035,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 214.63 128.27 0)
+		(at 205.105 128.27 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8246,7 +9046,7 @@
 		(fields_autoplaced yes)
 		(uuid "3e7e4f82-3966-402b-bfc3-d29219844d69")
 		(property "Reference" "#PWR015"
-			(at 214.63 134.62 0)
+			(at 205.105 134.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8257,7 +9057,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 214.63 133.35 0)
+			(at 205.105 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8267,7 +9067,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 214.63 128.27 0)
+			(at 205.105 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8278,7 +9078,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 214.63 128.27 0)
+			(at 205.105 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8289,7 +9089,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 214.63 128.27 0)
+			(at 205.105 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8437,7 +9237,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 113.03 119.38 270)
+		(at 118.745 119.38 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8447,7 +9247,7 @@
 		(dnp no)
 		(uuid "408f58a7-aa05-4a2b-8d09-31c87029a76b")
 		(property "Reference" "R59"
-			(at 113.03 117.475 90)
+			(at 118.745 117.475 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8457,7 +9257,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 113.03 119.38 90)
+			(at 118.745 119.38 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8467,7 +9267,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 113.03 117.602 90)
+			(at 118.745 117.602 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8478,7 +9278,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 113.03 119.38 0)
+			(at 118.745 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8489,7 +9289,7 @@
 			)
 		)
 		(property "Description" "RES 470 OHM 5% 1/10W 0603"
-			(at 113.03 119.38 0)
+			(at 118.745 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8500,7 +9300,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 113.03 119.38 90)
+			(at 118.745 119.38 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8511,7 +9311,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-470GRCT-ND"
-			(at 113.03 119.38 90)
+			(at 118.745 119.38 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8522,7 +9322,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 113.03 119.38 90)
+			(at 118.745 119.38 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8533,7 +9333,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07470RL"
-			(at 113.03 119.38 90)
+			(at 118.745 119.38 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8903,7 +9703,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 238.125 27.94 90)
+		(at 228.6 27.94 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8913,7 +9713,7 @@
 		(dnp no)
 		(uuid "4308b776-4883-4fec-9607-f42e7af3add3")
 		(property "Reference" "R4"
-			(at 238.125 29.845 90)
+			(at 228.6 29.845 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8923,7 +9723,7 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 238.125 27.94 90)
+			(at 228.6 27.94 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8933,7 +9733,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 238.125 29.718 90)
+			(at 228.6 29.718 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8944,7 +9744,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.125 27.94 0)
+			(at 228.6 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8955,7 +9755,7 @@
 			)
 		)
 		(property "Description" "RES 100K OHM 5% 1/10W 0603"
-			(at 238.125 27.94 0)
+			(at 228.6 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8966,7 +9766,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 238.125 27.94 90)
+			(at 228.6 27.94 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8977,7 +9777,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-100KGRCT-ND"
-			(at 238.125 27.94 90)
+			(at 228.6 27.94 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8988,7 +9788,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 238.125 27.94 90)
+			(at 228.6 27.94 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8999,7 +9799,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07100KL"
-			(at 238.125 27.94 90)
+			(at 228.6 27.94 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9150,7 +9950,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 116.84 152.4 270)
+		(at 121.92 152.4 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9160,7 +9960,7 @@
 		(dnp no)
 		(uuid "457579a4-4777-4de7-82e6-32d248dbebea")
 		(property "Reference" "R60"
-			(at 116.84 150.495 90)
+			(at 121.92 150.495 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9170,7 +9970,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 116.84 152.4 90)
+			(at 121.92 152.4 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9180,7 +9980,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 116.84 150.622 90)
+			(at 121.92 150.622 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9191,7 +9991,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 116.84 152.4 0)
+			(at 121.92 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9202,7 +10002,7 @@
 			)
 		)
 		(property "Description" "RES 470 OHM 5% 1/10W 0603"
-			(at 116.84 152.4 0)
+			(at 121.92 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9213,7 +10013,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 116.84 152.4 90)
+			(at 121.92 152.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9224,7 +10024,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-470GRCT-ND"
-			(at 116.84 152.4 90)
+			(at 121.92 152.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9235,7 +10035,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 116.84 152.4 90)
+			(at 121.92 152.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9246,7 +10046,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07470RL"
-			(at 116.84 152.4 90)
+			(at 121.92 152.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9491,7 +10291,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 200.66 128.27 0)
+		(at 191.135 128.27 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9502,7 +10302,7 @@
 		(fields_autoplaced yes)
 		(uuid "4abda4e1-b467-42e5-86e0-f25f23e7e152")
 		(property "Reference" "#PWR013"
-			(at 200.66 134.62 0)
+			(at 191.135 134.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9513,7 +10313,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 200.66 133.35 0)
+			(at 191.135 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9523,7 +10323,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 200.66 128.27 0)
+			(at 191.135 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9534,7 +10334,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 200.66 128.27 0)
+			(at 191.135 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9545,7 +10345,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 200.66 128.27 0)
+			(at 191.135 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9569,7 +10369,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 98.425 57.15 0)
+		(at 104.14 57.15 0)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9580,7 +10380,7 @@
 		(fields_autoplaced yes)
 		(uuid "4e4ad3b7-e6af-41fd-a26b-7acd02c7e47c")
 		(property "Reference" "U7"
-			(at 98.425 47.371 0)
+			(at 104.14 47.371 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9590,7 +10390,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 98.425 49.911 0)
+			(at 104.14 49.911 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9600,7 +10400,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 98.425 57.15 0)
+			(at 104.14 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9611,7 +10411,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 98.425 57.15 0)
+			(at 104.14 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9622,7 +10422,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 98.425 57.15 0)
+			(at 104.14 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9633,7 +10433,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 98.425 57.15 0)
+			(at 104.14 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9644,7 +10444,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 98.425 57.15 0)
+			(at 104.14 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9655,7 +10455,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 98.425 57.15 0)
+			(at 104.14 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9666,7 +10466,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 98.425 57.15 0)
+			(at 104.14 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9711,7 +10511,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 241.3 127 0)
+		(at 231.775 127 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9722,7 +10522,7 @@
 		(fields_autoplaced yes)
 		(uuid "4eb2ebfe-7cf6-48c6-88e9-5f639a94fc99")
 		(property "Reference" "#PWR016"
-			(at 241.3 133.35 0)
+			(at 231.775 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9733,7 +10533,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 241.3 132.08 0)
+			(at 231.775 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9743,7 +10543,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 241.3 127 0)
+			(at 231.775 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9754,7 +10554,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 241.3 127 0)
+			(at 231.775 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9765,7 +10565,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 241.3 127 0)
+			(at 231.775 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9789,7 +10589,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 216.535 148.59 0)
+		(at 207.01 148.59 0)
 		(unit 3)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9799,7 +10599,7 @@
 		(dnp no)
 		(uuid "4fdd83fb-f409-4d94-becf-89219c598df9")
 		(property "Reference" "U11"
-			(at 216.281 152.4 0)
+			(at 206.756 152.4 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9810,7 +10610,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 215.138 154.051 0)
+			(at 205.613 154.051 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9821,7 +10621,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9832,7 +10632,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9843,7 +10643,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9854,7 +10654,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9865,7 +10665,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9876,7 +10676,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9887,7 +10687,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10572,7 +11372,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 234.95 90.17 90)
+		(at 225.425 90.17 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10582,7 +11382,7 @@
 		(dnp no)
 		(uuid "574e2139-00b8-4a0f-9f77-0d71f9930832")
 		(property "Reference" "R11"
-			(at 234.95 92.075 90)
+			(at 225.425 92.075 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10592,7 +11392,7 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 234.95 90.17 90)
+			(at 225.425 90.17 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10602,7 +11402,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 234.95 91.948 90)
+			(at 225.425 91.948 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10613,7 +11413,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 234.95 90.17 0)
+			(at 225.425 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10624,7 +11424,7 @@
 			)
 		)
 		(property "Description" "RES 100K OHM 5% 1/10W 0603"
-			(at 234.95 90.17 0)
+			(at 225.425 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10635,7 +11435,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 234.95 90.17 90)
+			(at 225.425 90.17 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10646,7 +11446,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-100KGRCT-ND"
-			(at 234.95 90.17 90)
+			(at 225.425 90.17 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10657,7 +11457,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 234.95 90.17 90)
+			(at 225.425 90.17 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10668,7 +11468,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07100KL"
-			(at 234.95 90.17 90)
+			(at 225.425 90.17 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10695,7 +11495,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 200.025 153.67 0)
+		(at 190.5 153.67 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10706,7 +11506,7 @@
 		(fields_autoplaced yes)
 		(uuid "5786f65f-ca41-4331-a086-35afb8a5ea66")
 		(property "Reference" "C25"
-			(at 203.2 152.4 0)
+			(at 193.675 152.4 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10717,7 +11517,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 203.2 154.94 0)
+			(at 193.675 154.94 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10728,7 +11528,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 200.9902 157.48 0)
+			(at 191.4652 157.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10739,7 +11539,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 200.025 153.67 0)
+			(at 190.5 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10750,7 +11550,7 @@
 			)
 		)
 		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
-			(at 200.025 153.67 0)
+			(at 190.5 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10761,7 +11561,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 200.025 153.67 0)
+			(at 190.5 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10772,7 +11572,7 @@
 			)
 		)
 		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
-			(at 200.025 153.67 0)
+			(at 190.5 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10783,7 +11583,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 200.025 153.67 0)
+			(at 190.5 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10794,7 +11594,7 @@
 			)
 		)
 		(property "Manufacturer PN" "C0603C104K5RACTU"
-			(at 200.025 153.67 0)
+			(at 190.5 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11070,7 +11870,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 196.85 115.57 270)
+		(at 187.325 115.57 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11081,7 +11881,7 @@
 		(fields_autoplaced yes)
 		(uuid "58c8554a-386c-4c33-9ddf-51e96f5098da")
 		(property "Reference" "R14"
-			(at 196.85 109.22 90)
+			(at 187.325 109.22 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11091,7 +11891,7 @@
 			)
 		)
 		(property "Value" "6k2"
-			(at 196.85 111.76 90)
+			(at 187.325 111.76 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11101,7 +11901,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 196.85 113.792 90)
+			(at 187.325 113.792 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11112,7 +11912,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 196.85 115.57 0)
+			(at 187.325 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11123,7 +11923,7 @@
 			)
 		)
 		(property "Description" "RES 6.2K OHM 5% 1/10W 0603"
-			(at 196.85 115.57 0)
+			(at 187.325 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11134,7 +11934,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 196.85 115.57 90)
+			(at 187.325 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11145,7 +11945,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-6.2KGRCT-ND"
-			(at 196.85 115.57 90)
+			(at 187.325 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11156,7 +11956,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 196.85 115.57 90)
+			(at 187.325 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11167,7 +11967,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-076K2L"
-			(at 196.85 115.57 90)
+			(at 187.325 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11194,7 +11994,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 200.66 123.19 0)
+		(at 191.135 123.19 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11205,7 +12005,7 @@
 		(fields_autoplaced yes)
 		(uuid "5a638878-6fb6-4fce-b1a3-99f07e9153da")
 		(property "Reference" "C7"
-			(at 203.835 121.92 0)
+			(at 194.31 121.92 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11216,7 +12016,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 203.835 124.46 0)
+			(at 194.31 124.46 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11227,7 +12027,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 201.6252 127 0)
+			(at 192.1002 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11238,7 +12038,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 200.66 123.19 0)
+			(at 191.135 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11249,7 +12049,7 @@
 			)
 		)
 		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
-			(at 200.66 123.19 0)
+			(at 191.135 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11260,7 +12060,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 200.66 123.19 0)
+			(at 191.135 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11271,7 +12071,7 @@
 			)
 		)
 		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
-			(at 200.66 123.19 0)
+			(at 191.135 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11282,7 +12082,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 200.66 123.19 0)
+			(at 191.135 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11293,7 +12093,7 @@
 			)
 		)
 		(property "Manufacturer PN" "C0603C104K5RACTU"
-			(at 200.66 123.19 0)
+			(at 191.135 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11569,7 +12369,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 267.97 30.48 270)
+		(at 265.43 30.48 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11579,7 +12379,7 @@
 		(dnp no)
 		(uuid "61ca7bc3-0b4c-4310-8ef8-d12f2db76449")
 		(property "Reference" "R41"
-			(at 267.97 28.575 90)
+			(at 265.43 28.575 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11589,7 +12389,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 267.97 30.48 90)
+			(at 265.43 30.48 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11599,7 +12399,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 267.97 28.702 90)
+			(at 265.43 28.702 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11610,7 +12410,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 267.97 30.48 0)
+			(at 265.43 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11621,7 +12421,7 @@
 			)
 		)
 		(property "Description" "RES 470 OHM 5% 1/10W 0603"
-			(at 267.97 30.48 0)
+			(at 265.43 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11632,7 +12432,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 267.97 30.48 90)
+			(at 265.43 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11643,7 +12443,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-470GRCT-ND"
-			(at 267.97 30.48 90)
+			(at 265.43 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11654,7 +12454,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 267.97 30.48 90)
+			(at 265.43 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11665,7 +12465,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07470RL"
-			(at 267.97 30.48 90)
+			(at 265.43 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11692,7 +12492,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 237.49 118.11 90)
+		(at 227.965 118.11 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11702,7 +12502,7 @@
 		(dnp no)
 		(uuid "6343fa60-650b-4f02-9cac-d3fc2f5f69be")
 		(property "Reference" "R15"
-			(at 237.49 120.015 90)
+			(at 227.965 120.015 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11712,7 +12512,7 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 237.49 118.11 90)
+			(at 227.965 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11722,7 +12522,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 237.49 119.888 90)
+			(at 227.965 119.888 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11733,7 +12533,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 237.49 118.11 0)
+			(at 227.965 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11744,7 +12544,7 @@
 			)
 		)
 		(property "Description" "RES 100K OHM 5% 1/10W 0603"
-			(at 237.49 118.11 0)
+			(at 227.965 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11755,7 +12555,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 237.49 118.11 90)
+			(at 227.965 118.11 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11766,7 +12566,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-100KGRCT-ND"
-			(at 237.49 118.11 90)
+			(at 227.965 118.11 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11777,7 +12577,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 237.49 118.11 90)
+			(at 227.965 118.11 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11788,7 +12588,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07100KL"
-			(at 237.49 118.11 90)
+			(at 227.965 118.11 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12391,7 +13191,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 184.785 115.57 270)
+		(at 175.26 115.57 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12402,7 +13202,7 @@
 		(fields_autoplaced yes)
 		(uuid "6be1f375-6d6a-45c4-aef4-3adf9e3bae42")
 		(property "Reference" "R13"
-			(at 184.785 109.22 90)
+			(at 175.26 109.22 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12412,7 +13212,7 @@
 			)
 		)
 		(property "Value" "6k2"
-			(at 184.785 111.76 90)
+			(at 175.26 111.76 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12422,7 +13222,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 184.785 113.792 90)
+			(at 175.26 113.792 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12433,7 +13233,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 184.785 115.57 0)
+			(at 175.26 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12444,7 +13244,7 @@
 			)
 		)
 		(property "Description" "RES 6.2K OHM 5% 1/10W 0603"
-			(at 184.785 115.57 0)
+			(at 175.26 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12455,7 +13255,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 184.785 115.57 90)
+			(at 175.26 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12466,7 +13266,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-6.2KGRCT-ND"
-			(at 184.785 115.57 90)
+			(at 175.26 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12477,7 +13277,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 184.785 115.57 90)
+			(at 175.26 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12488,7 +13288,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-076K2L"
-			(at 184.785 115.57 90)
+			(at 175.26 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12508,6 +13308,84 @@
 			(project "pico_ecg"
 				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
 					(reference "R13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 86.36 35.56 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6ca9f82c-7847-43a4-9d3c-f36992fbba6a")
+		(property "Reference" "#PWR087"
+			(at 86.36 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 86.36 40.64 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.36 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 86.36 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d5326ed2-714d-4799-964f-de8c4ea51b15")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "#PWR087")
 					(unit 1)
 				)
 			)
@@ -12641,7 +13519,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 197.485 25.4 270)
+		(at 187.96 25.4 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12652,7 +13530,7 @@
 		(fields_autoplaced yes)
 		(uuid "6cefa3de-409e-4444-b553-386d94adb8fa")
 		(property "Reference" "R2"
-			(at 197.485 19.177 90)
+			(at 187.96 19.177 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12662,7 +13540,7 @@
 			)
 		)
 		(property "Value" "6k2"
-			(at 197.485 21.717 90)
+			(at 187.96 21.717 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12672,7 +13550,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 197.485 23.622 90)
+			(at 187.96 23.622 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12683,7 +13561,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 197.485 25.4 0)
+			(at 187.96 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12694,7 +13572,7 @@
 			)
 		)
 		(property "Description" "RES 6.2K OHM 5% 1/10W 0603"
-			(at 197.485 25.4 0)
+			(at 187.96 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12705,7 +13583,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 197.485 25.4 90)
+			(at 187.96 25.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12716,7 +13594,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-6.2KGRCT-ND"
-			(at 197.485 25.4 90)
+			(at 187.96 25.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12727,7 +13605,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 197.485 25.4 90)
+			(at 187.96 25.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12738,7 +13616,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-076K2L"
-			(at 197.485 25.4 90)
+			(at 187.96 25.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12765,7 +13643,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 216.535 148.59 0)
+		(at 207.01 148.59 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12775,7 +13653,7 @@
 		(dnp no)
 		(uuid "6f0d8b88-14b0-4d99-937b-4ad83a468199")
 		(property "Reference" "U11"
-			(at 217.805 141.478 0)
+			(at 208.28 141.478 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12785,7 +13663,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 221.869 143.764 0)
+			(at 212.344 143.764 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12795,7 +13673,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12806,7 +13684,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12817,7 +13695,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12828,7 +13706,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12839,7 +13717,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12850,7 +13728,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12861,7 +13739,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 216.535 148.59 0)
+			(at 207.01 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13183,8 +14061,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 212.09 82.55 0)
+		(lib_id "Device:C")
+		(at 86.36 30.48 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13192,30 +14070,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "7653bcb9-cef6-4e73-a643-986839b91122")
-		(property "Reference" "#PWR010"
-			(at 212.09 86.36 0)
-			(hide yes)
+		(uuid "7345f8b3-b657-48ee-b3af-5d1e7c7d23ba")
+		(property "Reference" "C38"
+			(at 86.614 28.448 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "+3.3V"
-			(at 208.28 81.28 0)
+		(property "Value" "100nF"
+			(at 86.36 33.274 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" ""
-			(at 212.09 82.55 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 85.3948 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13226,7 +14105,131 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 212.09 82.55 0)
+			(at 86.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+			(at 86.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor" "Digikey"
+			(at 86.36 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
+			(at 86.36 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 86.36 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer PN" "C0603C104K5RACTU"
+			(at 86.36 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e153f138-e2a3-435a-a4b0-060f1d0006d4")
+		)
+		(pin "2"
+			(uuid "a77397df-cc9b-407e-9383-cbac4f14753f")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "C38")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 202.565 82.55 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7653bcb9-cef6-4e73-a643-986839b91122")
+		(property "Reference" "#PWR010"
+			(at 202.565 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 198.755 81.28 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 202.565 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 202.565 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13237,7 +14240,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 212.09 82.55 0)
+			(at 202.565 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13254,6 +14257,209 @@
 			(project "pico_ecg"
 				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
 					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 233.68 93.98 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7967a283-65ac-42dc-a0a8-7c414a92e55c")
+		(property "Reference" "C41"
+			(at 233.934 91.948 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100nF"
+			(at 233.68 96.774 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 232.7148 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 233.68 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+			(at 233.68 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor" "Digikey"
+			(at 233.68 93.98 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
+			(at 233.68 93.98 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 233.68 93.98 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer PN" "C0603C104K5RACTU"
+			(at 233.68 93.98 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a17b3f9f-5e21-428b-b001-036e6d3465e1")
+		)
+		(pin "2"
+			(uuid "8b8cfa7d-e9c4-417a-9676-f4f8596346f5")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "C41")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 88.9 125.73 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "797b5cdc-b023-48ca-b059-680ac9871dc5")
+		(property "Reference" "#PWR079"
+			(at 88.9 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 88.9 130.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 88.9 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 88.9 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "10e58679-c95b-4695-a294-ade11a2aff2e")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "#PWR079")
 					(unit 1)
 				)
 			)
@@ -13409,6 +14615,131 @@
 			(project "pico_ecg"
 				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
 					(reference "#PWR048")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 237.49 31.75 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7ad498b9-0883-4b17-a2e6-40d59958f8a5")
+		(property "Reference" "C42"
+			(at 237.744 29.718 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100nF"
+			(at 237.49 34.544 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 236.5248 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 237.49 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+			(at 237.49 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor" "Digikey"
+			(at 237.49 31.75 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
+			(at 237.49 31.75 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 237.49 31.75 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer PN" "C0603C104K5RACTU"
+			(at 237.49 31.75 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "99a9a7aa-375e-417b-84e0-497748813b7b")
+		)
+		(pin "2"
+			(uuid "0a48b2ad-1987-440b-864a-33381a3659de")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "C42")
 					(unit 1)
 				)
 			)
@@ -13745,7 +15076,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 113.03 57.15 270)
+		(at 118.745 57.15 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13755,7 +15086,7 @@
 		(dnp no)
 		(uuid "7f6118d3-76ca-4aaf-a92a-3f4024140a12")
 		(property "Reference" "R57"
-			(at 113.03 55.245 90)
+			(at 118.745 55.245 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13765,7 +15096,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 113.03 57.15 90)
+			(at 118.745 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13775,7 +15106,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 113.03 55.372 90)
+			(at 118.745 55.372 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13786,7 +15117,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 113.03 57.15 0)
+			(at 118.745 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13797,7 +15128,7 @@
 			)
 		)
 		(property "Description" "RES 470 OHM 5% 1/10W 0603"
-			(at 113.03 57.15 0)
+			(at 118.745 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13808,7 +15139,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 113.03 57.15 90)
+			(at 118.745 57.15 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13819,7 +15150,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-470GRCT-ND"
-			(at 113.03 57.15 90)
+			(at 118.745 57.15 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13830,7 +15161,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 113.03 57.15 90)
+			(at 118.745 57.15 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13841,7 +15172,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07470RL"
-			(at 113.03 57.15 90)
+			(at 118.745 57.15 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13945,7 +15276,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 111.76 29.21 270)
+		(at 117.475 29.21 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13955,7 +15286,7 @@
 		(dnp no)
 		(uuid "84b45611-815f-42b9-910e-112e070077ce")
 		(property "Reference" "R42"
-			(at 111.76 27.305 90)
+			(at 117.475 27.305 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13965,7 +15296,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 111.76 29.21 90)
+			(at 117.475 29.21 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13975,7 +15306,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 111.76 27.432 90)
+			(at 117.475 27.432 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13986,7 +15317,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 111.76 29.21 0)
+			(at 117.475 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13997,7 +15328,7 @@
 			)
 		)
 		(property "Description" "RES 470 OHM 5% 1/10W 0603"
-			(at 111.76 29.21 0)
+			(at 117.475 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14008,7 +15339,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 111.76 29.21 90)
+			(at 117.475 29.21 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14019,7 +15350,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-470GRCT-ND"
-			(at 111.76 29.21 90)
+			(at 117.475 29.21 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14030,7 +15361,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 111.76 29.21 90)
+			(at 117.475 29.21 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14041,7 +15372,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07470RL"
-			(at 111.76 29.21 90)
+			(at 117.475 29.21 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14146,7 +15477,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 215.265 20.32 0)
+		(at 205.74 20.32 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14156,7 +15487,7 @@
 		(dnp no)
 		(uuid "874cf00b-20f7-4562-81fd-f2c019e8ccf5")
 		(property "Reference" "#PWR04"
-			(at 215.265 24.13 0)
+			(at 205.74 24.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14167,7 +15498,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 211.455 19.05 0)
+			(at 201.93 19.05 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14177,7 +15508,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 215.265 20.32 0)
+			(at 205.74 20.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14188,7 +15519,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 215.265 20.32 0)
+			(at 205.74 20.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14199,7 +15530,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 215.265 20.32 0)
+			(at 205.74 20.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14223,7 +15554,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 220.345 15.875 90)
+		(at 210.82 15.875 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14233,7 +15564,7 @@
 		(dnp no)
 		(uuid "88541d01-dae6-4ace-8f23-f4cf4e44f35b")
 		(property "Reference" "C1"
-			(at 217.678 14.478 90)
+			(at 208.153 14.478 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14243,7 +15574,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 224.536 14.478 90)
+			(at 215.011 14.478 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14253,7 +15584,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 224.155 14.9098 0)
+			(at 214.63 14.9098 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14264,7 +15595,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 220.345 15.875 0)
+			(at 210.82 15.875 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14275,7 +15606,7 @@
 			)
 		)
 		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
-			(at 220.345 15.875 0)
+			(at 210.82 15.875 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14286,7 +15617,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 220.345 15.875 90)
+			(at 210.82 15.875 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14297,7 +15628,7 @@
 			)
 		)
 		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
-			(at 220.345 15.875 90)
+			(at 210.82 15.875 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14308,7 +15639,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 220.345 15.875 90)
+			(at 210.82 15.875 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14319,7 +15650,7 @@
 			)
 		)
 		(property "Manufacturer PN" "C0603C104K5RACTU"
-			(at 220.345 15.875 90)
+			(at 210.82 15.875 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14416,6 +15747,84 @@
 			(project "pico_ecg"
 				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
 					(reference "#PWR026")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 236.22 157.48 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8d6f9fcc-c829-4d4d-9ec7-38c5f0fab831")
+		(property "Reference" "#PWR088"
+			(at 236.22 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 236.22 162.56 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 236.22 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9d8c027a-1a20-42b2-ba9b-2b9c8d77c50f")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "#PWR088")
 					(unit 1)
 				)
 			)
@@ -14785,7 +16194,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 99.695 85.09 0)
+		(at 105.41 85.09 0)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14796,7 +16205,7 @@
 		(fields_autoplaced yes)
 		(uuid "933c084c-5016-4562-98e9-4c2730c4fb3f")
 		(property "Reference" "U8"
-			(at 99.695 75.311 0)
+			(at 105.41 75.311 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14806,7 +16215,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 99.695 77.851 0)
+			(at 105.41 77.851 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14816,7 +16225,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 99.695 85.09 0)
+			(at 105.41 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14827,7 +16236,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 99.695 85.09 0)
+			(at 105.41 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14838,7 +16247,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 99.695 85.09 0)
+			(at 105.41 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14849,7 +16258,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 99.695 85.09 0)
+			(at 105.41 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14860,7 +16269,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 99.695 85.09 0)
+			(at 105.41 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14871,7 +16280,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 99.695 85.09 0)
+			(at 105.41 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14882,7 +16291,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 99.695 85.09 0)
+			(at 105.41 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14927,7 +16336,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 238.76 99.06 0)
+		(at 229.235 99.06 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14937,7 +16346,7 @@
 		(dnp no)
 		(uuid "94dda5a1-147f-4e55-8700-250e4d69c02e")
 		(property "Reference" "#PWR012"
-			(at 238.76 105.41 0)
+			(at 229.235 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14948,7 +16357,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 235.331 101.092 0)
+			(at 225.806 101.092 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14958,7 +16367,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 238.76 99.06 0)
+			(at 229.235 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14969,7 +16378,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 99.06 0)
+			(at 229.235 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14980,7 +16389,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 238.76 99.06 0)
+			(at 229.235 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15081,7 +16490,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 98.425 119.38 0)
+		(at 104.14 119.38 0)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15092,7 +16501,7 @@
 		(fields_autoplaced yes)
 		(uuid "96484a68-b745-4104-ab3b-7178e743671c")
 		(property "Reference" "U9"
-			(at 98.425 109.601 0)
+			(at 104.14 109.601 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15102,7 +16511,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 98.425 112.141 0)
+			(at 104.14 112.141 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15112,7 +16521,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 98.425 119.38 0)
+			(at 104.14 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15123,7 +16532,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 98.425 119.38 0)
+			(at 104.14 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15134,7 +16543,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 98.425 119.38 0)
+			(at 104.14 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15145,7 +16554,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 98.425 119.38 0)
+			(at 104.14 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15156,7 +16565,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 98.425 119.38 0)
+			(at 104.14 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15167,7 +16576,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 98.425 119.38 0)
+			(at 104.14 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15178,7 +16587,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 98.425 119.38 0)
+			(at 104.14 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15771,7 +17180,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 245.745 66.04 0)
+		(at 236.22 66.04 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15782,7 +17191,7 @@
 		(fields_autoplaced yes)
 		(uuid "9eb5f208-7858-4630-a82e-ca66302dc61a")
 		(property "Reference" "#PWR05"
-			(at 245.745 72.39 0)
+			(at 236.22 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15793,7 +17202,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 245.745 71.12 0)
+			(at 236.22 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15803,7 +17212,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 245.745 66.04 0)
+			(at 236.22 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15814,7 +17223,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 245.745 66.04 0)
+			(at 236.22 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15825,7 +17234,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 245.745 66.04 0)
+			(at 236.22 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16269,7 +17678,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 267.97 92.71 270)
+		(at 266.065 92.71 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16279,7 +17688,7 @@
 		(dnp no)
 		(uuid "ada8d69d-ef89-4d74-b36a-3a462dbe0db0")
 		(property "Reference" "R8"
-			(at 267.97 90.805 90)
+			(at 266.065 90.805 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16289,7 +17698,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 267.97 92.71 90)
+			(at 266.065 92.71 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16299,7 +17708,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 267.97 90.932 90)
+			(at 266.065 90.932 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16310,7 +17719,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 267.97 92.71 0)
+			(at 266.065 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16321,7 +17730,7 @@
 			)
 		)
 		(property "Description" "RES 470 OHM 5% 1/10W 0603"
-			(at 267.97 92.71 0)
+			(at 266.065 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16332,7 +17741,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 267.97 92.71 90)
+			(at 266.065 92.71 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16343,7 +17752,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-470GRCT-ND"
-			(at 267.97 92.71 90)
+			(at 266.065 92.71 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16354,7 +17763,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 267.97 92.71 90)
+			(at 266.065 92.71 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16365,7 +17774,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07470RL"
-			(at 267.97 92.71 90)
+			(at 266.065 92.71 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16463,6 +17872,84 @@
 			(project "pico_ecg"
 				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
 					(reference "#PWR032")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 237.49 36.83 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b156a349-c73a-4e3b-9f07-d93cfdf0b5f2")
+		(property "Reference" "#PWR095"
+			(at 237.49 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 237.49 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 237.49 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 237.49 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 237.49 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0bfd3862-f26c-49bb-aa70-09f04e5a89c4")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "#PWR095")
 					(unit 1)
 				)
 			)
@@ -16594,7 +18081,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 185.42 25.4 270)
+		(at 175.895 25.4 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16605,7 +18092,7 @@
 		(fields_autoplaced yes)
 		(uuid "b23f43b5-de55-47fe-bfac-62ea8effe2e2")
 		(property "Reference" "R1"
-			(at 185.42 19.177 90)
+			(at 175.895 19.177 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16615,7 +18102,7 @@
 			)
 		)
 		(property "Value" "6k2"
-			(at 185.42 21.717 90)
+			(at 175.895 21.717 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16625,7 +18112,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 185.42 23.622 90)
+			(at 175.895 23.622 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16636,7 +18123,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 185.42 25.4 0)
+			(at 175.895 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16647,7 +18134,7 @@
 			)
 		)
 		(property "Description" "RES 6.2K OHM 5% 1/10W 0603"
-			(at 185.42 25.4 0)
+			(at 175.895 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16658,7 +18145,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 185.42 25.4 90)
+			(at 175.895 25.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16669,7 +18156,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-6.2KGRCT-ND"
-			(at 185.42 25.4 90)
+			(at 175.895 25.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16680,7 +18167,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 185.42 25.4 90)
+			(at 175.895 25.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16691,7 +18178,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-076K2L"
-			(at 185.42 25.4 90)
+			(at 175.895 25.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16966,7 +18453,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 267.97 120.65 270)
+		(at 266.065 120.65 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16976,7 +18463,7 @@
 		(dnp no)
 		(uuid "b4c1a232-bbc6-4d05-8a64-2fa67c6353ef")
 		(property "Reference" "R5"
-			(at 267.97 118.745 90)
+			(at 266.065 118.745 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16986,7 +18473,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 267.97 120.65 90)
+			(at 266.065 120.65 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16996,7 +18483,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 267.97 118.872 90)
+			(at 266.065 118.872 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17007,7 +18494,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 267.97 120.65 0)
+			(at 266.065 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17018,7 +18505,7 @@
 			)
 		)
 		(property "Description" "RES 470 OHM 5% 1/10W 0603"
-			(at 267.97 120.65 0)
+			(at 266.065 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17029,7 +18516,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 267.97 120.65 90)
+			(at 266.065 120.65 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17040,7 +18527,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-470GRCT-ND"
-			(at 267.97 120.65 90)
+			(at 266.065 120.65 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17051,7 +18538,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 267.97 120.65 90)
+			(at 266.065 120.65 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17062,7 +18549,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07470RL"
-			(at 267.97 120.65 90)
+			(at 266.065 120.65 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17089,7 +18576,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 241.3 123.19 0)
+		(at 231.775 123.19 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17099,7 +18586,7 @@
 		(dnp no)
 		(uuid "b523e66b-50f3-4014-84bc-7abcac3b8351")
 		(property "Reference" "R16"
-			(at 239.395 123.19 90)
+			(at 229.87 123.19 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17109,7 +18596,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 241.3 123.19 90)
+			(at 231.775 123.19 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17119,7 +18606,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 239.522 123.19 90)
+			(at 229.997 123.19 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17130,7 +18617,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 241.3 123.19 0)
+			(at 231.775 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17141,7 +18628,7 @@
 			)
 		)
 		(property "Description" "RES 1K OHM 5% 1/10W 0603"
-			(at 241.3 123.19 0)
+			(at 231.775 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17152,7 +18639,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 241.3 123.19 90)
+			(at 231.775 123.19 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17163,7 +18650,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-1.0KGRCT-ND"
-			(at 241.3 123.19 90)
+			(at 231.775 123.19 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17174,7 +18661,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 241.3 123.19 90)
+			(at 231.775 123.19 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17185,7 +18672,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-071KL"
-			(at 241.3 123.19 90)
+			(at 231.775 123.19 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17212,7 +18699,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 219.075 136.525 90)
+		(at 209.55 136.525 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17222,7 +18709,7 @@
 		(dnp no)
 		(uuid "b67c22a9-d8a0-483f-87ef-ddfe9b418f11")
 		(property "Reference" "C26"
-			(at 215.9 135.128 90)
+			(at 206.375 135.128 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17232,7 +18719,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 223.52 135.128 90)
+			(at 213.995 135.128 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17242,7 +18729,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 222.885 135.5598 0)
+			(at 213.36 135.5598 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17253,7 +18740,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 219.075 136.525 0)
+			(at 209.55 136.525 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17264,7 +18751,7 @@
 			)
 		)
 		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
-			(at 219.075 136.525 0)
+			(at 209.55 136.525 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17275,7 +18762,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 219.075 136.525 90)
+			(at 209.55 136.525 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17286,7 +18773,7 @@
 			)
 		)
 		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
-			(at 219.075 136.525 90)
+			(at 209.55 136.525 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17297,7 +18784,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 219.075 136.525 90)
+			(at 209.55 136.525 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17308,7 +18795,7 @@
 			)
 		)
 		(property "Manufacturer PN" "C0603C104K5RACTU"
-			(at 219.075 136.525 90)
+			(at 209.55 136.525 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17335,7 +18822,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 198.12 100.33 0)
+		(at 188.595 100.33 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17345,7 +18832,7 @@
 		(dnp no)
 		(uuid "b6fa6050-77b0-41e1-a03b-d8a63999c935")
 		(property "Reference" "#PWR09"
-			(at 198.12 106.68 0)
+			(at 188.595 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17356,7 +18843,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 201.549 101.092 0)
+			(at 192.024 101.092 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17366,7 +18853,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 198.12 100.33 0)
+			(at 188.595 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17377,7 +18864,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 198.12 100.33 0)
+			(at 188.595 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17388,7 +18875,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 198.12 100.33 0)
+			(at 188.595 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17411,8 +18898,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 238.76 95.25 0)
+		(lib_id "Device:C")
+		(at 88.9 58.42 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17420,29 +18907,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "b963f09f-d4b0-4842-ba9b-d10d848e4237")
-		(property "Reference" "R12"
-			(at 236.855 95.25 90)
+		(uuid "b8cb1c5f-ed6d-40f4-b7f8-c61739dab4a0")
+		(property "Reference" "C37"
+			(at 89.154 56.388 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "1k"
-			(at 238.76 95.25 90)
+		(property "Value" "100nF"
+			(at 88.9 61.214 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 236.982 95.25 90)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 87.9348 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17453,7 +18942,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 95.25 0)
+			(at 88.9 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17463,8 +18952,8 @@
 				)
 			)
 		)
-		(property "Description" "RES 1K OHM 5% 1/10W 0603"
-			(at 238.76 95.25 0)
+		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+			(at 88.9 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17475,7 +18964,130 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 238.76 95.25 90)
+			(at 88.9 58.42 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
+			(at 88.9 58.42 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 88.9 58.42 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer PN" "C0603C104K5RACTU"
+			(at 88.9 58.42 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f122a9b5-77c1-4915-984a-b52f5eda3a5e")
+		)
+		(pin "2"
+			(uuid "7a430380-a87f-41c9-ba9c-a47e72d1d9dc")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "C37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 229.235 95.25 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b963f09f-d4b0-4842-ba9b-d10d848e4237")
+		(property "Reference" "R12"
+			(at 227.33 95.25 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 229.235 95.25 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 227.457 95.25 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 229.235 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 1K OHM 5% 1/10W 0603"
+			(at 229.235 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor" "Digikey"
+			(at 229.235 95.25 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17486,7 +19098,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-1.0KGRCT-ND"
-			(at 238.76 95.25 90)
+			(at 229.235 95.25 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17497,7 +19109,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 238.76 95.25 90)
+			(at 229.235 95.25 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17508,7 +19120,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-071KL"
-			(at 238.76 95.25 90)
+			(at 229.235 95.25 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17535,7 +19147,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 214.63 90.17 0)
+		(at 205.105 90.17 0)
 		(unit 3)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17545,7 +19157,7 @@
 		(dnp no)
 		(uuid "b9649a74-8f57-4b1c-97bb-f53cf080935d")
 		(property "Reference" "U4"
-			(at 214.376 93.98 0)
+			(at 204.851 93.98 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17556,7 +19168,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 213.233 95.631 0)
+			(at 203.708 95.631 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17567,7 +19179,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17578,7 +19190,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17589,7 +19201,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17600,7 +19212,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17611,7 +19223,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17622,7 +19234,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17633,7 +19245,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17678,7 +19290,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 182.245 87.63 270)
+		(at 172.72 87.63 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17689,7 +19301,7 @@
 		(fields_autoplaced yes)
 		(uuid "be7da123-d7b3-4ae6-962d-ee763a61947f")
 		(property "Reference" "R9"
-			(at 182.245 81.915 90)
+			(at 172.72 81.915 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17699,7 +19311,7 @@
 			)
 		)
 		(property "Value" "6k2"
-			(at 182.245 84.455 90)
+			(at 172.72 84.455 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17709,7 +19321,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 182.245 85.852 90)
+			(at 172.72 85.852 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17720,7 +19332,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 182.245 87.63 0)
+			(at 172.72 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17731,7 +19343,7 @@
 			)
 		)
 		(property "Description" "RES 6.2K OHM 5% 1/10W 0603"
-			(at 182.245 87.63 0)
+			(at 172.72 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17742,7 +19354,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 182.245 87.63 90)
+			(at 172.72 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17753,7 +19365,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-6.2KGRCT-ND"
-			(at 182.245 87.63 90)
+			(at 172.72 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17764,7 +19376,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 182.245 87.63 90)
+			(at 172.72 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17775,7 +19387,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-076K2L"
-			(at 182.245 87.63 90)
+			(at 172.72 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17925,7 +19537,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 215.265 38.1 0)
+		(at 205.74 38.1 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17936,7 +19548,7 @@
 		(fields_autoplaced yes)
 		(uuid "bf05c9b7-dfbf-4329-818e-2d0b157b07cb")
 		(property "Reference" "#PWR02"
-			(at 215.265 44.45 0)
+			(at 205.74 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17947,7 +19559,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 215.265 43.18 0)
+			(at 205.74 43.18 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17957,7 +19569,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 215.265 38.1 0)
+			(at 205.74 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17968,7 +19580,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 215.265 38.1 0)
+			(at 205.74 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17979,7 +19591,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 215.265 38.1 0)
+			(at 205.74 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18003,7 +19615,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 236.855 148.59 90)
+		(at 227.33 148.59 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -18013,7 +19625,7 @@
 		(dnp no)
 		(uuid "c2104214-d189-4677-815b-12c250805212")
 		(property "Reference" "R35"
-			(at 236.855 150.495 90)
+			(at 227.33 150.495 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18023,7 +19635,7 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 236.855 148.59 90)
+			(at 227.33 148.59 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18033,7 +19645,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 236.855 150.368 90)
+			(at 227.33 150.368 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18044,7 +19656,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 236.855 148.59 0)
+			(at 227.33 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18055,7 +19667,7 @@
 			)
 		)
 		(property "Description" "RES 100K OHM 5% 1/10W 0603"
-			(at 236.855 148.59 0)
+			(at 227.33 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18066,7 +19678,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 236.855 148.59 90)
+			(at 227.33 148.59 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18077,7 +19689,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-100KGRCT-ND"
-			(at 236.855 148.59 90)
+			(at 227.33 148.59 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18088,7 +19700,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 236.855 148.59 90)
+			(at 227.33 148.59 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18099,7 +19711,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07100KL"
-			(at 236.855 148.59 90)
+			(at 227.33 148.59 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18126,7 +19738,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 245.745 59.69 180)
+		(at 236.22 59.69 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -18136,7 +19748,7 @@
 		(dnp no)
 		(uuid "c2978612-f285-4c24-a7eb-1b839320815c")
 		(property "Reference" "R7"
-			(at 247.65 59.69 90)
+			(at 238.125 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18146,7 +19758,7 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 245.745 59.69 90)
+			(at 236.22 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18156,7 +19768,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 247.523 59.69 90)
+			(at 237.998 59.69 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18167,7 +19779,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 245.745 59.69 0)
+			(at 236.22 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18178,7 +19790,7 @@
 			)
 		)
 		(property "Description" "RES 100K OHM 5% 1/10W 0603"
-			(at 245.745 59.69 0)
+			(at 236.22 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18189,7 +19801,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 245.745 59.69 90)
+			(at 236.22 59.69 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18200,7 +19812,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-100KGRCT-ND"
-			(at 245.745 59.69 90)
+			(at 236.22 59.69 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18211,7 +19823,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 245.745 59.69 90)
+			(at 236.22 59.69 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18222,7 +19834,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07100KL"
-			(at 245.745 59.69 90)
+			(at 236.22 59.69 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18319,6 +19931,84 @@
 			(project "pico_ecg"
 				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
 					(reference "#PWR042")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 236.22 127 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c4a6f4ec-27bc-4df0-a8cd-e98d7798cfd4")
+		(property "Reference" "#PWR093"
+			(at 236.22 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 236.22 132.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 236.22 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7d776770-b0b1-4573-8eb2-f5334e079422")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "#PWR093")
 					(unit 1)
 				)
 			)
@@ -18450,7 +20140,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 213.995 158.75 0)
+		(at 204.47 158.75 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -18461,7 +20151,7 @@
 		(fields_autoplaced yes)
 		(uuid "c8151a31-8454-49e3-8bc5-5cd3aa702a68")
 		(property "Reference" "#PWR072"
-			(at 213.995 165.1 0)
+			(at 204.47 165.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18472,7 +20162,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 213.995 163.83 0)
+			(at 204.47 163.83 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18482,7 +20172,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 213.995 158.75 0)
+			(at 204.47 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18493,7 +20183,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 213.995 158.75 0)
+			(at 204.47 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18504,7 +20194,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 213.995 158.75 0)
+			(at 204.47 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18930,8 +20620,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 198.12 95.25 0)
+		(lib_id "power:GND")
+		(at 90.17 91.44 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -18940,31 +20630,30 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "cea58ffd-6d27-47a6-896b-f85b6cd5b21b")
-		(property "Reference" "C5"
-			(at 201.295 93.98 0)
+		(uuid "cc7f3924-e9e9-45e5-b7e8-31c148b891a4")
+		(property "Reference" "#PWR080"
+			(at 90.17 97.79 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "100nF"
-			(at 201.295 96.52 0)
+		(property "Value" "GND"
+			(at 90.17 96.52 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 199.0852 99.06 0)
+		(property "Footprint" ""
+			(at 90.17 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18975,7 +20664,86 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 198.12 95.25 0)
+			(at 90.17 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 90.17 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "87289428-027f-4d02-a0bc-7705a1e931d0")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "#PWR080")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 188.595 95.25 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cea58ffd-6d27-47a6-896b-f85b6cd5b21b")
+		(property "Reference" "C5"
+			(at 191.77 93.98 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 191.77 96.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 189.5602 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 188.595 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18986,7 +20754,7 @@
 			)
 		)
 		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
-			(at 198.12 95.25 0)
+			(at 188.595 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18997,7 +20765,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 198.12 95.25 0)
+			(at 188.595 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19008,7 +20776,7 @@
 			)
 		)
 		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
-			(at 198.12 95.25 0)
+			(at 188.595 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19019,7 +20787,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 198.12 95.25 0)
+			(at 188.595 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19030,7 +20798,7 @@
 			)
 		)
 		(property "Manufacturer PN" "C0603C104K5RACTU"
-			(at 198.12 95.25 0)
+			(at 188.595 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19134,7 +20902,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 101.6 152.4 0)
+		(at 106.68 152.4 0)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19145,7 +20913,7 @@
 		(fields_autoplaced yes)
 		(uuid "d41b0646-893f-4d22-921b-380936c32842")
 		(property "Reference" "U12"
-			(at 101.6 142.621 0)
+			(at 106.68 142.621 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19155,7 +20923,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 101.6 145.161 0)
+			(at 106.68 145.161 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19165,7 +20933,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 101.6 152.4 0)
+			(at 106.68 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19176,7 +20944,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 101.6 152.4 0)
+			(at 106.68 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19187,7 +20955,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 101.6 152.4 0)
+			(at 106.68 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19198,7 +20966,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 101.6 152.4 0)
+			(at 106.68 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19209,7 +20977,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 101.6 152.4 0)
+			(at 106.68 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19220,7 +20988,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 101.6 152.4 0)
+			(at 106.68 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19231,7 +20999,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 101.6 152.4 0)
+			(at 106.68 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19554,8 +21322,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 213.995 140.97 0)
+		(lib_id "Device:C")
+		(at 90.17 86.36 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19563,30 +21331,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "db4a3896-b117-46a1-8f42-7e9e31f6f2e9")
-		(property "Reference" "#PWR071"
-			(at 213.995 144.78 0)
-			(hide yes)
+		(uuid "d8e786c7-32d4-4f29-95ea-455526d8f7eb")
+		(property "Reference" "C36"
+			(at 90.424 84.328 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "+3.3V"
-			(at 210.185 139.7 0)
+		(property "Value" "100nF"
+			(at 90.17 89.154 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" ""
-			(at 213.995 140.97 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 89.2048 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19597,7 +21366,131 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 213.995 140.97 0)
+			(at 90.17 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+			(at 90.17 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor" "Digikey"
+			(at 90.17 86.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
+			(at 90.17 86.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 90.17 86.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer PN" "C0603C104K5RACTU"
+			(at 90.17 86.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0e59ec13-f607-4310-b1f0-421e57c7c628")
+		)
+		(pin "2"
+			(uuid "2fccc240-dd04-4abb-a859-6048c377a1eb")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "C36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 204.47 140.97 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "db4a3896-b117-46a1-8f42-7e9e31f6f2e9")
+		(property "Reference" "#PWR071"
+			(at 204.47 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 200.66 139.7 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 204.47 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 204.47 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19608,7 +21501,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 213.995 140.97 0)
+			(at 204.47 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19632,7 +21525,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 196.215 146.05 270)
+		(at 186.69 146.05 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19643,7 +21536,7 @@
 		(fields_autoplaced yes)
 		(uuid "dd439afb-f635-4762-bbb3-d0a1b914b6f0")
 		(property "Reference" "R34"
-			(at 196.215 139.7 90)
+			(at 186.69 139.7 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19653,7 +21546,7 @@
 			)
 		)
 		(property "Value" "6k2"
-			(at 196.215 142.24 90)
+			(at 186.69 142.24 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19663,7 +21556,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 196.215 144.272 90)
+			(at 186.69 144.272 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19674,7 +21567,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 196.215 146.05 0)
+			(at 186.69 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19685,7 +21578,7 @@
 			)
 		)
 		(property "Description" "RES 6.2K OHM 5% 1/10W 0603"
-			(at 196.215 146.05 0)
+			(at 186.69 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19696,7 +21589,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 196.215 146.05 90)
+			(at 186.69 146.05 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19707,7 +21600,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-6.2KGRCT-ND"
-			(at 196.215 146.05 90)
+			(at 186.69 146.05 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19718,7 +21611,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 196.215 146.05 90)
+			(at 186.69 146.05 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19729,7 +21622,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-076K2L"
-			(at 196.215 146.05 90)
+			(at 186.69 146.05 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19756,7 +21649,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 214.63 90.17 0)
+		(at 205.105 90.17 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19766,7 +21659,7 @@
 		(dnp no)
 		(uuid "de8f7972-2732-4039-a79d-74795d401cb7")
 		(property "Reference" "U4"
-			(at 215.9 83.058 0)
+			(at 206.375 83.058 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19776,7 +21669,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 219.964 85.344 0)
+			(at 210.439 85.344 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19786,7 +21679,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19797,7 +21690,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19808,7 +21701,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19819,7 +21712,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19830,7 +21723,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19841,7 +21734,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19852,7 +21745,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 214.63 90.17 0)
+			(at 205.105 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19890,6 +21783,131 @@
 			(project "pico_ecg"
 				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
 					(reference "U4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 236.22 121.92 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "dea5893a-0bd1-4f77-b872-7b93b4ef988a")
+		(property "Reference" "C40"
+			(at 236.474 119.888 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100nF"
+			(at 236.22 124.714 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 235.2548 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+			(at 236.22 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor" "Digikey"
+			(at 236.22 121.92 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
+			(at 236.22 121.92 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 236.22 121.92 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer PN" "C0603C104K5RACTU"
+			(at 236.22 121.92 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ec348be1-2176-43b6-aad2-cc2446ee4509")
+		)
+		(pin "2"
+			(uuid "cb9df8a9-64e7-452d-9177-f90e86a3f09e")
+		)
+		(instances
+			(project "pico_ecg"
+				(path "/a3247d59-0731-497b-bc35-078a7530072f/dfea66d8-07e9-4f89-b31f-9070c5eb98f9"
+					(reference "C40")
 					(unit 1)
 				)
 			)
@@ -20161,7 +22179,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 114.3 85.09 270)
+		(at 120.015 85.09 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -20171,7 +22189,7 @@
 		(dnp no)
 		(uuid "e23b9852-1c04-4afe-b3c7-a527663680cf")
 		(property "Reference" "R58"
-			(at 114.3 83.185 90)
+			(at 120.015 83.185 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20181,7 +22199,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 114.3 85.09 90)
+			(at 120.015 85.09 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20191,7 +22209,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 114.3 83.312 90)
+			(at 120.015 83.312 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20202,7 +22220,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 85.09 0)
+			(at 120.015 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20213,7 +22231,7 @@
 			)
 		)
 		(property "Description" "RES 470 OHM 5% 1/10W 0603"
-			(at 114.3 85.09 0)
+			(at 120.015 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20224,7 +22242,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 114.3 85.09 90)
+			(at 120.015 85.09 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20235,7 +22253,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-470GRCT-ND"
-			(at 114.3 85.09 90)
+			(at 120.015 85.09 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20246,7 +22264,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 114.3 85.09 90)
+			(at 120.015 85.09 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20257,7 +22275,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-07470RL"
-			(at 114.3 85.09 90)
+			(at 120.015 85.09 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20284,7 +22302,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 194.31 87.63 270)
+		(at 184.785 87.63 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -20295,7 +22313,7 @@
 		(fields_autoplaced yes)
 		(uuid "e4344402-6479-49d7-b9c1-6ac2d2d53ef4")
 		(property "Reference" "R10"
-			(at 194.31 81.915 90)
+			(at 184.785 81.915 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20305,7 +22323,7 @@
 			)
 		)
 		(property "Value" "6k2"
-			(at 194.31 84.455 90)
+			(at 184.785 84.455 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20315,7 +22333,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 194.31 85.852 90)
+			(at 184.785 85.852 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20326,7 +22344,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 194.31 87.63 0)
+			(at 184.785 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20337,7 +22355,7 @@
 			)
 		)
 		(property "Description" "RES 6.2K OHM 5% 1/10W 0603"
-			(at 194.31 87.63 0)
+			(at 184.785 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20348,7 +22366,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 194.31 87.63 90)
+			(at 184.785 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20359,7 +22377,7 @@
 			)
 		)
 		(property "Distribuitor PN" "311-6.2KGRCT-ND"
-			(at 194.31 87.63 90)
+			(at 184.785 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20370,7 +22388,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 194.31 87.63 90)
+			(at 184.785 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20381,7 +22399,7 @@
 			)
 		)
 		(property "Manufacturer PN" "RC0603JR-076K2L"
-			(at 194.31 87.63 90)
+			(at 184.785 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20629,7 +22647,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA2333xxDGK")
-		(at 217.17 118.11 0)
+		(at 207.645 118.11 0)
 		(unit 3)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -20639,7 +22657,7 @@
 		(dnp no)
 		(uuid "e90810c8-1a94-48a0-ae5b-fa3edc108a64")
 		(property "Reference" "U5"
-			(at 216.916 121.92 0)
+			(at 207.391 121.92 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20650,7 +22668,7 @@
 			)
 		)
 		(property "Value" "OPA2333xxDGK"
-			(at 215.773 123.571 0)
+			(at 206.248 123.571 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20661,7 +22679,7 @@
 			)
 		)
 		(property "Footprint" "pico_ecg:DGK8-L"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20672,7 +22690,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa333.pdf"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20683,7 +22701,7 @@
 			)
 		)
 		(property "Description" "IC OP AMP 2CH 8-VSSOP"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20694,7 +22712,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20705,7 +22723,7 @@
 			)
 		)
 		(property "Distribuitor PN" "296-22883-1-ND"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20716,7 +22734,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20727,7 +22745,7 @@
 			)
 		)
 		(property "Manufacturer PN" "OPA2333AIDGKR"
-			(at 217.17 118.11 0)
+			(at 207.645 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21283,7 +23301,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 219.71 106.045 90)
+		(at 210.185 106.045 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -21293,7 +23311,7 @@
 		(dnp no)
 		(uuid "f7285b5c-5233-4f8d-b08e-f22b612a3a8c")
 		(property "Reference" "C8"
-			(at 216.535 104.648 90)
+			(at 207.01 104.648 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -21303,7 +23321,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 224.155 104.648 90)
+			(at 214.63 104.648 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -21313,7 +23331,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 223.52 105.0798 0)
+			(at 213.995 105.0798 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21324,7 +23342,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 219.71 106.045 0)
+			(at 210.185 106.045 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21335,7 +23353,7 @@
 			)
 		)
 		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
-			(at 219.71 106.045 0)
+			(at 210.185 106.045 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21346,7 +23364,7 @@
 			)
 		)
 		(property "Distribuitor" "Digikey"
-			(at 219.71 106.045 90)
+			(at 210.185 106.045 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21357,7 +23375,7 @@
 			)
 		)
 		(property "Distribuitor PN" "399-C0603C104K5RACTUCT-ND"
-			(at 219.71 106.045 90)
+			(at 210.185 106.045 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21368,7 +23386,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 219.71 106.045 90)
+			(at 210.185 106.045 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21379,7 +23397,7 @@
 			)
 		)
 		(property "Manufacturer PN" "C0603C104K5RACTU"
-			(at 219.71 106.045 90)
+			(at 210.185 106.045 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21406,7 +23424,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 201.295 38.1 0)
+		(at 191.77 38.1 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -21417,7 +23435,7 @@
 		(fields_autoplaced yes)
 		(uuid "fa103331-3034-42fd-ae93-806066a54757")
 		(property "Reference" "#PWR01"
-			(at 201.295 44.45 0)
+			(at 191.77 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21428,7 +23446,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 201.295 43.18 0)
+			(at 191.77 43.18 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -21438,7 +23456,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 201.295 38.1 0)
+			(at 191.77 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21449,7 +23467,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 201.295 38.1 0)
+			(at 191.77 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21460,7 +23478,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 201.295 38.1 0)
+			(at 191.77 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
