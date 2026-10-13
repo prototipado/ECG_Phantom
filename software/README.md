@@ -57,6 +57,7 @@ Para distribuir la aplicación a usuarios de Windows sin requerir instalación d
    ```
    software/dist/ECG_GUI.exe
    ```
+   Si ese ejecutable está abierto, el script informa qué instancias hay que cerrar
+   antes de volver a compilar; no las cierra automáticamente.
 
 Nota: La carpeta `dist/` y los ejecutables `.exe` están excluidos del repositorio Git.
-

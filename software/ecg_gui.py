@@ -113,8 +113,12 @@ PACE_DETECT_HELP = {
                    'front-end; satura/desborda la señal si lo subes demasiado.'),
 }
 
+PROJECT_ALIASES = {
+    "pico_ecg_conduction_model": "02_pico_conduction_model",
+}
+
 PROJECTS = {
-    "pico_ecg_conduction_model": {
+    "02_pico_conduction_model": {
         "name": "Conduction Model",
         "paper": "Quiroz-Juarez 2018",
         "desc": "VdP + FitzHugh-Nagumo",
@@ -123,6 +127,7 @@ PROJECTS = {
         "params": {
             "hr":        {"label": "Heart Rate",    "unit": "bpm",  "min": 15,   "max": 250,   "default": 72,   "resolution": 1, "help": "Frecuencia cardíaca del modelo en latidos/minuto (bpm). Cambia la cadencia del ECG."},
             "amp":       {"label": "Amplitude",     "unit": "%",    "min": 0,    "max": 100,   "default": 100,  "resolution": 1, "help": "Escala (%) del ECG respecto al rango de salida. Bájalo para señales menos intensas o para evitar saturar el front-end."},
+            "hrvdepth":  {"label": "HRV Depth",     "unit": "",     "min": 0,    "max": 1,     "default": 0.05, "resolution": 0.01, "help": "Profundidad relativa de la variabilidad de frecuencia cardíaca (0–1)."},
             "a1":        {"label": "Alpha1 (P)",    "unit": "",     "min": 0,    "max": 2,     "default": 0.5,  "resolution": 0.01, "help": "Peso de la onda P (primera gaussiana). Más alto = onda P más prominente."},
             "a2":        {"label": "Alpha2 (Ta)",   "unit": "",     "min": -2,   "max": 0,     "default": -0.2, "resolution": 0.01, "help": "Peso de la onda Ta (onda T atrial, negativa). Ajusta la muesca/repolarización atrial."},
             "a3":        {"label": "Alpha3 (QRS)",  "unit": "",     "min": 0,    "max": 5,     "default": 1.5,  "resolution": 0.01, "help": "Peso del complejo QRS (pico principal). Impacta la amplitud del latido ventricular."},
@@ -1081,12 +1086,18 @@ class ECGApp:
         outer.pack(fill=tk.X, padx=6, pady=3)
         self.info_frame = outer  # kept for external pack_forget calls
 
-        self.info_text = tk.Text(card, height=3, state=tk.DISABLED,
+        log_frame = tk.Frame(card, bg=C_CARD)
+        log_frame.pack(fill=tk.X, pady=(0, 6))
+        self.info_text = tk.Text(log_frame, height=8, state=tk.DISABLED,
                                   font=('Consolas', 8), bg='#F8FAFC',
                                   fg=C_TEXT, relief='flat', wrap=tk.WORD,
                                   highlightthickness=1,
                                   highlightbackground=C_BORDER)
-        self.info_text.pack(fill=tk.X, pady=(0, 6))
+        info_scrollbar = ttk.Scrollbar(log_frame, orient=tk.VERTICAL,
+                                       command=self.info_text.yview)
+        self.info_text.configure(yscrollcommand=info_scrollbar.set)
+        self.info_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        info_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
         br = tk.Frame(card, bg=C_CARD)
         br.pack(fill=tk.X)
@@ -1674,7 +1685,7 @@ class ECGApp:
         calgain_tt = ('Ganancia de calibración (x) aplicada a la señal de '
                       'salida. Ajusta la amplitud global frente al front-end; '
                       'súbela para compensar atenuación, bájala para evitar '
-                      'saturación. Rango: 0.01–100x.')
+                      'saturación. Rango: 0.01–2x.')
         self.cal_gain_var = tk.DoubleVar(value=1.0)
         self.cal_gain_label = tk.Label(r, text='1.00', bg=C_CARD, fg=C_TEXT,
                                         font=FBB, width=7, anchor=tk.E)
@@ -1682,7 +1693,7 @@ class ECGApp:
         _flat_btn(r, 'Set', self._apply_cal_gain, bg=C_BTN, font=FS).pack(
             side=tk.RIGHT, padx=(3, 0))
         calgain_scale = ttk.Scale(r, variable=self.cal_gain_var, from_=0.01,
-                                  to=100.0, orient=tk.HORIZONTAL,
+                                  to=2.0, orient=tk.HORIZONTAL,
                                   command=self._on_cal_change)
         calgain_scale.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(4, 4))
         ToolTip(calgain_scale, calgain_tt)
@@ -2109,6 +2120,11 @@ class ECGApp:
                     if p_key in lower or PROJECTS[p_key]["name"].lower() in lower:
                         matched_proj = p_key
                         break
+                if matched_proj is None:
+                    for alias, canonical_key in PROJECT_ALIASES.items():
+                        if alias in lower:
+                            matched_proj = canonical_key
+                            break
                 if matched_proj:
                     self.project_type = matched_proj
                     self._setup_project_ui(matched_proj)
@@ -2137,7 +2153,8 @@ class ECGApp:
             self._terminal_append(('txt', line))
 
             if "PROJECT" in self.project_info:
-                proj = self.project_info["PROJECT"]
+                reported_project = self.project_info["PROJECT"].strip()
+                proj = PROJECT_ALIASES.get(reported_project, reported_project)
                 if proj in PROJECTS and self.project_type != proj:
                     self.project_type = proj
                     self._setup_project_ui(proj)
@@ -2161,6 +2178,7 @@ class ECGApp:
         # Immediately request version and info upon connection
         self._send_cmd("ver")
         self._send_cmd("info")
+        self._send_cmd("help")
 
     def _fallback_detect(self):
         if "PROJECT" not in self.project_info and self.project_type is None and self.connected:
@@ -2689,6 +2707,8 @@ class ECGApp:
             "baseline": self._sync_baseline,
             "cal": self._sync_cal,
             "offset": self._sync_offset,
+            "hrv": self._sync_hrv,
+            "hrvdepth": self._sync_hrvdepth,
         }
         for pattern, handler in mappings.items():
             if key == pattern:
@@ -2774,6 +2794,20 @@ class ECGApp:
         offset = int(val.split()[0])
         self.offset_var.set(offset)
         self.offset_label.config(text=str(offset))
+
+    def _sync_hrv(self, val):
+        self.hrv_var.set(val.split()[0].lower() == "on")
+
+    def _sync_hrvdepth(self, val):
+        try:
+            depth = float(val.split()[0])
+            if "hrvdepth" in self.slider_vars:
+                self.slider_vars["hrvdepth"].set(depth)
+                if "hrvdepth" in self.slider_widgets:
+                    _, label, info = self.slider_widgets["hrvdepth"]
+                    label.config(text=f"{depth:.2f} {info['unit']}")
+        except (ValueError, IndexError):
+            pass
 
     def _on_lead_toggle(self):
         for i, var in enumerate(self.lead_vars):

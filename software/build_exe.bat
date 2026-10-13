@@ -51,7 +51,15 @@ pause
 exit /b 1
 
 :build
-echo [2/3] Building executable (one-file, no console window)...
+echo [2/3] Checking for running copies of the executable...
+powershell -NoProfile -Command "$target = [IO.Path]::GetFullPath((Join-Path (Get-Location) 'dist\ECG_GUI.exe')); $processes = Get-Process | Where-Object { $_.Path -and [IO.Path]::GetFullPath($_.Path) -eq $target }; if ($processes) { Write-Output ('Running instances are using ' + $target + ':'); $processes | ForEach-Object { Write-Output ('  PID ' + $_.Id) }; exit 1 }"
+if %errorlevel% neq 0 (
+    echo [ERROR] Close the listed ECG_GUI.exe instance or instances, then run this script again.
+    pause
+    exit /b 1
+)
+
+echo [3/3] Building executable (one-file, no console window)...
 REM The GUI now performs an explicit serial-thread shutdown before Tk exits.
 REM Rebuild the executable after changing ecg_gui.py so the packaged copy
 REM contains the same cleanup path as the source version.
@@ -66,7 +74,7 @@ if %errorlevel% neq 0 (
 )
 
 echo.
-echo [3/3] Build complete!
+echo Build complete!
 echo.
 echo Executable created at:  %~dp0dist\ECG_GUI.exe
 echo.
