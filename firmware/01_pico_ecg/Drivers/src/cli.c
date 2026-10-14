@@ -160,7 +160,7 @@ static void cli_cmd_help(const char* args) {
         printf("  %-8s %s\r\n", commands[i].name, commands[i].help);
     }
     printf("\r\nSet params: type, hr, amp, offset, cal, file, buzzer, led\r\n");
-    printf("Signal types: ecg, sine, tri, sq, pulse\r\n");
+    printf("Signal types: ecg, sine, tri, sq, pulse, cenelec (cenelecpol pos|neg)\r\n");
     printf("ECG output: offset -16384..16384, cal 0.01..100\r\n");
     fflush(stdout);
 }
@@ -218,8 +218,23 @@ static void cli_cmd_set(const char* args) {
             signal_gen_set_amplitude(settings.amplitude * 327);
             settings.ecg_type = 4;
             printf("Signal type: Pulse\r\n");
+        } else if (strcmp(val_str, "cenelec") == 0) {
+            signal_gen_set_signal_type(SIGNAL_TYPE_CENELEC);
+            signal_gen_set_bpm(settings.heart_rate);
+            signal_gen_set_amplitude(settings.amplitude * 327);
+            printf("Signal type: CENELEC\r\n");
         } else {
-            printf("Unknown type: '%s'. Use: ecg, sine, tri, sq, pulse\r\n", val_str);
+            printf("Unknown type: '%s'. Use: ecg, sine, tri, sq, pulse, cenelec\r\n", val_str);
+        }
+    } else if (strcmp(param, "cenelecpol") == 0) {
+        if (strcmp(val_str, "neg") == 0) {
+            signal_gen_set_cenelec_negative(true);
+            printf("CENELEC polarity: neg\r\n");
+        } else if (strcmp(val_str, "pos") == 0) {
+            signal_gen_set_cenelec_negative(false);
+            printf("CENELEC polarity: pos\r\n");
+        } else {
+            printf("Usage: > set cenelecpol <pos|neg>\r\n");
         }
     } else if (strcmp(param, "hr") == 0) {
         int val = atoi(val_str);
@@ -317,6 +332,7 @@ static void cli_cmd_get(const char* args) {
             case SIGNAL_TYPE_TRIANGLE: type_str = "tri";      break;
             case SIGNAL_TYPE_SQUARE:   type_str = "sq";       break;
             case SIGNAL_TYPE_PULSE:    type_str = "pulse";    break;
+            case SIGNAL_TYPE_CENELEC:  type_str = "cenelec";  break;
         }
 
         printf("Settings:\r\n");
@@ -349,6 +365,7 @@ static void cli_cmd_get(const char* args) {
             case SIGNAL_TYPE_TRIANGLE: s = "tri"; break;
             case SIGNAL_TYPE_SQUARE: s = "sq"; break;
             case SIGNAL_TYPE_PULSE: s = "pulse"; break;
+            case SIGNAL_TYPE_CENELEC: s = "cenelec"; break;
         }
         printf("type = %s\r\n", s);
     } else if (strcmp(param, "hr") == 0) {

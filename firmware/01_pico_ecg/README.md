@@ -45,9 +45,10 @@ seleccionado se usan juntos para calcular `offset` y `cal`, y se informa el
 resultado por la consola CLI.
 
 El firmware centra y escala los extremos de todos los canales no referentes
-del ECG para mantenerlos entre ADC0=300 y 3100 (aproximadamente 0.24–2.50 V),
-dejando margen frente a la saturación del op-amp observada cerca de 2.8 V.
-Durante la reproducción ECG, también limita los códigos PWM a ese margen por
+del ECG para mantenerlos entre ADC0=300 y 2900 (aproximadamente 0.24–2.34 V),
+dejando margen frente a la saturación del op-amp (máximo ~2.4 V).
+Durante la reproducción (ECG y ondas de calibración, incluida `cenelec`), también
+aplica `cal`, `offset` y limita los códigos PWM a ese margen por
 si un QRS excede la envolvente calculada. Así la corrección de ganancia se basa
 en la señal elegida, no solo en la amplitud de prueba. Este límite presupone
 que los canales de salida comparten la misma escala que RA.

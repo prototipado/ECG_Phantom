@@ -18,7 +18,8 @@ static const uint signal_pins[] = {0, 1, 2, 3, 4, 6, 7, 8, 9};
 #define STARTUP_CAL_SETTLE_POINTS 64
 #define STARTUP_CAL_AMPLITUDE 10000
 #define STARTUP_CAL_SAFE_ADC_MIN 300
-#define STARTUP_CAL_SAFE_ADC_MAX 3100
+#define STARTUP_CAL_SAFE_ADC_MAX 2900
+#define CENELEC_MIN_PERIOD_SAMPLES 16
 #define OUTPUT_DIVIDER_TOP_OHMS 100000.0f
 #define OUTPUT_DIVIDER_BOTTOM_OHMS 1000.0f
 
@@ -29,6 +30,7 @@ static volatile uint16_t signal_amplitude = 8000;  // 0-16384 (half of 32768)
 static volatile uint16_t signal_bpm = 60;          // Latidos por minuto (BPM)
 static volatile int16_t signal_offset = 0;  // Vertical offset in ADC units
 static volatile float signal_cal_gain = 1.0f;
+static volatile bool cenelec_negative = false;
 static volatile uint16_t ecg_output_min = 0;
 static volatile uint16_t ecg_output_max = 65535;
 static volatile float calibration_adc_mean = 2047.5f;
@@ -272,6 +274,14 @@ float signal_gen_get_cal_gain(void) {
     return signal_cal_gain;
 }
 
+void signal_gen_set_cenelec_negative(bool negative) {
+    cenelec_negative = negative;
+}
+
+bool signal_gen_get_cenelec_negative(void) {
+    return cenelec_negative;
+}
+
 // Generate sine wave value (0-32768 range)
 static int32_t generate_sine(uint16_t phase) {
     // phase: 0 to 65535 representing 0 to 2*pi
@@ -341,9 +351,38 @@ static int32_t generate_pulse(uint16_t phase) {
     }
 }
 
+// CENELEC pacemaker test pulse: 2 ms linear rise, 13 ms linear fall, baseline
+// otherwise. idx is the sample index inside the period (500 Hz, 2 ms/sample).
+static int32_t generate_cenelec(uint32_t idx) {
+    const int32_t rise_ms = 2;
+    const int32_t fall_ms = 13;
+    int32_t t_ms = (int32_t)idx * 2;
+    int32_t shape = 0;  // 0..amplitude
+
+    if (t_ms > 0 && t_ms <= rise_ms) {
+        shape = ((int32_t)signal_amplitude * t_ms) / rise_ms;
+    } else if (t_ms > rise_ms && t_ms < rise_ms + fall_ms) {
+        shape = ((int32_t)signal_amplitude * (rise_ms + fall_ms - t_ms)) / fall_ms;
+    }
+    return 32768 + (cenelec_negative ? -shape : shape);
+}
+
+// Scales a centered (0 = mid-scale) value by the cal gain, adds the DC offset
+// and clamps to the op-amp safe range.
+static int32_t apply_output_chain(int32_t centered) {
+    int32_t out = 32768 + (int32_t)((float)centered * signal_cal_gain)
+        + (int32_t)signal_offset;
+    if (out < 0) out = 0;
+    if (out > 65535) out = 65535;
+    if (out < (int32_t)ecg_output_min) out = ecg_output_min;
+    if (out > (int32_t)ecg_output_max) out = ecg_output_max;
+    return out;
+}
+
 void signal_gen_core1_entry(void) {
     int current_row = 0;
     uint32_t phase_acc = 0; // 32-bit for high precision
+    uint32_t cenelec_idx = 0;
     int debug_counter = 0;
     const int DEBUG_INTERVAL = 100;  // Print every 100 samples
     absolute_time_t next_sample_time = get_absolute_time();
@@ -445,7 +484,8 @@ void signal_gen_core1_entry(void) {
                 case SIGNAL_TYPE_SINE:
                 case SIGNAL_TYPE_TRIANGLE:
                 case SIGNAL_TYPE_SQUARE:
-                case SIGNAL_TYPE_PULSE: {
+                case SIGNAL_TYPE_PULSE:
+                case SIGNAL_TYPE_CENELEC: {
                     // Generate waveform
                     int32_t val = 0;
                     uint16_t phase = (uint16_t)(phase_acc >> 16);
@@ -458,12 +498,18 @@ void signal_gen_core1_entry(void) {
                         val = generate_square(phase);
                     } else if (current_signal_type == SIGNAL_TYPE_PULSE) {
                         val = generate_pulse(phase);
+                    } else {
+                        val = generate_cenelec(cenelec_idx);
+                        uint32_t period_samples = 30000u / signal_bpm;
+                        if (period_samples < CENELEC_MIN_PERIOD_SAMPLES) {
+                            period_samples = CENELEC_MIN_PERIOD_SAMPLES;
+                        }
+                        if (++cenelec_idx >= period_samples) cenelec_idx = 0;
+                        if (cenelec_idx == 0) interface_trigger_heartbeat();
                     }
                     
-                    // Apply global offset
-                    val += (int32_t)signal_offset;
-                    if (val < 0) val = 0;
-                    if (val > 65535) val = 65535;
+                    // Same output chain as the ECG: cal gain, offset and safe clamp
+                    val = apply_output_chain(val - 32768);
                     
                     uint32_t clock_rate = clock_get_hz(clk_sys);
                     uint32_t wrap = clock_rate / 100000;
@@ -478,8 +524,9 @@ void signal_gen_core1_entry(void) {
                     // Push normalised mV value to streaming buffer
                     if (stream_mode_active) {
                         float stream_buf[STREAM_NUM_CHANNELS];
-                        // Convert 0-65535 val to mV range (center 32768 = 0.0 mV, range ±1.0 mV)
-                        float float_mv = (float)(val - 32768) / 16384.0f;
+                        float float_mv = startup_calibration_valid
+                            ? pwm_value_to_stream_mv(val)
+                            : (float)(val - 32768) / 16384.0f;
                         for (int s = 0; s < STREAM_NUM_CHANNELS; s++) {
                             stream_buf[s] = float_mv;
                         }
@@ -493,7 +540,8 @@ void signal_gen_core1_entry(void) {
                     phase_acc += (uint32_t)inc64;
                     
                     // Trigger heartbeat indication at the midpoint of the cycle (180 degrees)
-                    if (prev_acc < 0x80000000 && phase_acc >= 0x80000000) {
+                    if (current_signal_type != SIGNAL_TYPE_CENELEC &&
+                        prev_acc < 0x80000000 && phase_acc >= 0x80000000) {
                         interface_trigger_heartbeat();
                     }
                     break;
@@ -512,6 +560,7 @@ void signal_gen_core1_entry(void) {
             sleep_ms(10);
             current_row = 0;
             phase_acc = 0;
+            cenelec_idx = 0;
             next_sample_time = get_absolute_time();
         }
     }

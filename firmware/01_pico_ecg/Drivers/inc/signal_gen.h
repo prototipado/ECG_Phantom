@@ -10,7 +10,8 @@ typedef enum {
     SIGNAL_TYPE_SINE,
     SIGNAL_TYPE_TRIANGLE,
     SIGNAL_TYPE_SQUARE,
-    SIGNAL_TYPE_PULSE
+    SIGNAL_TYPE_PULSE,
+    SIGNAL_TYPE_CENELEC
 } signal_type_t;
 
 // Initialization
@@ -44,5 +45,7 @@ signal_type_t signal_gen_get_signal_type(void);
 uint16_t signal_gen_get_bpm(void);
 int16_t signal_gen_get_offset(void);
 float signal_gen_get_cal_gain(void);
+void signal_gen_set_cenelec_negative(bool negative);
+bool signal_gen_get_cenelec_negative(void);
 
 #endif // SIGNAL_GEN_H
