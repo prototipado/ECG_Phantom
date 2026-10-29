@@ -115,7 +115,19 @@ PACE_DETECT_HELP = {
 
 PROJECT_ALIASES = {
     "pico_ecg_conduction_model": "02_pico_conduction_model",
+    "pico_ecg_gaussian_ppg": "03_pico_ecg_gaussian_ppg",
+    "pico_ecg_multimodel": "04_pico_multimodel",
 }
+
+# 12 standard ECG lead names, in the reconstruction order used by the
+# Gaussian project (I, II, III, aVR, aVL, aVF, V1..V6). Used when the GUI
+# derives the leads from the streamed electrode/reference channels.
+LEAD_NAMES_12 = ["I", "II", "III", "aVR", "aVL", "aVF",
+                 "V1", "V2", "V3", "V4", "V5", "V6"]
+# Distinct colours for the 12 derived leads.
+LEAD12_COLORS = ['#e74c3c', '#3498db', '#2ecc71', '#8e44ad', '#16a085',
+                 '#d35400', '#f39c12', '#9b59b6', '#1abc9c', '#e67e22',
+                 '#34495e', '#7f8c8d']
 
 PROJECTS = {
     "02_pico_conduction_model": {
@@ -142,22 +154,29 @@ PROJECTS = {
             "Third Degree AVB", "Ventricular Tachycardia"
         ],
     },
-    "pico_ecg_gaussian_ppg": {
+    "03_pico_ecg_gaussian_ppg": {
         "name": "Gaussian ECG+PPG",
         "paper": "Huynh/Tran 2026",
-        "desc": "Gaussian ECG + 5-Gaussian PPG",
-        "leads": ["RA", "LA(I)", "LL(II)", "V1", "V2", "V3", "V4", "V5", "V6"],
+        "desc": "Gaussian ECG (12 leads) + 5-Gaussian PPG",
+        # The firmware streams 10 channels: [0] = model RA electrode potential
+        # (the board reference) and [1..8] = the RA-referenced pin values
+        # (I, II, V1..V6) on the PWM outputs (RA reference on board); [9] = PPG.
+        # Display like projects 01/02: RA-referenced electrode potentials.
+        "leads": ["RA", "LA", "LL", "V1", "V2", "V3", "V4", "V5", "V6"],
         "num_leads": 9,
+        "lead_mode": "registry",
+        "ppg_index": 9,
         "params": {
             "hr":        {"label": "Heart Rate",      "unit": "bpm",  "min": 30,   "max": 200,   "default": 72,   "resolution": 1, "help": "Frecuencia cardíaca en latidos/minuto (bpm). Cambia la cadencia del ECG/PPG."},
             "amp":       {"label": "Amplitude",       "unit": "%",    "min": 0,    "max": 100,   "default": 100,  "resolution": 1, "help": "Escala (%) del ECG/PPG respecto al rango de salida."},
-            "pr":        {"label": "PR Interval",     "unit": "ms",   "min": 100,  "max": 400,   "default": 180,  "resolution": 1, "help": "Intervalo PR (ms): retardo entre el inicio de la onda P y el QRS. Prolongarlo simula bloqueos AV de 1er grado."},
-            "ramp":      {"label": "R Amplitude",     "unit": "",     "min": 0.5,  "max": 2.0,   "default": 1.0,  "resolution": 0.01, "help": "Amplitud de la onda R (normalizada). Más alto = complejo QRS más alto."},
-            "tamp":      {"label": "T Amplitude",     "unit": "",     "min": 0.1,  "max": 1.0,   "default": 0.35, "resolution": 0.01, "help": "Amplitud de la onda T (repolarización ventricular)."},
+            "pr":        {"label": "PR Interval",     "unit": "ms",   "min": 100,  "max": 400,   "default": 160,  "resolution": 1, "help": "Intervalo PR (ms): retardo entre el inicio de la onda P y el QRS. Prolongarlo simula bloqueos AV de 1er grado."},
+            "ramp":      {"label": "R Amplitude",     "unit": "",     "min": 0.5,  "max": 2.0,   "default": 1.2,  "resolution": 0.01, "help": "Amplitud de la onda R (normalizada). Más alto = complejo QRS más alto."},
+            "tamp":      {"label": "T Amplitude",     "unit": "",     "min": 0.05, "max": 1.0,   "default": 0.19, "resolution": 0.01, "help": "Amplitud de la onda T (repolarización ventricular)."},
             "pamp":      {"label": "P Amplitude",     "unit": "",     "min": 0.05, "max": 0.5,   "default": 0.15, "resolution": 0.01, "help": "Amplitud de la onda P (despolarización atrial)."},
-            "respdepth": {"label": "RSA Depth",       "unit": "",     "min": 0,    "max": 0.3,   "default": 0.05, "resolution": 0.01, "help": "Profundidad de la arritmia sinusal respiratoria (RSA): modulación de la FC con la respiración. 0 = sin modulación."},
+            "respdepth": {"label": "RSA Depth",       "unit": "",     "min": 0,    "max": 0.3,   "default": 0.0,  "resolution": 0.01, "help": "Profundidad de la arritmia sinusal respiratoria (RSA): modulación de la FC con la respiración. 0 = sin modulación (valor del paper)."},
             "respfreq":  {"label": "RSA Freq",        "unit": "Hz",   "min": 0.1,  "max": 0.5,   "default": 0.25, "resolution": 0.01, "help": "Frecuencia respiratoria (Hz) que modula la FC. Controla la velocidad del ciclo RSA."},
-            "qtexp":     {"label": "QT Exponent",     "unit": "",     "min": 0.3,  "max": 0.7,   "default": 0.5,  "resolution": 0.01, "help": "Exponente de la corrección del intervalo QT con la FC (tipo Bazett/Fridericia). Ajusta cómo cambia el QT."},
+            "qtexp":     {"label": "QT Exponent",     "unit": "",     "min": 0.1,  "max": 0.7,   "default": 0.3,  "resolution": 0.01, "help": "Exponente de la corrección del intervalo QT con la FC (tipo Bazett/Fridericia). Ajusta cómo cambia el QT."},
+            "ppgamp":    {"label": "PPG Amplitude",   "unit": "%",    "min": 0,    "max": 100,   "default": 80,   "resolution": 1,   "help": "Escala (%) de la onda PPG para evitar recorte en el osciloscopio."},
         },
         "rhythms": [
             "Normal Sinus", "First-Degree AV Block", "Mobitz I (Wenckebach)",
@@ -171,6 +190,7 @@ PROJECTS = {
         "leads": ["RA", "LA(I)", "LL(II)"],
         "num_leads": 3,
         "adc_channels": (4, 5, 6),
+        "ppg_index": 3,
         "mv_max": 60,
         "params": {
             "hr":        {"label": "Heart Rate",      "unit": "bpm",    "min": 30,   "max": 200,   "default": 72,    "resolution": 1, "help": "Frecuencia cardíaca en latidos/minuto (bpm) del ritmo intrínseco del bench. En modo ásistole lo ignora."},
@@ -233,7 +253,7 @@ PROJECTS = {
         },
         "rhythms": ["Normal Sinus", "SA Node Failure"],
     },
-    "pico_ecg_multimodel": {
+    "04_pico_multimodel": {
         "name": "Multi-Model",
         "paper": "Quiroz-Juarez 2022",
         "desc": "4 selectable cardiac models",
@@ -667,9 +687,13 @@ class ECGApp:
         self.num_leads = 9
         self.lead_names = list(LEAD_NAMES)
         self.visible_leads = [True] * 9
+        # Lead display mode: "registry" plots the streamed channels directly
+        # (one curve per channel); "derive" reconstructs the 12 standard leads
+        # from the streamed electrode/reference channels (Gaussian project).
+        self.lead_mode = "registry"
+        self.ppg_index = None
         self.slider_vars = {}
         self.slider_widgets = {}
-        self.ppg_index = None
         # Plot refresh state: we only redraw when new samples arrived or the
         # view state changed, so the UI thread stays free for scroll/click.
         self._plot_dirty = True
@@ -1710,6 +1734,7 @@ class ECGApp:
         """Show the pico_ecg panel and hide model/rhythm panels."""
         self.root.title("ECG GUI - pico_ecg (Stored Signals)")
         self.sample_rate = 500
+        self.lead_mode = "registry"
         self.ppg_index = None
         self.pace_mode = False
         self.pace_indexes = None
@@ -1907,9 +1932,9 @@ class ECGApp:
             'ytick.color':    C_TEXT2,
         })
 
-        self.fig, (self.ax, self.ax_pace) = plt.subplots(
-            2, 1, figsize=(10, 7), dpi=100, sharex=True,
-            gridspec_kw={'height_ratios': [3, 2]})
+        self.fig, (self.ax, self.ax_ppg, self.ax_pace) = plt.subplots(
+            3, 1, figsize=(10, 7), dpi=100, sharex=True,
+            gridspec_kw={'height_ratios': [3, 1.4, 2]})
         self.fig.set_facecolor('#FFFFFF')
         self.fig.subplots_adjust(left=0.07, right=0.97, top=0.93, bottom=0.07, hspace=0.35)
 
@@ -1925,16 +1950,32 @@ class ECGApp:
             fontsize=14, fontweight='bold', color=C_ACCENT,
             va='top', ha='left', alpha=0.9)
 
+        # Up to 14 curves: 9/12 ECG leads (registry / derived 12-lead mode) or
+        # 12 derived leads, plus the PPG channel. Only the first num_leads are
+        # labelled/legended per project; the PPG curve lives in ax_ppg.
         self.lines = []
-        for i in range(9):
-            line, = self.ax.plot([], [], color=LEAD_COLORS[i],
-                                  linewidth=1.0, label=LEAD_NAMES[i], alpha=0.9)
+        for i in range(14):
+            color = LEAD12_COLORS[i % len(LEAD12_COLORS)]
+            line, = self.ax.plot([], [], color=color,
+                                  linewidth=1.0, label='', alpha=0.9)
             self.lines.append(line)
 
         handles, labels = self.ax.get_legend_handles_labels()
         self.ax_legend = self.ax.legend(handles[:self.num_leads], labels[:self.num_leads],
                                         loc='upper right', fontsize=7, ncol=3,
                                         framealpha=0.9, edgecolor=C_BORDER)
+
+        # Peripheral pulse (PPG) — shown only for projects that stream it.
+        self.ax_ppg.set_title('PPG (peripheral pulse)', fontsize=10,
+                              fontweight='bold', color=C_TEXT)
+        self.ax_ppg.set_ylabel('V', fontsize=9, color=C_TEXT2)
+        self.ax_ppg.set_xlim(0, self.display_seconds)
+        self.ax_ppg.set_ylim(0, 2.4)
+        self.ppg_line, = self.ax_ppg.plot([], [], color='#0D9488',
+                                          linewidth=1.2, label='PPG')
+        self.ax_ppg.legend(loc='upper right', fontsize=7, framealpha=0.9,
+                           edgecolor=C_BORDER)
+        self.ax_ppg.set_visible(False)
 
         # Pace-sense ADC channels (A/V/S) — shown only in pace_sim mode.
         self.ax_pace.set_title('Pace-Sense ADC (V)', fontsize=10,
@@ -2426,7 +2467,43 @@ class ECGApp:
     def _num_channels_for(proj_key):
         if proj_key in (PACE_SIM_KEY, PACE_SIM_IC_KEY, PACE_SIM_9_KEY):
             return 7
-        return 10 if proj_key == "pico_ecg_gaussian_ppg" else 9
+        return 10 if proj_key == "03_pico_ecg_gaussian_ppg" else 9
+
+    @staticmethod
+    def _derive_leads_12(win):
+        """Reconstruct the 12 standard ECG leads from the streamed channels.
+
+        `win` is an (N, C) array whose columns are, per the 03 firmware stream,
+        [0] = model RA electrode potential (the board reference) and
+        [1..8] = the RA-referenced pin values (I, II, V1..V6). The device
+        under test grounds its RA input, so its Wilson central terminal is
+        WCT = (0 + I + II)/3 = -phi_RA and its precordial channels read back
+        as phi_k - phi_RA - WCT = phi_k - phi_RA + phi_RA = phi_k, the model
+        lead. Reconstructing here with that same WCT therefore recovers the
+        paper's 12 leads (eq. 6) exactly:
+            I = ch1, II = ch2, III = II - I
+            aVR/aVL/aVF from I and II; Vk = ch(3+k) - WCT
+        Returns an (N, 12) array in lead order I, II, III, aVR, aVL, aVF, V1..V6.
+        """
+        n = win.shape[0]
+        out = np.zeros((n, 12))
+        i_lead = win[:, 1]
+        ii_lead = win[:, 2]
+        out[:, 0] = i_lead
+        out[:, 1] = ii_lead
+        out[:, 2] = ii_lead - i_lead
+        out[:, 3] = -(i_lead + ii_lead) * 0.5
+        out[:, 4] = i_lead - ii_lead * 0.5
+        out[:, 5] = ii_lead - i_lead * 0.5
+        # WCT in the DUT frame: (RA=0 + I + II)/3 = -phi_RA (the model's own
+        # WCT is 0 because the limb projection vectors sum to zero).
+        wct_dut = (i_lead + ii_lead) / 3.0
+        for k in range(6):
+            col = 3 + k
+            if col < win.shape[1]:
+                # Vk_dut = pin_k - WCT_dut = (phi_k - phi_RA) - (-phi_RA) = phi_k
+                out[:, 6 + k] = win[:, col] - wct_dut
+        return out
 
     def _setup_project_ui(self, proj_key):
         proj = PROJECTS[proj_key]
@@ -2477,12 +2554,13 @@ class ECGApp:
         except Exception:
             pass
 
-        # The Gaussian ECG+PPG / pace_sim projects stream a PPG channel. Index 3 for
-        # 7-channel pace_sim frames (RA/LA/LL + PPG + 3 ADC); index 9 for
-        # 10-channel gaussian frames (9 ECG + PPG). pace_sim_intracardiac has
+        # The Gaussian ECG+PPG project streams a PPG channel (index 9 of its
+        # 10-channel frame) and reconstructs the 12 leads from the streamed
+        # electrode/reference channels; pace_sim streams PPG at index 3 of its
+        # 7-channel frame (RA/LA/LL + PPG + 3 ADC). pace_sim_intracardiac has
         # no PPG: its 4 channels are cell-model EGMs only.
-        self.ppg_index = 3 if proj_key == PACE_SIM_KEY else (
-            9 if proj_key == "pico_ecg_gaussian_ppg" else None)
+        self.lead_mode = proj.get("lead_mode", "registry")
+        self.ppg_index = proj.get("ppg_index")
         self.num_leads = proj.get("num_leads", 9)
         self.lead_names = list(proj.get("leads", LEAD_NAMES))
         # Re-label the plot lines with the active project's channel names so
@@ -2490,6 +2568,8 @@ class ECGApp:
         try:
             for i in range(min(len(self.lines), self.num_leads)):
                 self.lines[i].set_label(self.lead_names[i])
+            for i in range(self.num_leads, len(self.lines)):
+                self.lines[i].set_label('')
         except Exception:
             pass
         self._populate_leads()
@@ -2619,7 +2699,7 @@ class ECGApp:
         if var is None:
             return
         val = var.get()
-        if param_key in ("hr", "amp", "pr", "escape"):
+        if param_key in ("hr", "amp", "pr", "escape", "ppgamp"):
             self._send_cmd(f"set {param_key} {int(val)}")
         else:
             self._send_cmd(f"set {param_key} {val:.3f}")
@@ -2819,7 +2899,7 @@ class ECGApp:
             return
         for param_key, var in self.slider_vars.items():
             val = var.get()
-            if param_key in ("hr", "amp"):
+            if param_key in ("hr", "amp", "ppgamp"):
                 self._send_cmd(f"set {param_key} {int(val)}")
             else:
                 self._send_cmd(f"set {param_key} {val:.3f}")
@@ -3119,11 +3199,46 @@ class ECGApp:
         if win.shape[0] == 0:
             return
 
+        # Resolve the plotted channel matrix. In "derive" mode (Gaussian
+        # project) the 12 standard leads are reconstructed from the streamed
+        # electrode/reference channels; otherwise each channel is plotted as-is.
+        if self.lead_mode == "derive" and nch >= 9:
+            plot_win = self._derive_leads_12(win)
+            n_plot_ch = plot_win.shape[1]
+        else:
+            plot_win = win.copy()
+            n_plot_ch = nch
+            if getattr(self, 'project_type', None) == "03_pico_ecg_gaussian_ppg" and n_plot_ch >= 9:
+                i_lead = win[:, 1]
+                ii_lead = win[:, 2]
+                plot_win[:, 0] = 0.0        # RA reference
+                plot_win[:, 1] = i_lead     # LA - RA
+                plot_win[:, 2] = ii_lead    # LL - RA
+                wct_dut = (i_lead + ii_lead) / 3.0
+                for k in range(6):
+                    col = 3 + k
+                    if col < n_plot_ch:
+                        plot_win[:, col] = win[:, col] - wct_dut  # V1-V6 vs Wilson Central Terminal
+
         for i in range(self.num_leads):
-            if self.visible_leads[i]:
-                self.lines[i].set_data(t, win[:, i])
+            if self.visible_leads[i] and i < n_plot_ch:
+                self.lines[i].set_data(t, plot_win[:, i])
             else:
                 self.lines[i].set_data([], [])
+
+        # Peripheral pulse panel — shown only when the project streams a PPG.
+        has_ppg = self.ppg_index is not None and self.ppg_index < nch
+        self.ax_ppg.set_visible(has_ppg)
+        self.ax_ppg.set_xlim(0, self.display_seconds)
+        if has_ppg:
+            ppg_data = win[:, self.ppg_index]
+            self.ppg_line.set_data(t, ppg_data)
+            lo = float(ppg_data.min())
+            hi = float(ppg_data.max())
+            span = max(hi - lo, 0.05)
+            self.ax_ppg.set_ylim(lo - span * 0.15, min(hi + span * 0.15, 2.0))
+        else:
+            self.ppg_line.set_data([], [])
 
         # Pace-sense ADC channels (A/V/S): plot only on the pace_sim project.
         has_pace = self.pace_mode and self.pace_indexes is not None
@@ -3190,26 +3305,32 @@ class ECGApp:
             for line in self.pace_lines:
                 line.set_data([], [])
 
-        # Show the time axis only on the bottom-most visible subplot: the
-        # pace ADC panel when in pace_sim mode, otherwise the ECG panel.
+        # Show the time axis only on the bottom-most visible subplot: the pace
+        # ADC panel in pace_sim mode, else the PPG panel when the project
+        # streams a pulse, else the ECG panel.
+        bottom_ax = self.ax
         if has_pace:
-            for label in self.ax.get_xticklabels():
-                label.set_visible(False)
-            self.ax.set_xlabel("")
+            bottom_ax = self.ax_pace
+        elif has_ppg:
+            bottom_ax = self.ax_ppg
+        for label in self.ax.get_xticklabels():
+            label.set_visible(bottom_ax is self.ax)
+        self.ax.set_xlabel("Time (s)" if bottom_ax is self.ax else "")
+        for label in self.ax_ppg.get_xticklabels():
+            label.set_visible(bottom_ax is self.ax_ppg)
+        self.ax_ppg.set_xlabel("Time (s)" if bottom_ax is self.ax_ppg else "")
+        if has_pace:
             for label in self.ax_pace.get_xticklabels():
                 label.set_visible(True)
             self.ax_pace.set_xlabel("Time (s)")
-        else:
-            for label in self.ax.get_xticklabels():
-                label.set_visible(True)
-            self.ax.set_xlabel("Time (s)")
 
         self.ax.set_xlim(0, self.display_seconds)
 
         if self.auto_scale:
-            vis = [i for i in range(self.num_leads) if self.visible_leads[i]]
+            vis = [i for i in range(self.num_leads)
+                   if self.visible_leads[i] and i < n_plot_ch]
             if vis:
-                sub = win[-200:, vis]
+                sub = plot_win[-200:, vis]
                 ymin, ymax = float(sub.min()), float(sub.max())
                 margin = max(0.1, (ymax - ymin) * 0.15)
                 self.ax.set_ylim(ymin - margin, ymax + margin)
@@ -3241,7 +3362,13 @@ class ECGApp:
                 ts = round((time.monotonic() - t0) - (len(src) - k - 1)/self.sample_rate, 6)
                 if ts < 0:
                     ts = 0.0
-                row = [ts] + list(sample[:self.num_leads])
+                if self.lead_mode == "derive" and len(sample) >= 9:
+                    # Store the reconstructed 12 leads (row vector) so the CSV
+                    # matches the plotted ECG, not the raw stream channels.
+                    row = [ts] + list(self._derive_leads_12(
+                        np.asarray(sample, dtype=float).reshape(1, -1))[0])
+                else:
+                    row = [ts] + list(sample[:self.num_leads])
                 if self.ppg_index is not None and len(sample) > self.ppg_index:
                     row.append(sample[self.ppg_index])
                 if self.pace_mode and self.pace_indexes is not None and len(sample) > self.pace_indexes[-1]:

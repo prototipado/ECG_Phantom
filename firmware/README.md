@@ -8,8 +8,8 @@ Este directorio alberga los módulos de firmware diseñados para microcontrolado
 |---|---|---|---|---|---|
 | **`01_pico_ecg`** | Reproductor Clínico | Disponible | Lectura directa de Flash/RAM (PhysioNet) | 1 a 12 derivaciones | Baja (Look-up Table / DMA) |
 | **`02_pico_conduction_model`** | Modelo Electrofisiológico | En desarrollo | Ecuaciones diferenciales acopladas (Van der Pol + FHN) | Derivaciones bipolares / derivaciones sintéticas | Media-Alta (Cálculo numérico RK4/Euler) |
-| **`03_pico_gaussian_ppg`** | Síntesis Analítica + PPG | Planificado | Suma de curvas Gaussianas dinámicas | 9 derivaciones ECG + Pulso Óptico PPG | Media |
-| **`04_pico_multimodel`** | Suite Multi-Motor 4-en-1 | Planificado | Selector de motor matemático en caliente | Multicanal configurable | Alta |
+| **`03_pico_ecg_gaussian_ppg`** | Síntesis Analítica + PPG | En desarrollo | Suma de curvas Gaussianas dinámicas | 12 derivaciones ECG (salidas referenciadas a RA) + Pulso Óptico PPG | Media |
+| **`04_pico_multimodel`** | Suite Multi-Motor 4-en-1 | En desarrollo | Selector de motor matemático en caliente (VdP+FHN, BVAM, anillo VdP, Gaussianas cuasiperiódicas) | 12 derivaciones (modelo heterogéneo) / Lead II (otros 3 modelos) | Alta |
 | **`05_pace_sim`** | Simulador de Marcapasos | Planificado | Inyección de espigas analógicas/digitales con tiempos configurables | Salida de estimulación cardíaca | Baja-Media |
 
 ## Módulo inicial: `01_pico_ecg`
@@ -23,6 +23,35 @@ Plataforma de reproducción de señales clínicas reales almacenadas en memoria 
 - **Indicación auditiva y visual:** LED indicador y buzzer piezoeléctrico sincronizados con la onda R (complejo QRS).
 - *Documentación detallada, pinout completo y comandos:* Consultar [firmware/01_pico_ecg/README.md](./01_pico_ecg/README.md).
 
+## Módulo 02: `02_pico_conduction_model`
+
+Firmware de síntesis ECG mediante el modelo de conducción cardíaca de
+Quiroz-Juarez et al.:
+- Comparte GEM y u8g2 desde `common/`; no incorpora copias locales de esas librerías.
+- Ejecuta al encender la autocalibración de RA por ADC0/GPIO26 y calcula Offset/Cal Gain para los extremos del modelo.
+- Limita la salida ECG al margen medido del op-amp; las ondas de prueba mantienen su ruta original.
+- *Documentación y calibración:* Consultar [firmware/02_pico_conduction_model/README.md](./02_pico_conduction_model/README.md).
+
+## Módulo 03: `03_pico_ecg_gaussian_ppg`
+
+Firmware de síntesis ECG-PPG mediante el modelo evento-drivado de Huynh,
+Tran & Tran (*"An ECG-PPG Physiological Signal Emulator for Calibration and
+Validation of Cardiovascular Monitoring Devices"*, Sensors 2026, 26, 5578):
+- Comparte GEM y u8g2 desde `common/`; no incorpora copias locales de esas librerías.
+- Genera 9 electrodos ECG (12 derivaciones) y 1 canal PPG acoplado en tiempo real mediante kernels Gaussianos. Las salidas ECG están **referenciadas a RA** (GPIO1 = I, GPIO2 = II, GPIO3-9 = V1-V6) porque GPIO0 se usa como PPG y el RA del DUT va a GND; así el dispositivo mide las 12 derivaciones exactas.
+- *Documentación y detalle del modelo matemático:* Consultar [firmware/03_pico_ecg_gaussian_ppg/README.md](./03_pico_ecg_gaussian_ppg/README.md).
+
+## Módulo 04: `04_pico_multimodel`
+
+Suite de cuatro modelos matemáticos de dinámica cardíaca seleccionables en
+caliente (Quiroz-Juarez et al., *"ECG Patient Simulator Based on
+Mathematical Models"*, Sensors 2022, 22, 5714):
+- Comparte GEM y u8g2 desde `common/`; no incorpora copias locales de esas librerías.
+- Modelos disponibles: Osciladores Heterogéneos (12 derivaciones), Reacción-Difusión BVAM, Anillo de 3 Osciladores Van der Pol y Movimiento Cuasiperiódico (estos 3 últimos, solo Lead II replicado al resto de canales).
+- Ejecuta al encender la misma autocalibración de RA por ADC0/GPIO26 que `02_pico_conduction_model`, midiendo el rango del modelo activo al arrancar para fijar Offset/Cal Gain automáticos.
+- Limita la salida ECG al margen medido del op-amp; las ondas de prueba mantienen su ruta original.
+- *Documentación, normalización por modelo y calibración:* Consultar [firmware/04_pico_multimodel/README.md](./04_pico_multimodel/README.md).
+
 ## Componentes compartidos (`common/`)
 
 Para evitar duplicar código, el directorio `common/` centraliza módulos compartidos configurados como librerías estáticas de CMake:
@@ -34,7 +63,10 @@ firmware/
 │   ├── GEM/               # Graphic Embedded Menu
 │   └── u8g2/              # Librería gráfica u8g2/u8x8
 ├── 01_pico_ecg/           # Firmware de reproducción
-└── 02_.../                # Otros firmwares
+├── 02_pico_conduction_model/ # Síntesis por modelo de conducción
+├── 03_pico_ecg_gaussian_ppg/ # Síntesis analítica ECG-PPG por kernels Gaussianos
+├── 04_pico_multimodel/    # Suite de 4 modelos seleccionables en caliente
+└── 05_.../                # Próximo firmware de la secuencia (planificado)
 ```
 
 ### Targets disponibles en `common`

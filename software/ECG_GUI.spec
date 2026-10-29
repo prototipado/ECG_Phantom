@@ -5,7 +5,7 @@ a = Analysis(
     ['ecg_gui.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('ecg_gui.py', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -35,5 +35,4 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='NONE',
 )
