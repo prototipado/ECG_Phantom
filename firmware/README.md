@@ -10,7 +10,7 @@ Este directorio alberga los módulos de firmware diseñados para microcontrolado
 | **`02_pico_conduction_model`** | Modelo Electrofisiológico | En desarrollo | Ecuaciones diferenciales acopladas (Van der Pol + FHN) | Derivaciones bipolares / derivaciones sintéticas | Media-Alta (Cálculo numérico RK4/Euler) |
 | **`03_pico_ecg_gaussian_ppg`** | Síntesis Analítica + PPG | En desarrollo | Suma de curvas Gaussianas dinámicas | 12 derivaciones ECG (salidas referenciadas a RA) + Pulso Óptico PPG | Media |
 | **`04_pico_multimodel`** | Suite Multi-Motor 4-en-1 | En desarrollo | Selector de motor matemático en caliente (VdP+FHN, BVAM, anillo VdP, Gaussianas cuasiperiódicas) | 12 derivaciones (modelo heterogéneo) / Lead II (otros 3 modelos) | Alta |
-| **`05_pace_sim`** | Simulador de Marcapasos | Planificado | Inyección de espigas analógicas/digitales con tiempos configurables | Salida de estimulación cardíaca | Baja-Media |
+| **`05_pace_sim_intracardiac_9_nodes`** | Simulador de Marcapasos / EGM Intracardíaco | En desarrollo | Red de conducción de 9 nodos + autómata celular, captura de pulsos externos por ADC | EGM auricular/ventricular (PWM + streaming 7 canales) | Alta |
 
 ## Módulo inicial: `01_pico_ecg`
 
@@ -52,6 +52,15 @@ Mathematical Models"*, Sensors 2022, 22, 5714):
 - Limita la salida ECG al margen medido del op-amp; las ondas de prueba mantienen su ruta original.
 - *Documentación, normalización por modelo y calibración:* Consultar [firmware/04_pico_multimodel/README.md](./04_pico_multimodel/README.md).
 
+## Módulo 05: `05_pace_sim_intracardiac_9_nodes`
+
+Simulador de electrogramas intracavitarios (EGM) y banco de pruebas de
+marcapasos en lazo cerrado:
+- Comparte GEM y u8g2 desde `common/`; no incorpora copias locales de esas librerías.
+- Implementa una red reducida de 9 nodos (SA, RA, LA, AV, His, RBB, LBB, RV, LV) con 11 caminos configurables y un autómata celular de 5 estados para las salidas EGM.
+- Acepta pulsos del DUT por ADC (auricular, ventricular y superficie) y reporta captura/sin captura dentro de la trama de streaming de 32 bytes a 2 kHz.
+- *Documentación del modelo, CLI, streaming y pruebas:* Consultar [firmware/05_pace_sim_intracardiac_9_nodes/README.md](./05_pace_sim_intracardiac_9_nodes/README.md).
+
 ## Componentes compartidos (`common/`)
 
 Para evitar duplicar código, el directorio `common/` centraliza módulos compartidos configurados como librerías estáticas de CMake:
@@ -66,7 +75,7 @@ firmware/
 ├── 02_pico_conduction_model/ # Síntesis por modelo de conducción
 ├── 03_pico_ecg_gaussian_ppg/ # Síntesis analítica ECG-PPG por kernels Gaussianos
 ├── 04_pico_multimodel/    # Suite de 4 modelos seleccionables en caliente
-└── 05_.../                # Próximo firmware de la secuencia (planificado)
+└── 05_pace_sim_intracardiac_9_nodes/ # Simulador de marcapasos / EGM intracardíaco
 ```
 
 ### Targets disponibles en `common`

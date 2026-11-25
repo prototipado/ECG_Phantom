@@ -53,7 +53,7 @@ if %errorlevel% neq 0 (
 echo      Dependencies OK.
 echo [2/3] Building executable with PyInstaller...
 if not exist dist mkdir dist
-%PYTHON% -m PyInstaller --name ECG_GUI --onefile --windowed --add-data "ecg_gui.py;." ecg_gui.py
+%PYTHON% -m PyInstaller ECG_GUI.spec --clean
 if %errorlevel% neq 0 goto :buildfail
 
 echo [3/3] Copying to dist folder...

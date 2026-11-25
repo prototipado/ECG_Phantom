@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Simulador ECG-PPG event-driven — Huynh, Tran & Tran 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBF1EE;--ink:#17233B;--panel:#111820;--panel2:#1B2530;--panel3:#232F3C;--brass:#C08A4E;--brass-light:#E7C08A;--text-light:#ECE7DE;--text-dim:#8FA0AE;--ok:#6FCF97;--warn:#E2725B;--sa:#3E6E9E;--av:#8C6BAE;--hp:#B0793F;--ppg:#6FD0C8;--qrs:#B0473F;}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--panel);font-family:'Inter',system-ui,sans-serif;color:var(--text-light);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.app{display:grid;grid-template-columns:322px 1fr;min-height:100vh}
+aside.panel{background:var(--panel);border-right:1px solid #263140;padding:22px 20px 40px;overflow-y:auto}
+aside.panel h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.28rem;line-height:1.28;margin:0 0 4px}
+.subtitle{font-size:.78rem;color:var(--text-dim);margin:0 0 22px;line-height:1.5}
+.transport{display:flex;gap:8px;margin-bottom:22px}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:.72rem;border:1px solid #354557;background:var(--panel2);color:var(--text-light);border-radius:3px;padding:8px 10px;cursor:pointer;transition:background .15s,border-color .15s}
+.btn:hover{border-color:var(--brass)}
+.btn.primary{background:var(--brass);border-color:var(--brass);color:#1A130A;font-weight:600}
+.btn.primary:hover{background:var(--brass-light)}
+.btn.active{background:var(--brass);border-color:var(--brass);color:#1A130A;font-weight:600}
+.speedrow{display:flex;gap:6px;margin-bottom:22px}.speedrow .btn{flex:1;text-align:center}
+.ctrl-group{border-top:1px solid #263140;padding-top:14px;margin-bottom:18px}
+.ctrl-group h3{font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--brass-light);margin:0 0 3px}
+.eqref{font-size:.68rem;color:var(--text-dim);margin:0 0 10px;font-style:italic}
+.slider-row{margin-bottom:12px}.slider-row:last-child{margin-bottom:0}
+.slider-row label{display:flex;justify-content:space-between;font-size:.76rem;margin-bottom:5px}
+.slider-row label .val{font-family:'IBM Plex Mono',monospace;color:var(--brass-light)}
+input[type=range]{-webkit-appearance:none;width:100%;height:3px;background:#33414f;border-radius:2px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--brass);border:2px solid #1A130A;cursor:pointer;margin-top:-5px}
+input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--brass);border:2px solid #1A130A;cursor:pointer}
+select{width:100%;background:var(--panel2);color:var(--text-light);border:1px solid #354557;border-radius:3px;padding:7px 8px;font-family:'IBM Plex Mono',monospace;font-size:.78rem}
+main.stage{background:var(--panel);padding:26px 30px 40px;min-width:0}
+main.stage>header{max-width:920px;margin-bottom:22px}
+main.stage>header h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.5rem;margin:0 0 8px}
+main.stage>header p{font-size:.86rem;line-height:1.6;color:var(--text-dim);margin:0}
+code{font-family:'IBM Plex Mono',monospace;color:var(--brass-light);font-size:.82rem}
+.diagram,.ppgbox{background:var(--panel2);border:1px solid #263140;border-radius:6px;padding:20px 22px 16px;margin-bottom:20px}
+.diagram h3,.scope h3,.ppgbox h3{font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);margin:0 0 14px}
+.pace-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.node{background:var(--panel3);border:1px solid #354557;border-radius:5px;padding:8px 10px;min-width:96px;transition:box-shadow .08s,border-color .08s}
+.node .name{font-size:.72rem;color:var(--text-dim);margin-bottom:3px}
+.node .vals{font-family:'IBM Plex Mono',monospace;font-size:.76rem}
+.node.sa{border-left:3px solid var(--sa)}.node.av{border-left:3px solid var(--av)}.node.hp{border-left:3px solid var(--hp)}.node.pp{border-left:3px solid var(--ppg)}
+.node.fire{border-color:var(--brass-light);box-shadow:0 0 10px rgba(231,192,138,.5)}
+.node.blocked{border-color:var(--warn);box-shadow:0 0 10px rgba(226,114,91,.5)}
+.arrow{color:var(--text-dim);font-size:.82rem;text-align:center;min-width:60px}
+.arrow .tau{display:block;font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--brass-light);margin-top:1px}
+.sum-formula{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--text-dim);margin:12px 0 0;line-height:1.6}
+.sum-formula b{color:var(--brass-light);font-weight:500}
+.scope{background:var(--paper);border-radius:6px;overflow:hidden;margin-bottom:20px;border:1px solid #263140}
+.scope-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 4px}
+.scope-head h3{color:var(--ink);opacity:.55;margin:0}
+.hr-readout{display:flex;align-items:baseline;gap:6px}
+.hr-readout .num{font-family:'IBM Plex Mono',monospace;font-size:1.7rem;font-weight:600;color:var(--ink)}
+.hr-readout .unit{font-size:.72rem;color:var(--ink);opacity:.55}
+.hr-readout .lead{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:#a4453b;margin-left:10px;background:rgba(163,69,59,.08);padding:2px 8px;border-radius:3px}
+canvas{display:block;width:100%}
+#ecgCanvas{height:230px}#ppgCanvas{height:130px}
+.legend{display:flex;gap:16px;margin-bottom:6px}.legend span{font-size:.68rem;color:var(--text-dim);display:flex;align-items:center;gap:5px}.legend i{width:10px;height:3px;display:inline-block;border-radius:2px}
+footer.cite{font-size:.72rem;color:var(--text-dim);line-height:1.6;max-width:920px}
+.node.c-P{border-left:3px solid #3E8E7E}.node.c-Q{border-left:3px solid #6FAF8C}.node.c-R{border-left:3px solid #B0473F}.node.c-S{border-left:3px solid #8C6BAE}.node.c-T{border-left:3px solid #C4823F}.node.c-E{border-left:3px solid var(--brass);min-width:130px}
+.wave-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.wave-row .plus{color:var(--text-dim)}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.metric{background:var(--panel3);border:1px solid #354557;border-radius:5px;padding:9px 11px}
+.metric .k{font-size:.68rem;color:var(--text-dim);margin-bottom:3px}.metric .v{font-family:'IBM Plex Mono',monospace;font-size:1.05rem;color:var(--brass-light)}.metric .v small{font-size:.66rem;color:var(--text-dim)}
+.eqs{display:grid;gap:10px}.eq{font-family:'IBM Plex Mono',monospace;font-size:.76rem;background:var(--panel3);border-left:3px solid var(--brass);padding:9px 12px;border-radius:3px;line-height:1.7;overflow-x:auto}
+.eq .n{color:var(--brass-light);margin-right:8px}.eq b{color:var(--brass-light);font-weight:500}.eq .d{display:block;font-family:'Inter',sans-serif;font-size:.7rem;color:var(--text-dim);font-style:italic}
+.eq .live{display:block;color:var(--ok);font-size:.72rem}
+@media(max-width:900px){.app{grid-template-columns:1fr}aside.panel{border-right:none;border-bottom:1px solid #263140}main.stage{padding:22px 16px 40px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="panel">
+  <h1>Emulador ECG-PPG event-driven</h1>
+  <p class="subtitle">Modelo de Huynh, Tran & Tran (2026). Cada control mueve un parámetro real de las ecuaciones (1)–(8) del paper.</p>
+  <div class="transport"><button class="btn primary" id="btnPlay">Pausar</button><button class="btn" id="btnReset">Reiniciar</button></div>
+  <div class="speedrow" id="speedRow"><button class="btn" data-speed="0.5">0.5×</button><button class="btn active" data-speed="1">1×</button><button class="btn" data-speed="2">2×</button></div>
+
+  <div class="ctrl-group"><h3>Ritmo</h3><p class="eqref">Preajuste de conducción AV y marcapasos</p>
+    <select id="rhythmSelect"><option value="0">Normal</option><option value="1">Bloqueo AV 1er grado</option><option value="2">Mobitz I (Wenckebach)</option><option value="3">Bloqueo AV completo</option><option value="4">Taquicardia auricular</option><option value="5">Taquicardia ventricular</option></select></div>
+
+  <div class="ctrl-group"><h3>Marcapasos auricular</h3><p class="eqref">Frecuencia base y modulación — ec. (1)</p>
+    <div class="slider-row"><label>Frecuencia auricular <span class="val" id="vHr">72</span> bpm</label><input type="range" id="hr" min="40" max="180" step="1" value="72"></div>
+    <div class="slider-row"><label>Modulación respiratoria <span class="val" id="vResp">0</span> %</label><input type="range" id="resp" min="0" max="30" step="1" value="0"></div></div>
+
+  <div class="ctrl-group"><h3>Conducción AV</h3><p class="eqref">PR₀, incremento Wenckebach y escape — ec. (2)</p>
+    <div class="slider-row"><label>Intervalo PR₀ <span class="val" id="vPr">160</span> ms</label><input type="range" id="pr" min="80" max="320" step="5" value="160"></div>
+    <div class="slider-row"><label>Incremento PR (Mobitz I) <span class="val" id="vInc">40</span> ms</label><input type="range" id="inc" min="10" max="80" step="5" value="40"></div>
+    <div class="slider-row"><label>Frec. de escape (bloqueo/TV) <span class="val" id="vEsc">38</span> bpm</label><input type="range" id="esc" min="20" max="200" step="1" value="38"></div></div>
+
+  <div class="ctrl-group"><h3>Generador de PPG</h3><p class="eqref">PAT = PEP + L/PWV — ec. (7)–(8)</p>
+    <div class="slider-row"><label>PEP (pre-eyección) <span class="val" id="vPep">80</span> ms</label><input type="range" id="pep" min="30" max="160" step="5" value="80"></div>
+    <div class="slider-row"><label>Velocidad de onda de pulso <span class="val" id="vPwv">5.0</span> m/s</label><input type="range" id="pwv" min="3" max="15" step="0.5" value="5"></div>
+    <div class="slider-row"><label>Longitud del trayecto L <span class="val" id="vLen">0.50</span> m</label><input type="range" id="len" min="0.2" max="1" step="0.05" value="0.5"></div></div>
+
+  <div class="ctrl-group"><h3>Derivación de salida</h3><p class="eqref">Proyección de dipolos P, Q, R, S, T sobre 9 electrodos</p>
+    <select id="leadSelect"><option value="0">I</option><option value="1" selected>II</option><option value="2">III</option><option value="3">aVR</option><option value="4">aVL</option><option value="5">aVF</option><option value="6">V1</option><option value="7">V2</option><option value="8">V3</option><option value="9">V4</option><option value="10">V5</option><option value="11">V6</option></select></div>
+</aside>
+
+<main class="stage">
+  <header>
+    <h2>Del evento auricular al pulso periférico</h2>
+    <p>Reproducción interactiva del esquema del paper: un <code>marcapasos auricular</code> dispara la conducción por el <code>nodo AV</code> (con retardo PR y posible bloqueo) hasta el <code>ventrículo</code>; el ECG es la suma de gaussianas P/Q/R/S/T proyectadas sobre los electrodos, y la <code>PPG</code> no tiene reloj propio: nace siempre del evento ventricular con un retardo PEP + L/PWV.</p>
+  </header>
+
+  <section class="diagram">
+    <h3>Esquema de generación — cadena de eventos</h3>
+    <div class="pace-row">
+      <div class="node sa" id="nA"><div class="name">Aurícula</div><div class="vals" id="rA">— bpm</div></div>
+      <div class="arrow">⟶<span class="tau" id="rPR">PR 160 ms</span></div>
+      <div class="node av" id="nAV"><div class="name">Nodo AV</div><div class="vals" id="rAV">conduce</div></div>
+      <div class="arrow">⟶<span class="tau" id="rRR">RR — ms</span></div>
+      <div class="node hp" id="nV"><div class="name">Ventrículo</div><div class="vals" id="rV">normal</div></div>
+      <div class="arrow">⟶<span class="tau" id="rPAT">PAT 180 ms</span></div>
+      <div class="node pp" id="nP"><div class="name">PPG</div><div class="vals" id="rP">pulso</div></div>
+    </div>
+    <p class="sum-formula">ECG = Σ <b>P·DOT<sub>P</sub></b> + <b>Q·DOT<sub>Q</sub></b> + <b>R·DOT<sub>R</sub></b> + <b>S·DOT<sub>S</sub></b> + <b>T·DOT<sub>T</sub></b> &nbsp;|&nbsp; PAT = <b>PEP</b> + <b>L/PWV</b> &nbsp;|&nbsp; derivación <b id="rLead">II</b></p>
+  </section>
+
+  <section class="scope">
+    <div class="scope-head"><h3>Trazo de salida — ECG</h3>
+      <div class="hr-readout"><span class="num" id="hrNum">72</span><span class="unit">lpm</span><span class="lead" id="leadTag">Derivación II</span></div></div>
+    <canvas id="ecgCanvas"></canvas>
+  </section>
+
+  <section class="ppgbox">
+    <h3>Pulso periférico — PPG, ec. (7)</h3>
+    <div class="legend"><span><i style="background:var(--ppg)"></i>PPG (sitio distal)</span></div>
+    <canvas id="ppgCanvas"></canvas>
+  </section>
+
+  <section class="diagram">
+    <h3>Componentes de onda en la derivación actual — ec. (3)–(4)</h3>
+    <div class="wave-row">
+      <div class="node c-P"><div class="name">Onda P</div><div class="vals"><span id="wP">0.000</span></div></div><span class="plus">+</span>
+      <div class="node c-Q"><div class="name">Onda Q</div><div class="vals"><span id="wQ">0.000</span></div></div><span class="plus">+</span>
+      <div class="node c-R"><div class="name">Onda R</div><div class="vals"><span id="wR">0.000</span></div></div><span class="plus">+</span>
+      <div class="node c-S"><div class="name">Onda S</div><div class="vals"><span id="wS">0.000</span></div></div><span class="plus">+</span>
+      <div class="node c-T"><div class="name">Onda T</div><div class="vals"><span id="wT">0.000</span></div></div><span class="plus">=</span>
+      <div class="node c-E"><div class="name">Σ ECG</div><div class="vals"><span id="wSum">0.000</span></div></div>
+    </div>
+    <p class="sum-formula">Coeficientes de proyección ê·d (análogo a la Tabla I) — <b id="rLD">II</b></p>
+  </section>
+
+  <section class="diagram">
+    <h3>Resultados medidos en vivo</h3>
+    <div class="mgrid">
+      <div class="metric"><div class="k">FC ventricular</div><div class="v"><span id="mHR">—</span> <small>lpm</small></div></div>
+      <div class="metric"><div class="k">Intervalo RR</div><div class="v"><span id="mRR">—</span> <small>ms</small></div></div>
+      <div class="metric"><div class="k">PR último conducido</div><div class="v"><span id="mPR">—</span> <small>ms</small></div></div>
+      <div class="metric"><div class="k">QT estimado</div><div class="v"><span id="mQT">—</span> <small>ms</small></div></div>
+      <div class="metric"><div class="k">QTc (Bazett)</div><div class="v"><span id="mQTc">—</span> <small>ms</small></div></div>
+      <div class="metric"><div class="k">Factor f<sub>T</sub></div><div class="v"><span id="mFT">—</span></div></div>
+      <div class="metric"><div class="k">PAT = PEP + L/PWV</div><div class="v"><span id="mPAT">—</span> <small>ms</small></div></div>
+      <div class="metric"><div class="k">Variabilidad SDNN</div><div class="v"><span id="mSD">—</span> <small>ms</small></div></div>
+      <div class="metric"><div class="k">Ondas P / QRS</div><div class="v"><span id="mNA">0</span> / <span id="mNV">0</span></div></div>
+      <div class="metric"><div class="k">P bloqueadas</div><div class="v"><span id="mND">0</span> <small id="mNDp">(0%)</small></div></div>
+      <div class="metric"><div class="k">Latidos ectópicos</div><div class="v"><span id="mNE">0</span></div></div>
+    </div>
+  </section>
+
+  <section class="diagram">
+    <h3>Ecuaciones del modelo</h3>
+    <div class="eqs">
+      <div class="eq"><span class="n">(1)</span>T<sub>A,n+1</sub> = T<sub>A,n</sub> + (60/<b>f<sub>A</sub></b>)·[1 + <b>α<sub>A</sub></b>·sin(2π f<sub>r</sub> T<sub>A,n</sub>)]<span class="d">Marcapasos auricular con modulación respiratoria (f<sub>r</sub> = 0.25 Hz).</span><span class="live" id="e1"></span></div>
+      <div class="eq"><span class="n">(2)</span>t<sub>V</sub> = T<sub>A</sub> + PR<sub>k</sub>,&nbsp; PR<sub>k</sub> = <b>PR₀</b> + k·<b>ΔPR</b>&nbsp; (Mobitz I: la P número 5 no conduce y k→0)<span class="d">Conducción AV: bloqueo completo y TV usan un ventrículo independiente a f<sub>esc</sub>; en taquicardia auricular conduce solo si t<sub>A</sub> − t<sub>V</sub> &gt; 280 ms.</span><span class="live" id="e2"></span></div>
+      <div class="eq"><span class="n">(3)</span>V<sub>e</sub>(t) = Σ<sub>w∈{P,Q,R,S,T}</sub> A<sub>w</sub>·(ê<sub>e</sub>·d<sub>w</sub>)·exp[−(t−μ<sub>w</sub>)² / 2σ<sub>w</sub>²]<span class="d">Potencial en cada uno de los 9 electrodos como suma de gaussianas por latido; en latidos ectópicos σ<sub>QRS</sub> se multiplica por 1.8 y Q/S se desplazan 25 ms.</span></div>
+      <div class="eq"><span class="n">(4)</span>I = LA−RA,&nbsp; II = LL−RA,&nbsp; III = LL−LA,&nbsp; aVR = RA−(LA+LL)/2, …,&nbsp; V<sub>k</sub> = V<sub>e</sub> − (RA+LA+LL)/3<span class="d">Derivaciones estándar a partir de los electrodos (Wilson para las precordiales).</span></div>
+      <div class="eq"><span class="n">(5)</span>f<sub>T</sub> = clip[(RR/RR₀)<sup>0.3</sup>, 0.6, 1.3];&nbsp; μ<sub>T</sub> → μ<sub>T</sub>·f<sub>T</sub>,&nbsp; σ<sub>T</sub> → σ<sub>T</sub>·f<sub>T</sub><span class="d">Adaptación del QT a la frecuencia (RR₀ = 833 ms).</span><span class="live" id="e5"></span></div>
+      <div class="eq"><span class="n">(6)</span>PPG(t) = Σ<sub>n</sub> a<sub>n</sub>·σ((t−t<sub>n</sub>)/8 ms)·Σ<sub>g=1..5</sub> a<sub>g</sub>·exp[−(t−t<sub>n</sub>−μ<sub>g</sub>)² / 2σ<sub>g</sub>²]<span class="d">Pulso periférico: onset sigmoide más 5 gaussianas (onda sistólica, reflexión, muesca dicrótica…). a<sub>n</sub> = 0.5 en latidos ectópicos.</span></div>
+      <div class="eq"><span class="n">(7)</span>PAT = <b>PEP</b> + <b>L</b> / <b>PWV</b>,&nbsp; t<sub>PPG,n</sub> = t<sub>V,n</sub> + PAT<span class="d">La PPG no tiene reloj propio: cada pulso nace del evento ventricular (PEP + 20 ms en ectópicos).</span><span class="live" id="e7"></span></div>
+      <div class="eq"><span class="n">(8)</span>PWV = L / (PAT − PEP)<span class="d">Relación inversa usada para estimar la rigidez arterial a partir del retardo medido.</span><span class="live" id="e8"></span></div>
+    </div>
+  </section>
+
+  <footer class="cite">Modelo basado en: Huynh, Tran & Tran, emulador ECG-PPG event-driven, <i>Sensors</i>, 2026. Las direcciones de onda, proyecciones de electrodo y plantilla de PPG siguen la implementación de referencia. Integración a 2 kHz; el trazo se decima a 500 muestras/s. En bloqueo completo y TV el ventrículo late con su ritmo de escape, independiente de la aurícula; los latidos ectópicos ensanchan el QRS y reducen la amplitud del pulso.</footer>
+</main>
+</div>
+
+<script>
+(function(){
+"use strict";
+const WAVE_DIR={P:{x:.329,y:.94,z:.094},Q:{x:.1,y:.3,z:-.949},R:{x:.47,y:.813,z:.341},S:{x:-.15,y:.25,z:.957},T:{x:.432,y:.864,z:.259}};
+const ELEC=[{x:-.86603,y:-.5,z:0},{x:.86603,y:-.5,z:0},{x:0,y:1,z:0},{x:0,y:0,z:1},{x:.14,y:0,z:.99015},{x:.37,y:0,z:.92902},{x:.6,y:0,z:.8},{x:.87,y:0,z:.493},{x:.98,y:0,z:.196}];
+const NE=9, dot=(a,b)=>a.x*b.x+a.y*b.y+a.z*b.z;
+const DOT={P:[],Q:[],R:[],S:[],T:[]};
+for(const k in DOT)for(let e=0;e<NE;e++)DOT[k].push(dot(ELEC[e],WAVE_DIR[k]));
+const PPG_T=[{a:1,mu:120,sg:45},{a:.35,mu:180,sg:50},{a:.25,mu:300,sg:60},{a:.15,mu:400,sg:80},{a:.08,mu:550,sg:100}];
+const R={NORMAL:0,FIRST:1,MOBITZ:2,COMPLETE:3,ATACHY:4,VT:5};
+const LEADS=["I","II","III","aVR","aVL","aVF","V1","V2","V3","V4","V5","V6"];
+const A_WIN=250,V_WIN=650,PPG_WIN=1100,QRS_PRE=120,P_PRE=120,LEAD_FIRST=-10,SIM_HZ=2000,DT=1/SIM_HZ;
+const ms=s=>s*1000,sec=m=>m/1000,gauss=(t,mu,sg,a)=>{sg=Math.max(sg,.1);const d=t-mu;return a*Math.exp(-d*d/(2*sg*sg))};
+const p={hr:72,resp:0,respHz:.25,pr:160,inc:40,wb:4,esc:38,pAmp:.15,pMu:45,pSg:33.2,qAmp:-.1,qMu:-34.7,qSg:13.3,rAmp:1.2,rSg:13.3,sAmp:-.3,sMu:34.7,sSg:13.3,tAmp:.19,tMu:208.3,tSg:59.7,qtExp:.3,qtMin:.6,qtMax:1.3,rr0:833,eW:1.8,eD:25,eP:20,pep:80,len:.5,pwv:5,eAmp:.5};
+let tSim=0,rhythm=0,atrial=[],vent=[],ppgEv=[],pending=[],nextA=.05,nextInd=1e9,lastV=-1,lastRr=833,lastRV=-1e9,lastRA=-1e9,mobN=0,mobPr=160,lastPr=160,lastCls="normal",lastCond=true,lead=1,speed=1,running=true;
+const push=(a,x,m)=>{a.push(x);if(a.length>m)a.shift()};
+let st={a:0,d:0,v:0,e:0},rrL=[];
+let fA=false,fAV=false,fV=false,fP=false;
+function reset(){st={a:0,d:0,v:0,e:0};rrL=[];atrial=[];vent=[];ppgEv=[];pending=[];nextInd=1e9;lastV=-1;lastRV=-1e9;lastRA=-1e9;lastRr=p.rr0;mobN=0;mobPr=p.pr;nextA=tSim+.01;if(rhythm===R.COMPLETE||rhythm===R.VT)nextInd=tSim+.02;}
+const $=id=>document.getElementById(id);
+function applyRhythm(i){rhythm=i;
+  switch(i){case 0:p.hr=72;p.pr=160;break;case 1:p.hr=72;p.pr=240;break;case 2:p.hr=75;p.pr=160;p.inc=40;break;case 3:p.hr=75;p.esc=38;break;case 4:p.hr=160;p.pr=160;break;case 5:p.hr=72;p.esc=160;break;}
+  reset();sync();}
+function sync(){[["hr","vHr","hr"],["pr","vPr","pr"],["inc","vInc","inc"],["esc","vEsc","esc"]].forEach(([k,v,i])=>{$(i).value=p[k];$(v).textContent=Math.round(p[k]);});}
+const indep=()=>rhythm===R.COMPLETE||rhythm===R.VT;
+function schedule(){
+  for(;;){const tA=nextA;if(tA-sec(P_PRE)>tSim)break;
+    if(tA>lastRA){push(atrial,{t:tA},6);lastRA=tA;}
+    if(tSim<tA)break;
+    fA=true;st.a++;
+    nextA=tA+sec(60000/p.hr)*(1+p.resp*Math.sin(2*Math.PI*p.respHz*tA));
+    let cond=true,pr=p.pr;
+    if(rhythm===R.MOBITZ){if(mobN>=p.wb){cond=false;mobN=0;mobPr=p.pr;}else{pr=mobPr;mobPr+=p.inc;mobN++;}}
+    else if(rhythm===R.COMPLETE||rhythm===R.VT)cond=false;
+    else if(rhythm===R.ATACHY)cond=lastV<0||ms(tA-lastV)>280;
+    fAV=true;lastCond=cond;if(!cond)st.d++;
+    if(cond){if(pending.length<4)pending.push(tA+sec(pr));lastPr=pr;}
+  }
+  const ind=indep();
+  for(;;){let tV=pending.length?pending[0]:1e9,fi=false;
+    if(ind&&nextInd<=tV){tV=nextInd;fi=true;}
+    if(tV-sec(QRS_PRE)>tSim)break;
+    const rr=lastV>=0?ms(tV-lastV):p.rr0, cls=fi&&rhythm===R.VT?"ectopic":"normal";
+    const fT=Math.min(p.qtMax,Math.max(p.qtMin,Math.pow(rr/p.rr0,p.qtExp)));
+    if(tV>lastRV){push(vent,{t:tV,ts:fT,cls},6);lastRV=tV;}
+    if(tSim<tV)break;
+    lastV=tV;lastRr=rr;lastCls=cls;fV=true;st.v++;if(cls==="ectopic")st.e++;if(st.v>1){rrL.push(rr);if(rrL.length>12)rrL.shift();}
+    const pep=p.pep+(cls==="ectopic"?p.eP:0);
+    push(ppgEv,{t:tV+sec(pep)+p.len/p.pwv,a:cls==="ectopic"?p.eAmp:1},6);fP=true;
+    if(fi)nextInd=tV+sec(60000/p.esc);else pending.shift();
+  }
+}
+const el=new Array(NE).fill(0);
+function leads12(e){const r=e[0],l=e[1],f=e[2],o=new Array(12);o[0]=l-r;o[1]=f-r;o[2]=f-l;o[3]=r-(l+f)/2;o[4]=l-(r+f)/2;o[5]=f-(r+l)/2;const w=(r+l+f)/3;for(let i=3;i<NE;i++)o[6+i-3]=e[i]-w;return o;}
+function step(){
+  tSim+=DT;schedule();const tn=ms(tSim);
+  for(let e=0;e<NE;e++){let acc=0;
+    for(const ev of atrial){const tau=tn-ms(ev.t);if(tau<-P_PRE||tau>A_WIN)continue;acc+=p.pAmp*DOT.P[e]*gauss(tau,Math.max(p.pMu,0),p.pSg,1);}
+    for(const v of vent){const tau=tn-ms(v.t);if(tau<-V_WIN||tau>V_WIN)continue;
+      const ec=v.cls==="ectopic",w=ec?p.eW:1,sh=ec?p.eD:0;
+      acc+=p.qAmp*DOT.Q[e]*gauss(tau,p.qMu-sh,p.qSg*w,1)+p.rAmp*DOT.R[e]*gauss(tau,0,p.rSg*w,1)+p.sAmp*DOT.S[e]*gauss(tau,p.sMu+sh,p.sSg*w,1)+p.tAmp*DOT.T[e]*gauss(tau,p.tMu*v.ts,p.tSg*v.ts,1);}
+    el[e]=acc;}
+  let ppg=0;
+  for(const ev of ppgEv){const tau=tn-ms(ev.t);if(tau<LEAD_FIRST||tau>PPG_WIN)continue;
+    let pl=0;for(const g of PPG_T)pl+=gauss(tau,g.mu,g.sg,g.a);ppg+=pl/(1+Math.exp(-tau/8))*ev.a;}
+  return{ecg:leads12(el)[lead],ppg};
+}
+let LD={};
+function calcLD(){for(const k in DOT)LD[k]=leads12(DOT[k])[lead];
+  $("rLD").textContent=LEADS[lead]+": ("+["P","Q","R","S","T"].map(k=>k+" "+LD[k].toFixed(3)).join(", ")+")";}
+function waveNow(){const tn=ms(tSim),o={P:0,Q:0,R:0,S:0,T:0};
+  for(const ev of atrial){const tau=tn-ms(ev.t);if(tau<-P_PRE||tau>A_WIN)continue;o.P+=p.pAmp*LD.P*gauss(tau,Math.max(p.pMu,0),p.pSg,1);}
+  for(const v of vent){const tau=tn-ms(v.t);if(tau<-V_WIN||tau>V_WIN)continue;const e=v.cls==="ectopic",w=e?p.eW:1,sh=e?p.eD:0;
+    o.Q+=p.qAmp*LD.Q*gauss(tau,p.qMu-sh,p.qSg*w,1);o.R+=p.rAmp*LD.R*gauss(tau,0,p.rSg*w,1);o.S+=p.sAmp*LD.S*gauss(tau,p.sMu+sh,p.sSg*w,1);o.T+=p.tAmp*LD.T*gauss(tau,p.tMu*v.ts,p.tSg*v.ts,1);}
+  return o;}
+/* ---- trazos ---- */
+const LEN=2000,PLOT_HZ=500,DECIM=SIM_HZ/PLOT_HZ;
+let eb=new Float32Array(LEN),pb=new Float32Array(LEN),pw=0,dc=0;
+const ec=$("ecgCanvas"),pc=$("ppgCanvas"),ex=ec.getContext("2d"),px=pc.getContext("2d");
+function fit(cv){const d=window.devicePixelRatio||1,w=cv.clientWidth,h=cv.clientHeight;if(cv.width!==Math.round(w*d)||cv.height!==Math.round(h*d)){cv.width=Math.round(w*d);cv.height=Math.round(h*d);}return{w,h,d};}
+function paperGrid(c,w,h){c.fillStyle="#FBF1EE";c.fillRect(0,0,w,h);c.lineWidth=1;
+  for(let a=0;a<2;a++){const L=a?h:w;let i=0;for(let g=0;g<=L;g+=8,i++){c.strokeStyle=i%5?"#EFC9C4":"#DE9C93";c.globalAlpha=i%5?.55:.9;c.beginPath();if(a){c.moveTo(0,g+.5);c.lineTo(w,g+.5);}else{c.moveTo(g+.5,0);c.lineTo(g+.5,h);}c.stroke();}}
+  c.globalAlpha=1;}
+const sc1={lo:-1,hi:2},sc2={lo:-.2,hi:2};
+function trace(c,buf,w,h,color,s,lw){
+  let lo=1e9,hi=-1e9;for(let i=0;i<LEN;i++){const v=buf[i];if(v<lo)lo=v;if(v>hi)hi=v;}
+  if(hi-lo<.02){const m=(hi+lo)/2;lo=m-.02;hi=m+.02;}
+  const pad=(hi-lo)*.15;lo-=pad;hi+=pad;s.lo+=(lo-s.lo)*.02;s.hi+=(hi-s.hi)*.02;
+  const span=Math.max(s.hi-s.lo,1e-6);
+  c.strokeStyle=color;c.lineWidth=lw;c.lineJoin="round";c.beginPath();
+  for(let i=0;i<LEN;i++){const v=buf[(pw+i)%LEN],x=i/(LEN-1)*w,y=h*.08+h*.84*(1-(v-s.lo)/span);i?c.lineTo(x,y):c.moveTo(x,y);}
+  c.stroke();}
+function draw(){
+  let q=fit(ec);ex.setTransform(q.d,0,0,q.d,0,0);paperGrid(ex,q.w,q.h);trace(ex,eb,q.w,q.h,"#17233B",sc1,1.6);
+  q=fit(pc);px.setTransform(q.d,0,0,q.d,0,0);px.fillStyle="#141C26";px.fillRect(0,0,q.w,q.h);
+  px.strokeStyle="#232F3C";px.lineWidth=1;for(let g=0;g<q.h;g+=q.h/4){px.beginPath();px.moveTo(0,g+.5);px.lineTo(q.w,g+.5);px.stroke();}
+  trace(px,pb,q.w,q.h,"#6FD0C8",sc2,1.6);}
+/* ---- lecturas ---- */
+const flash=(id,cls)=>{const n=$(id);n.classList.add(cls);setTimeout(()=>n.classList.remove(cls,"fire","blocked"),140);};
+let uf=0;
+function readouts(){
+  if(fA){flash("nA","fire");fA=false;}
+  if(fAV){flash("nAV",lastCond?"fire":"blocked");$("rAV").textContent=lastCond?"conduce":"bloqueado";fAV=false;}
+  if(fV){flash("nV","fire");$("rV").textContent=lastCls==="ectopic"?"ectópico":"normal";fV=false;}
+  if(fP){flash("nP","fire");fP=false;}
+  if(uf++%6)return;
+  const hr=60000/lastRr,pat=p.pep+p.len/p.pwv*1000;
+  $("rA").textContent=Math.round(p.hr)+" bpm";$("rPR").textContent="PR "+Math.round(lastPr)+" ms";
+  $("rRR").textContent="RR "+Math.round(lastRr)+" ms";$("rPAT").textContent="PAT "+Math.round(pat)+" ms";
+  $("hrNum").textContent=Math.round(hr);
+  const w=waveNow();let sm=0;for(const k of ["P","Q","R","S","T"]){$("w"+k).textContent=w[k].toFixed(3);sm+=w[k];}$("wSum").textContent=sm.toFixed(3);
+  const fT=Math.min(p.qtMax,Math.max(p.qtMin,Math.pow(lastRr/p.rr0,p.qtExp)));
+  const qt=(p.tMu+2*p.tSg)*fT-(p.qMu-2*p.qSg),qtc=qt/Math.sqrt(lastRr/1000);
+  const mean=rrL.length?rrL.reduce((a,b)=>a+b,0)/rrL.length:0,sd=rrL.length>2?Math.sqrt(rrL.reduce((a,b)=>a+(b-mean)*(b-mean),0)/rrL.length):0;
+  const T=(i,v)=>$(i).textContent=v, has=st.v>1;
+  T("mHR",has?Math.round(hr):"—");T("mRR",has?Math.round(lastRr):"—");T("mPR",Math.round(lastPr));T("mQT",Math.round(qt));T("mQTc",has?Math.round(qtc):"—");
+  T("mFT",fT.toFixed(2));T("mPAT",Math.round(pat));T("mSD",rrL.length>2?sd.toFixed(1):"—");
+  T("mNA",st.a);T("mNV",st.v);T("mND",st.d);T("mNDp","("+(st.a?Math.round(100*st.d/st.a):0)+"%)");T("mNE",st.e);
+  T("e1","→ f_A = "+p.hr+" bpm, α_A = "+p.resp.toFixed(2)+", período base "+Math.round(60000/p.hr)+" ms");
+  T("e2","→ PR₀ = "+p.pr+" ms, ΔPR = "+p.inc+" ms, f_esc = "+p.esc+" bpm, PR actual = "+Math.round(lastPr)+" ms");
+  T("e5","→ RR = "+Math.round(lastRr)+" ms ⇒ f_T = "+fT.toFixed(2)+", μ_T = "+Math.round(p.tMu*fT)+" ms");
+  T("e7","→ "+p.pep+" + "+(p.len/p.pwv*1000).toFixed(0)+" = "+Math.round(pat)+" ms");
+  T("e8","→ PWV = "+p.len.toFixed(2)+" / "+((pat-p.pep)/1000).toFixed(3)+" = "+(p.len/((pat-p.pep)/1000)).toFixed(1)+" m/s");}
+/* ---- bucle ---- */
+let lastT=performance.now();
+function frame(now){requestAnimationFrame(frame);let d=Math.min((now-lastT)/1000,.1);lastT=now;if(!running)return;
+  const n=Math.min(Math.round(d*speed*SIM_HZ),800);
+  for(let i=0;i<n;i++){const o=step();if(++dc>=DECIM){dc=0;eb[pw]=o.ecg;pb[pw]=o.ppg;pw=(pw+1)%LEN;}}
+  draw();readouts();}
+requestAnimationFrame(frame);
+/* ---- controles ---- */
+const bind=(id,vid,key,f,fmt)=>$(id).addEventListener("input",e=>{const v=parseFloat(e.target.value);p[key]=f?f(v):v;$(vid).textContent=fmt?fmt(v):v;});
+bind("hr","vHr","hr");bind("pr","vPr","pr");bind("inc","vInc","inc");bind("esc","vEsc","esc");bind("pep","vPep","pep");
+bind("pwv","vPwv","pwv",null,v=>v.toFixed(1));bind("len","vLen","len",null,v=>v.toFixed(2));bind("resp","vResp","resp",v=>v/100);
+$("rhythmSelect").addEventListener("change",e=>applyRhythm(+e.target.value));
+$("leadSelect").addEventListener("change",e=>{lead=+e.target.value;$("rLead").textContent=LEADS[lead];$("leadTag").textContent="Derivación "+LEADS[lead];eb.fill(0);sc1.lo=-1;sc1.hi=2;calcLD();});
+$("btnPlay").addEventListener("click",()=>{running=!running;$("btnPlay").textContent=running?"Pausar":"Reanudar";lastT=performance.now();});
+$("btnReset").addEventListener("click",()=>{eb.fill(0);pb.fill(0);pw=0;reset();});
+$("speedRow").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;speed=parseFloat(b.dataset.speed);document.querySelectorAll("#speedRow .btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");});
+applyRhythm(0);calcLD();
+})();
+</script>
+</body>
+</html>

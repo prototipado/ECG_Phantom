@@ -32,17 +32,28 @@ except ImportError:
 try:
     import serial
     import serial.tools.list_ports
-except ImportError:
+except ImportError as e:
+    try:
+        from tkinter import messagebox
+        messagebox.showerror("Error", f"pyserial not installed:\n{e}")
+    except Exception:
+        pass
     print("ERROR: pyserial not installed. Run: pip install pyserial")
     sys.exit(1)
 
 try:
     import matplotlib
+    matplotlib.use('TkAgg')
     import matplotlib.pyplot as plt
     from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
     from matplotlib.figure import Figure
-except ImportError:
-    print("ERROR: matplotlib not installed. Run: pip install matplotlib")
+except ImportError as e:
+    try:
+        from tkinter import messagebox
+        messagebox.showerror("Error", f"matplotlib not installed:\n{e}")
+    except Exception:
+        pass
+    print(f"ERROR: matplotlib not installed. Run: pip install matplotlib\n{e}")
     sys.exit(1)
 
 
@@ -57,12 +68,9 @@ PICO_ECG_KEY = "pico_ecg"
 PACE_SIM_KEY = "pace_sim"
 # Key used internally to identify the pace_sim_intracardiac firmware.
 PACE_SIM_IC_KEY = "pace_sim_intracardiac"
-PACE_SIM_9_KEY = "pace_sim_intracardiac_9_nodes"
-# Indices in the 7-channel streamed frames holding the pace-sense ADC
-# voltages (atrial, ventricular, surface). Both bench firmwares stream 7
-# channels with the ADC slots last, though the other 4 channels differ:
-# pace_sim sends 0-2 ECG (RA/LA/LL) + 3 PPG; pace_sim_intracardiac sends
-# 0-3 cell-model EGMs (RA, LA, RV, LV). See each streaming.h.
+PACE_SIM_9_KEY = "05_pace_sim_intracardiac_9_nodes"
+# Indices in the legacy 7-channel frames holding pace-sense ADC voltages.
+# The 05 9-node profile uses ADC slots 8-10 after 4 cell AP and 4 EGM values.
 PACE_ADC_CHANNELS = (4, 5, 6)
 
 # Pace-sense detection configuration shown as live sliders in the dedicated
@@ -117,6 +125,8 @@ PROJECT_ALIASES = {
     "pico_ecg_conduction_model": "02_pico_conduction_model",
     "pico_ecg_gaussian_ppg": "03_pico_ecg_gaussian_ppg",
     "pico_ecg_multimodel": "04_pico_multimodel",
+    # Older 9-node builds report the folder name without the 05_ prefix.
+    "pace_sim_intracardiac_9_nodes": "05_pace_sim_intracardiac_9_nodes",
 }
 
 # 12 standard ECG lead names, in the reconstruction order used by the
@@ -232,14 +242,17 @@ PROJECTS = {
             "Normal Sinus", "SA Node Failure"
         ],
     },
-    "pace_sim_intracardiac_9_nodes": {
+    "05_pace_sim_intracardiac_9_nodes": {
         "name": "Pace Sim Intracardiac 9 Nodes",
-        "paper": "Yip 2016 / Andalam 2017 reduced conduction network",
-        "desc": "SA-RA/LA-AV-His-RBB/LBB-RV/LV + pace-sense ADC",
-        "leads": ["RA", "LA", "RV", "LV"],
+        "paper": "Yip 2016 / Andalam 2017 + Ai 2017 dipole EGM",
+        "desc": "9-node conduction, four bipolar EGM streams + pace-sense ADC",
+        "leads": ["RA AP", "LA AP", "RV AP", "LV AP"],
         "num_leads": 4,
-        "adc_channels": (4, 5, 6),
+        "egm_channels": (4, 5, 6, 7),
+        "egm_leads": ["RA EGM", "LA EGM", "RV EGM", "LV EGM"],
+        "adc_channels": (8, 9, 10),
         "mv_max": 150,
+        "egm_mv_max": 15,
         "params": {
             "hr": {"label": "SA Rate", "unit": "bpm", "min": 15, "max": 200, "default": 72, "resolution": 1, "help": "Frecuencia intrínseca del nodo SA."},
             "amp": {"label": "Amplitude", "unit": "%", "min": 0, "max": 100, "default": 100, "resolution": 1, "help": "Escala de las salidas EGM."},
@@ -250,6 +263,9 @@ PROJECTS = {
             "path6": {"label": "His -> LBB", "unit": "on", "min": 0, "max": 1, "default": 1, "resolution": 1, "help": "Bloqueo de rama izquierda si se desactiva."},
             "path7": {"label": "RBB -> RV", "unit": "on", "min": 0, "max": 1, "default": 1, "resolution": 1, "help": "Salida ventricular derecha."},
             "path8": {"label": "LBB -> LV", "unit": "on", "min": 0, "max": 1, "default": 1, "resolution": 1, "help": "Salida ventricular izquierda."},
+            "path9": {"label": "RA -> LA", "unit": "on", "min": 0, "max": 1, "default": 1, "resolution": 1, "help": "Conducción interauricular derecha-izquierda (~25 ms, tipo Bachmann)."},
+            "path10": {"label": "RV -> LV", "unit": "on", "min": 0, "max": 1, "default": 1, "resolution": 1, "help": "Dispersión interventricular derecha-izquierda (~40 ms)."},
+            "sareset": {"label": "SA reset", "unit": "on", "min": 0, "max": 1, "default": 1, "resolution": 1, "help": "Tras una captura auricular aceptada, reprograma el próximo evento SA a 60000/hr ms. OFF conserva la ventana legacy de 60 ms."},
         },
         "rhythms": ["Normal Sinus", "SA Node Failure"],
     },
@@ -296,6 +312,30 @@ DEFAULT_AMPLITUDE_SCALE = 2.0  # mV full-scale
 # Without this the GUI froze (main thread wedged in draw) even though the Pico
 # kept streaming happily.
 MAX_RENDER_POINTS = 3000
+PLOT_REFRESH_MS = 40
+SCROLL_RENDER_PAUSE_S = 0.22
+# Pace-pulse capture classification: an EGM upstroke above this voltage in
+# the evoked-response window after an ADC pulse means the cell captured.
+# Fallback only -- the firmware now sends the exact cell-acceptance verdict.
+PACE_CAPTURE_MV = 30.0
+PACE_EVOKED_WINDOW_S = 0.060
+
+
+def pace_capture_code(sample, surf_idx, chan):
+    """Decode the 2-bit capture verdict the 9-node firmware embeds in the
+    surface ADC float (monitor-only channel, preserving the frame layout).
+
+    0 = no pulse this sample, 1 = pulse captured (cell accepted, AP
+    generated), 2 = pulse seen but the cell rejected it (refractory / ERP
+    floor). Returns 0 for any firmware that does not send the code.
+    """
+    if surf_idx >= len(sample):
+        return 0
+    try:
+        bits = struct.unpack('<I', struct.pack('<f', float(sample[surf_idx])))[0]
+    except Exception:
+        return 0
+    return (bits >> (0 if chan == 0 else 2)) & 0x3
 # Capacity of the numpy rendering ring (matches the producer deque cap). At
 # 2 kHz this holds >30 s; every channel column is preallocated so the steady
 # state per frame is O(new samples + rendered points) with no object churn.
@@ -367,8 +407,9 @@ class SerialThread(threading.Thread):
         self.num_channels = 9
         # Indices (within the frame) that carry pace-sense ADC voltages in
         # volts (0..3.3 V) rather than ECG/PPG. Empty for projects without a
-        # pace front end (both bench projects stream them at frame indices 4-6).
+        # pace front end (frame positions vary by project; profile metadata sets them).
         self.adc_indexes = ()
+        self.egm_indexes = ()
         # Sanity bound (+-mV) for the non-ADC channels. The Gaussian model
         # streams raw mV electrode potentials whose QRS peak can reach tens of
         # mV (R default 30 x projection), so a tight +-5 mV bound would drop
@@ -697,14 +738,30 @@ class ECGApp:
         # Plot refresh state: we only redraw when new samples arrived or the
         # view state changed, so the UI thread stays free for scroll/click.
         self._plot_dirty = True
+        self._plot_render_defer_until = 0.0
         self._plotted_len = 0
         # pace_sim state: True when the pacemaker test-bench firmware is active
         self.pace_mode = False
         self.pace_indexes = None
+        self.egm_indexes = ()
         self.cellmodel_row = None
         self.cenelecpol_row = None
         self._pace_command_capture = False
         self._pace_command_stream_was_on = False
+        # Pace-pulse capture markers on the ADC panel. A pulse is a rising
+        # crossing above the A/V threshold. The verdict is the firmware's own
+        # cell acceptance (try_trigger_cell_at), carried inside the surface
+        # ADC float; the EGM-amplitude check is only a fallback for firmware
+        # builds that do not send the code.
+        self._pace_pulse_state = {0: {'in': False, 'count': 0},
+                                  1: {'in': False, 'count': 0}}
+        self._pace_pending_marks = []   # pulses still waiting for their window
+        # (abs_index, chan, captured, y, phase_ms). phase_ms is the coupling
+        # interval from the previous activation of the same chamber.
+        self._pace_marks = deque(maxlen=4096)
+        # Last EGM activation sample per chamber (used for the phase marker).
+        self._pace_egm_state = {0: {'in': False}, 1: {'in': False}}
+        self._pace_last_egm_idx = {0: -1, 1: -1}
 
         # pico_ecg file-list state
         self._pico_ecg_list_lines = []   # raw lines accumulated from 'list'
@@ -732,7 +789,8 @@ class ECGApp:
         self._term_seq = 0
 
         # --- Real-time HR estimation ---
-        self._hr_measured = 0          # last estimated BPM
+        self._hr_measured = 0          # last estimated ventricular BPM
+        self._ra_rate_measured = 0     # last estimated RA-RA BPM (intracardiac)
         self._last_hr_t = 0.0        # monotonic clock of last HR pass (1 Hz cap)
         self._hr_peak_times = deque(maxlen=8)  # monotonic timestamps of R-peaks
         self._hr_prev_peak_sidx = -9999        # sample index of last detected peak
@@ -1045,7 +1103,9 @@ class ECGApp:
 
     def _build_left_panel(self, parent):
         canvas = tk.Canvas(parent, bg=C_BG, highlightthickness=0)
-        scrollbar = ttk.Scrollbar(parent, orient=tk.VERTICAL, command=canvas.yview)
+        scrollbar = ttk.Scrollbar(
+            parent, orient=tk.VERTICAL,
+            command=lambda *args: self._scroll_left_panel(canvas, *args))
         self.left_frame = tk.Frame(canvas, bg=C_BG)
 
         self.left_frame.bind(
@@ -1058,7 +1118,7 @@ class ECGApp:
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         canvas.bind('<MouseWheel>',
-                    lambda e: canvas.yview_scroll(int(-1*(e.delta/120)), 'units'))
+                    lambda e: self._scroll_left_panel_wheel(canvas, e))
 
         self._build_connection_section(self.left_frame)
         self._build_info_section(self.left_frame)
@@ -1070,6 +1130,23 @@ class ECGApp:
         self._build_pace_detect_section(self.left_frame)
         self._build_device_section(self.left_frame)
         self._build_leads_section(self.left_frame)
+
+    def _defer_plot_render_for_scroll(self):
+        self._plot_render_defer_until = time.monotonic() + SCROLL_RENDER_PAUSE_S
+
+    def _scroll_left_panel(self, canvas, *args):
+        canvas.yview(*args)
+        self._defer_plot_render_for_scroll()
+
+    def _scroll_left_panel_wheel(self, canvas, event):
+        delta = getattr(event, 'delta', 0)
+        units = int(-delta / 120)
+        if units == 0 and delta:
+            units = -1 if delta > 0 else 1
+        if units:
+            canvas.yview_scroll(units, 'units')
+            self._defer_plot_render_for_scroll()
+        return 'break'
 
     def _build_connection_section(self, parent):
         outer, card = self._make_card(parent, 'Connection')
@@ -1395,13 +1472,10 @@ class ECGApp:
         # ADC y-axis mode for the pace traces.
         r6 = tk.Frame(card, bg=C_CARD)
         r6.pack(fill=tk.X, pady=(0, 2))
-        pace_fixed_tt = ('Escala del eje Y de las trazas Pace-Sense ADC. auto '
-                         '(por defecto) ajusta el rango a la ventana visible '
-                         '(útil porque la señal va montada sobre ~1.9 V de '
-                         'DC); 0–3.5 V fija la escala completa para comparar '
-                         'con el osciloscopio y ver el nivel DC real de los '
-                         'pines.')
-        pace_fixed_lbl2 = tk.Label(r6, text='ADC eje 0–3.5 V', bg=C_CARD,
+        pace_fixed_tt = ('Escala vertical fija para las trazas Pace-Sense ADC. '
+                         'Actívala para desplazar el límite inferior con el slider; '
+                         'en automático, el eje se ajusta a la ventana visible.')
+        pace_fixed_lbl2 = tk.Label(r6, text='ADC escala fija', bg=C_CARD,
                                    fg=C_TEXT, font=FB)
         pace_fixed_lbl2.pack(side=tk.LEFT)
         ToolTip(pace_fixed_lbl2, pace_fixed_tt)
@@ -1415,6 +1489,23 @@ class ECGApp:
                                        fg=C_TEXT2, font=FS)
         self.pace_fixed_lbl.pack(side=tk.LEFT, padx=(5, 0))
         self.pace_fixed_scale = False
+
+        r6b = tk.Frame(card, bg=C_CARD)
+        r6b.pack(fill=tk.X, pady=(2, 0))
+        tk.Label(r6b, text='0 ADC desde', bg=C_CARD, fg=C_TEXT2,
+                 font=FS, width=13, anchor=tk.W).pack(side=tk.LEFT)
+        self.pace_amp_var = tk.DoubleVar(value=0.0)
+        self.pace_amp_label = tk.Label(r6b, text='0.00 V', bg=C_CARD,
+                                       fg=C_TEXT, font=FBB, width=8,
+                                       anchor=tk.E)
+        self.pace_amp_label.pack(side=tk.RIGHT)
+        self.pace_amp_slider = ttk.Scale(
+            r6b, variable=self.pace_amp_var, from_=0.0, to=3.45,
+            orient=tk.HORIZONTAL, command=self._on_pace_amp_change)
+        self.pace_amp_slider.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=4)
+        ToolTip(self.pace_amp_slider,
+                'Límite inferior del eje Y Pace-Sense ADC. El límite superior '
+                'permanece en 3.5 V; se aplica cuando la escala fija está activada.')
 
         # Pacing demand-only (asystole): no intrinsic rhythm, beats only when
         # the DUT captures (set pacedemand on/off in the firmware).
@@ -1530,6 +1621,16 @@ class ECGApp:
                 pass
         return default
 
+    def _programmed_hr(self):
+        """Current 'hr' slider value, i.e. the programmed SA/atrial rate."""
+        var = self.slider_vars.get('hr')
+        if var is not None:
+            try:
+                return int(round(var.get()))
+            except Exception:
+                pass
+        return 0
+
     def _on_bench_toggle(self):
         if not self.connected:
             return
@@ -1581,6 +1682,10 @@ class ECGApp:
         self.pace_fixed_lbl.config(
             text='fijo' if self.pace_fixed_scale else 'auto',
             fg='#15803D' if self.pace_fixed_scale else C_TEXT2)
+        self._plot_dirty = True
+
+    def _on_pace_amp_change(self, val):
+        self.pace_amp_label.config(text=f'{float(val):.2f} V')
         self._plot_dirty = True
 
     def _send_pace_report(self):
@@ -1973,6 +2078,11 @@ class ECGApp:
         self.ax_ppg.set_ylim(0, 2.4)
         self.ppg_line, = self.ax_ppg.plot([], [], color='#0D9488',
                                           linewidth=1.2, label='PPG')
+        self.egm_lines = []
+        for i, name in enumerate(("RA EGM", "LA EGM", "RV EGM", "LV EGM")):
+            line, = self.ax_ppg.plot([], [], color=LEAD_COLORS[i],
+                                     linewidth=1.0, label=name, alpha=0.95)
+            self.egm_lines.append(line)
         self.ax_ppg.legend(loc='upper right', fontsize=7, framealpha=0.9,
                            edgecolor=C_BORDER)
         self.ax_ppg.set_visible(False)
@@ -2001,7 +2111,23 @@ class ECGApp:
             line, = self.ax_pace.plot([], [], color=color, linestyle=style,
                                       linewidth=0.9, label=label, alpha=0.9)
             self.pace_threshold_lines.append(line)
-        self.ax_pace.legend(loc='upper right', fontsize=6, ncol=4,
+        # Per-pulse capture verdicts. Green dot = the EGM depolarised after
+        # the pulse (capture); red cross = pulse seen by the ADC but no
+        # evoked response (no capture / refractory).
+        self.pace_mark_capture, = self.ax_pace.plot(
+            [], [], linestyle='None', marker='o', markersize=5,
+            markerfacecolor='#16a34a', markeredgecolor='#166534',
+            label='capture', zorder=5)
+        self.pace_mark_fail, = self.ax_pace.plot(
+            [], [], linestyle='None', marker='x', markersize=6,
+            markeredgewidth=1.4, color='#dc2626',
+            label='no capture', zorder=5)
+        # Latest pulse verdict and its coupling interval to the previous
+        # activation of the same chamber (helps explain ERP-floor rejection).
+        self.pace_phase_txt = self.ax_pace.text(
+            0.01, 0.96, '', transform=self.ax_pace.transAxes, fontsize=7,
+            color=C_TEXT, va='top', ha='left')
+        self.ax_pace.legend(loc='upper right', fontsize=6, ncol=5,
                             framealpha=0.9, edgecolor=C_BORDER)
         self.ax_pace.set_visible(False)
 
@@ -2048,6 +2174,7 @@ class ECGApp:
             self.data_queue.clear()
         self._ring_n = 0
         self._plotted_len = 0
+        self._reset_pace_marks()
         while not self.cmd_queue.empty():
             try:
                 self.cmd_queue.get_nowait()
@@ -2088,6 +2215,7 @@ class ECGApp:
         self.status_label.config(text="Disconnected", foreground="gray")
         self._plot_dirty = True
         self._plotted_len = 0
+        self._reset_pace_marks()
 
     def _shutdown(self):
         """Stop background resources before destroying the Tk application."""
@@ -2157,15 +2285,19 @@ class ECGApp:
             if self.project_type is None:
                 lower = line.lower()
                 matched_proj = None
+                matched_len = 0
+                # Prefer the most specific match: 'pace_sim' is a substring of
+                # every newer bench name, so a first-match loop would pick the
+                # wrong project from a 'ver' banner.
                 for p_key in PROJECTS:
                     if p_key in lower or PROJECTS[p_key]["name"].lower() in lower:
-                        matched_proj = p_key
-                        break
-                if matched_proj is None:
-                    for alias, canonical_key in PROJECT_ALIASES.items():
-                        if alias in lower:
-                            matched_proj = canonical_key
-                            break
+                        if len(p_key) > matched_len:
+                            matched_proj = p_key
+                            matched_len = len(p_key)
+                for alias, canonical_key in PROJECT_ALIASES.items():
+                    if alias in lower and len(alias) > matched_len:
+                        matched_proj = canonical_key
+                        matched_len = len(alias)
                 if matched_proj:
                     self.project_type = matched_proj
                     self._setup_project_ui(matched_proj)
@@ -2448,7 +2580,7 @@ class ECGApp:
         if kind == 'dec':
             _, seq, values = entry
             # Pace-sense channels are the trailing ADC slots of the active
-            # project's frame (indices 4-6 for both bench projects).
+            # active project's frame (indices are configured per profile).
             labels = {}
             pace = getattr(self, 'pace_indexes', None) or ()
             for j, idx in enumerate(pace):
@@ -2465,7 +2597,9 @@ class ECGApp:
 
     @staticmethod
     def _num_channels_for(proj_key):
-        if proj_key in (PACE_SIM_KEY, PACE_SIM_IC_KEY, PACE_SIM_9_KEY):
+        if proj_key == PACE_SIM_9_KEY:
+            return 11
+        if proj_key in (PACE_SIM_KEY, PACE_SIM_IC_KEY):
             return 7
         return 10 if proj_key == "03_pico_ecg_gaussian_ppg" else 9
 
@@ -2511,6 +2645,7 @@ class ECGApp:
         self.sample_rate = 500 if proj_key == PICO_ECG_KEY else 2000
         self._plot_dirty = True
         self._ring_n = 0   # channel layout changes with the project
+        self._reset_pace_marks()
 
         # Hide pico_ecg stored-signal panel when showing a mathematical model project
         try:
@@ -2524,8 +2659,10 @@ class ECGApp:
         is_intracardiac = proj_key in (PACE_SIM_IC_KEY, PACE_SIM_9_KEY)
         self.pace_mode = is_pace
         # Both bench firmwares stream the 3 pace-sense ADC voltages in the
-        # last slots (4-6) of the 7-channel frame.
-        self.pace_indexes = PACE_ADC_CHANNELS if is_pace else None
+        # trailing slots of the active frame (8-10 for 05; 4-6 for legacy).
+        self.pace_indexes = (proj.get("adc_channels", PACE_ADC_CHANNELS)
+                             if is_pace else None)
+        self.egm_indexes = tuple(proj.get("egm_channels", ()))
         try:
             if is_pace:
                 self.pace_bench_frame.pack(fill=tk.X, padx=6, pady=3)
@@ -2558,11 +2695,31 @@ class ECGApp:
         # 10-channel frame) and reconstructs the 12 leads from the streamed
         # electrode/reference channels; pace_sim streams PPG at index 3 of its
         # 7-channel frame (RA/LA/LL + PPG + 3 ADC). pace_sim_intracardiac has
-        # no PPG: its 4 channels are cell-model EGMs only.
+        # no PPG: the older profile sends 4 channels; the 05 profile sends
+        # 4 automaton APs + 4 synthesized EGMs + 3 pace-sense ADC channels.
         self.lead_mode = proj.get("lead_mode", "registry")
         self.ppg_index = proj.get("ppg_index")
         self.num_leads = proj.get("num_leads", 9)
         self.lead_names = list(proj.get("leads", LEAD_NAMES))
+        gs = self.ax.get_gridspec()
+        if proj_key == PACE_SIM_9_KEY:
+            gs.set_height_ratios([1.65, 1.15, 1.0])
+            self.fig.subplots_adjust(hspace=0.24)
+            self.ax.set_title('Potenciales celulares (autómatas)', fontsize=12,
+                              fontweight='bold', color=C_TEXT, pad=7)
+            self.ax_ppg.set_title('Electrogramas bipolares (EGM)', fontsize=10,
+                                  fontweight='bold', color=C_TEXT)
+            self.ax_ppg.set_ylabel('mV', fontsize=9, color=C_TEXT2)
+            egm_scale = proj.get("egm_mv_max", 15)
+            self.ax_ppg.set_ylim(-egm_scale, egm_scale)
+        else:
+            gs.set_height_ratios([3, 1.4, 2])
+            self.fig.subplots_adjust(hspace=0.35)
+            self.ax.set_title('ECG Waveform', fontsize=13, fontweight='bold',
+                              color=C_TEXT, pad=10)
+            self.ax_ppg.set_title('PPG (peripheral pulse)', fontsize=10,
+                                  fontweight='bold', color=C_TEXT)
+            self.ax_ppg.set_ylabel('V', fontsize=9, color=C_TEXT2)
         # Re-label the plot lines with the active project's channel names so
         # the legend shows e.g. RA/LA/RV/LV for the EGM project.
         try:
@@ -2570,6 +2727,22 @@ class ECGApp:
                 self.lines[i].set_label(self.lead_names[i])
             for i in range(self.num_leads, len(self.lines)):
                 self.lines[i].set_label('')
+            egm_names = proj.get("egm_leads", ())
+            for i, line in enumerate(self.egm_lines):
+                line.set_label(egm_names[i] if i < len(egm_names) else '')
+            old_egm_legend = self.ax_ppg.get_legend()
+            if old_egm_legend is not None:
+                old_egm_legend.remove()
+            if self.egm_indexes:
+                self.ppg_line.set_visible(False)
+                self.ax_ppg.legend(handles=self.egm_lines, labels=egm_names,
+                                   loc='upper right', fontsize=7, ncol=4,
+                                   framealpha=0.9, edgecolor=C_BORDER)
+            else:
+                self.ppg_line.set_visible(True)
+                self.ax_ppg.legend(handles=[self.ppg_line], labels=['PPG'],
+                                   loc='upper right', fontsize=7,
+                                   framealpha=0.9, edgecolor=C_BORDER)
         except Exception:
             pass
         self._populate_leads()
@@ -2958,9 +3131,14 @@ class ECGApp:
             self._last_stat_time = now
         try:
             self._sb_rate.config(text=f'{self._samples_per_sec} samp/s')
-            if self._hr_measured > 0:
-                self._sb_hr_lbl.config(
-                    text=f'HR: {self._hr_measured} bpm', fg=C_ACCENT)
+            if self._hr_measured > 0 or self._ra_rate_measured > 0:
+                txt = f'HR: {self._hr_measured or "---"} bpm'
+                if self.project_type in (PACE_SIM_IC_KEY, PACE_SIM_9_KEY):
+                    txt += f' | RA-RA: {self._ra_rate_measured or "---"} bpm'
+                prog = self._programmed_hr()
+                if prog > 0:
+                    txt += f' | prog: {prog} bpm'
+                self._sb_hr_lbl.config(text=txt, fg=C_ACCENT)
             else:
                 self._sb_hr_lbl.config(text='HR: ---', fg=C_TEXT2)
             if self._recording:
@@ -3007,6 +3185,9 @@ class ECGApp:
         if fname:
             hdr = ['t_s'] + [name.replace('(', '_').replace(')', '')
                              for name in self.lead_names[:self.num_leads]]
+            if self.egm_indexes:
+                egm_names = PROJECTS.get(self.project_type, {}).get("egm_leads", ())
+                hdr += list(egm_names)
             if self.ppg_index is not None:
                 hdr.append('PPG')
             if self.pace_mode:
@@ -3034,32 +3215,30 @@ class ECGApp:
     # Real-time HR estimation (R-peak detection on LL channel)
     # ------------------------------------------------------------------
 
-    def _detect_hr(self, data):
-        """Estimate HR from a ventricular channel (stream index 2) using
-        threshold crossing.
+    def _detect_rate(self, data, channel, refractory_s=0.20,
+                     min_amp=0.1, bpm_min=20, bpm_max=400):
+        """Estimate a rate (BPM) from one stream channel by threshold crossing.
 
-        Index 2 is LL(II) for the surface-ECG projects and the ventricular
-        EGM (RV cell voltage) for pace_sim_intracardiac. Works on the last
-        6 seconds of buffered data. Updates self._hr_measured (BPM) and
-        self._hr_peak_times.
+        Works on the last 6 seconds of buffered data. Returns 0 when there is
+        not enough signal or fewer than two peaks.
         """
         n = len(data)
         if n < self.sample_rate // 2:   # need at least 0.5 s
-            return
-        # Work on a sliding window (last 6 s)
+            return 0
         window = min(n, int(self.sample_rate * 6))
-        seg = [s[2] for s in data[-window:]]   # LL(II) / RV EGM
+        seg = [s[channel] for s in data[-window:] if len(s) > channel]
+        if len(seg) < self.sample_rate // 2:
+            return 0
         seg_n = len(seg)
 
         mean_v = sum(seg) / seg_n
         max_v  = max(seg)
         amp    = max_v - mean_v
-        if amp < 0.1:   # flat signal — no peaks
-            return
+        if amp < min_amp:   # flat signal — no peaks
+            return 0
         threshold = mean_v + amp * 0.55
 
-        # Simple state-machine peak detector with 200 ms refractory period
-        refractory = int(self.sample_rate * 0.20)
+        refractory = int(self.sample_rate * refractory_s)
         base_sidx  = n - window   # sample index of seg[0] in global stream
         peaks = []
         in_peak = False
@@ -3079,20 +3258,40 @@ class ECGApp:
                     in_peak = False
 
         if len(peaks) < 2:
-            return
+            return 0
 
-        # RR intervals → BPM (use last 6 peaks)
+        # RR intervals → BPM (use last 6 intervals)
         recent = peaks[-7:]
         rr_samps = [recent[i+1] - recent[i] for i in range(len(recent)-1)]
         mean_rr = sum(rr_samps) / len(rr_samps)
         if mean_rr > 0:
             bpm = int(round(self.sample_rate * 60.0 / mean_rr))
-            if 20 <= bpm <= 400:   # sanity filter
-                self._hr_measured = bpm
+            if bpm_min <= bpm <= bpm_max:
+                return bpm
+        return 0
+
+    def _detect_hr(self, data):
+        """Estimate ventricular HR (stream index 2) and, for the intracardiac
+        projects, the measured RA-RA rate (stream index 0).
+
+        Index 2 is LL(II) for the surface-ECG projects and the ventricular
+        ventricular signal for the intracardiac profiles. The RA channel lets
+        the GUI compare programmed SA rate with atrial activity (annihilated
+        beats do not appear). The 05 profile uses path-derived bipolar EGMs.
+        """
+        bpm = self._detect_rate(data, 2)
+        if bpm:
+            self._hr_measured = bpm
+        if self.project_type in (PACE_SIM_IC_KEY, PACE_SIM_9_KEY):
+            ra_bpm = self._detect_rate(data, 0, refractory_s=0.12)
+            if ra_bpm:
+                self._ra_rate_measured = ra_bpm
+        else:
+            self._ra_rate_measured = 0
 
     def _start_plot_update(self):
         """Kick off the ~25 fps plot refresh loop."""
-        self.root.after(40, self._run_plot_update)
+        self.root.after(PLOT_REFRESH_MS, self._run_plot_update)
 
     def _run_plot_update(self):
         try:
@@ -3104,7 +3303,7 @@ class ECGApp:
             self._drain_terminal_queue()
         except Exception:
             pass
-        self.root.after(40, self._run_plot_update)
+        self.root.after(PLOT_REFRESH_MS, self._run_plot_update)
 
     def _ring_write(self, samples):
         """Absorb a chunk of new tuples into the circular numpy ring."""
@@ -3118,6 +3317,138 @@ class ECGApp:
         if first < total:
             self._ring[:total - first, :nch] = block[first:]
         self._ring_n += total
+
+    def _reset_pace_marks(self):
+        """Drop pulse/capture history (new session or project)."""
+        for st in self._pace_pulse_state.values():
+            st['in'] = False
+            st['count'] = 0
+        for st in self._pace_egm_state.values():
+            st['in'] = False
+        self._pace_last_egm_idx = {0: -1, 1: -1}
+        self._pace_pending_marks = []
+        self._pace_marks.clear()
+        try:
+            self.pace_mark_capture.set_data([], [])
+            self.pace_mark_fail.set_data([], [])
+            self.pace_phase_txt.set_text('')
+        except Exception:
+            pass
+
+    def _update_pace_marks(self, src, base_idx):
+        """Detect Pace-Sense ADC pulses and classify each as capture/no-capture.
+
+        Runs on the full-rate stream (not the decimated render window) so a
+        sub-millisecond stimulus is not lost. A pulse is a rising crossing
+        above the A/V threshold.
+
+        The verdict comes from the firmware's own cell acceptance
+        (try_trigger_cell_at), carried inside the surface ADC float. The EGM
+        upstroke check remains as a fallback for firmware builds that do not
+        send the code, but it is no longer the source of truth.
+
+        NOTE: all marks (including ones opened in THIS chunk) are scanned
+        over this chunk. An earlier revision only scanned marks on the next
+        call, so an evoked response that peaked in the same chunk as its
+        pulse was missed and reported as "no capture" even though the cell
+        had generated an action potential.
+        """
+        if not src or not self.pace_mode or not self.pace_indexes:
+            return
+        try:
+            ai, vi = self.pace_indexes[0], self.pace_indexes[1]
+        except (IndexError, TypeError):
+            return
+        surf = self.pace_indexes[2] if len(self.pace_indexes) > 2 else 6
+        a_thr = self._pace_param_value('athresh', 2.7)
+        v_thr = self._pace_param_value('vthresh', 2.7)
+        a_cb = self._pace_param_value('acrossback', 2.3)
+        v_cb = self._pace_param_value('vcrossback', 2.3)
+        rate = self.sample_rate or 2000
+        win = max(1, int(PACE_EVOKED_WINDOW_S * rate))
+        end_idx = base_idx + len(src)
+
+        # 1+2) Walk the chunk once, in sample order: detect the pulse FIRST
+        #      (it must be labelled with the previous activation of the same
+        #      chamber), then track EGM activations for later pulses. Two
+        #      separate passes would let the evoked response of THIS pulse
+        #      overwrite the activation index and report a negative phase.
+        channels = (
+            (0, ai, a_thr, a_cb, 0),   # atrial pulse -> RA EGM
+            (1, vi, v_thr, v_cb, 2),   # ventricular pulse -> RV EGM
+        )
+        for i, s in enumerate(src):
+            idx = base_idx + i
+
+            # 2) Rising-edge detector with crossback re-arm (mirrors pace_sense).
+            #    Open a mark for each new pulse, seeded with the EGM sample at
+            #    the pulse instant so an upstroke starting in this same chunk
+            #    is not lost.
+            for chan, adc, thr, cb, egm in channels:
+                if adc >= len(s):
+                    continue
+                st = self._pace_pulse_state[chan]
+                v = s[adc]
+                if not st['in']:
+                    if v >= thr:
+                        st['in'] = True
+                        st['count'] = 0
+                        last = self._pace_last_egm_idx[chan]
+                        phase = ((idx - last) * 1000.0 / rate) if last >= 0 else None
+                        self._pace_pending_marks.append({
+                            'onset': idx,
+                            'chan': chan,
+                            'egm': egm,
+                            'peak_egm': s[egm] if egm < len(s) else -1.0e9,
+                            'code': 0,
+                            'y': min(3.45, v + 0.12),
+                            'phase_ms': phase,
+                        })
+                elif v <= cb:
+                    st['in'] = False
+                    st['count'] = 0
+
+            # 1) Track the last EGM activation per chamber so each pulse can
+            #    be labelled with its coupling interval (phase w.r.t. the
+            #    previous RA or RV upstroke).
+            for chan, egm in ((0, 0), (1, 2)):
+                if egm >= len(s):
+                    continue
+                v = s[egm]
+                st = self._pace_egm_state[chan]
+                if not st['in'] and v >= PACE_CAPTURE_MV:
+                    st['in'] = True
+                    self._pace_last_egm_idx[chan] = idx
+                elif st['in'] and v < PACE_CAPTURE_MV * 0.5:
+                    st['in'] = False
+
+        # 3) Advance the evoked-response window of EVERY pending mark over
+        #    this chunk, including the ones opened just above. Then finalize
+        #    the marks whose window has elapsed.
+        still_pending = []
+        for m in self._pace_pending_marks:
+            lo = max(0, m['onset'] - base_idx)
+            hi = min(len(src), m['onset'] + win + 1 - base_idx)
+            if hi > lo:
+                peak = m['peak_egm']
+                for s in src[lo:hi]:
+                    if len(s) > m['egm'] and s[m['egm']] > peak:
+                        peak = s[m['egm']]
+                    if not m['code']:
+                        m['code'] = pace_capture_code(s, surf, m['chan'])
+                m['peak_egm'] = peak
+            if end_idx > m['onset'] + win:
+                if m['code'] == 1:
+                    captured = True
+                elif m['code'] == 2:
+                    captured = False
+                else:
+                    captured = m['peak_egm'] >= PACE_CAPTURE_MV
+                self._pace_marks.append(
+                    (m['onset'], m['chan'], captured, m['y'], m['phase_ms']))
+            else:
+                still_pending.append(m)
+        self._pace_pending_marks = still_pending
 
     def _update_plot(self):
         # Ingest path (runs under the lock, briefly): copy ONLY the samples the
@@ -3169,11 +3500,20 @@ class ECGApp:
             # Keep the ring's absorbed counter in lockstep with the producer.
             with self.queue_lock:
                 self._ring_n = self.serial_thread.sample_seq if self.serial_thread else self._ring_n
+            # Classify pace pulses on the full-rate chunk before it is
+            # decimated for rendering (base index is the chunk's first sample).
+            self._update_pace_marks(src, self._ring_n - len(src))
         self._plotted_len = self._ring_n
 
         # Count total samples received (for stats)
         if self.serial_thread:
             self._total_samples = self.serial_thread.total_samples_count
+
+        # Keep ingesting and classifying every sample while the user scrolls,
+        # but postpone the expensive Matplotlib update until scrolling settles.
+        # The next scheduled refresh renders the newest ring contents.
+        if time.monotonic() < self._plot_render_defer_until:
+            return
 
         # Render path: stride the ring to ~2 points/pixel and feed matplotlib
         # numpy arrays directly (no Python per-sample loops).
@@ -3226,10 +3566,21 @@ class ECGApp:
             else:
                 self.lines[i].set_data([], [])
 
-        # Peripheral pulse panel — shown only when the project streams a PPG.
+        # Middle panel displays PPG or path-derived bipolar EGMs.
         has_ppg = self.ppg_index is not None and self.ppg_index < nch
-        self.ax_ppg.set_visible(has_ppg)
+        has_egm = bool(self.egm_indexes) and all(idx < nch for idx in self.egm_indexes)
+        self.ax_ppg.set_visible(has_ppg or has_egm)
         self.ax_ppg.set_xlim(0, self.display_seconds)
+        if has_egm:
+            for j, idx in enumerate(self.egm_indexes):
+                if j < len(self.egm_lines):
+                    self.egm_lines[j].set_data(t, win[:, idx])
+            self.ppg_line.set_data([], [])
+            egm_scale = PROJECTS.get(self.project_type, {}).get("egm_mv_max", 15)
+            self.ax_ppg.set_ylim(-egm_scale, egm_scale)
+        else:
+            for line in self.egm_lines:
+                line.set_data([], [])
         if has_ppg:
             ppg_data = win[:, self.ppg_index]
             self.ppg_line.set_data(t, ppg_data)
@@ -3237,7 +3588,7 @@ class ECGApp:
             hi = float(ppg_data.max())
             span = max(hi - lo, 0.05)
             self.ax_ppg.set_ylim(lo - span * 0.15, min(hi + span * 0.15, 2.0))
-        else:
+        elif not has_egm:
             self.ppg_line.set_data([], [])
 
         # Pace-sense ADC channels (A/V/S): plot only on the pace_sim project.
@@ -3250,6 +3601,38 @@ class ECGApp:
                     self.pace_lines[j].set_data(t, win[:, idx])
                 else:
                     self.pace_lines[j].set_data([], [])
+
+            # Capture/no-capture verdicts for pulses in the visible window.
+            win_start = self._ring_n - w
+            cap_x, cap_y, fail_x, fail_y = [], [], [], []
+            last_mark = None
+            for mark in self._pace_marks:
+                p_idx, chan, captured, y = mark[0], mark[1], mark[2], mark[3]
+                phase = mark[4] if len(mark) > 4 else None
+                x = (p_idx - win_start) / float(self.sample_rate)
+                if 0.0 <= x <= self.display_seconds:
+                    last_mark = (x, chan, captured, phase)
+                    if captured:
+                        cap_x.append(x)
+                        cap_y.append(y)
+                    else:
+                        fail_x.append(x)
+                        fail_y.append(y)
+            self.pace_mark_capture.set_data(cap_x, cap_y)
+            self.pace_mark_fail.set_data(fail_x, fail_y)
+
+            # Latest verdict + coupling interval, so a phase that falls in
+            # the ERP floor is visibly "no capture" instead of a mystery.
+            if last_mark is not None:
+                x, chan, captured, phase = last_mark
+                name = 'A' if chan == 0 else 'V'
+                txt = (f'{name} @ {x * 1000.0:.0f} ms -> '
+                       f'{"captura" if captured else "sin captura"}')
+                if phase is not None:
+                    txt += f'  (ciclo hace {phase:.0f} ms)'
+                self.pace_phase_txt.set_text(txt)
+            else:
+                self.pace_phase_txt.set_text('')
 
             # Thresholds are configured at the ADC pin and are drawn over the
             # A/V traces so a capture can be correlated with the comparator.
@@ -3278,11 +3661,10 @@ class ECGApp:
             except Exception:
                 pass
             if self.pace_fixed_scale:
-                # Full 0-3.5 V scale (3.5 tops the ~3.3 V idle rail so the
-                # idle-high traces are not pinned to the top edge): lets you
-                # compare directly with an oscilloscope and check the true DC
-                # level of the pins.
-                self.ax_pace.set_ylim(0, 3.5)
+                # Move the lower edge (the displayed ADC zero) while keeping
+                # the upper edge fixed, so signals near the 3 V rail are visible.
+                lo_adc = min(3.45, max(0.0, self.pace_amp_var.get()))
+                self.ax_pace.set_ylim(lo_adc, 3.5)
             else:
                 # Auto-fit the ADC axis to the visible window. The front end
                 # often rides on a DC offset (e.g. ~2 V) with a small
@@ -3304,6 +3686,8 @@ class ECGApp:
                 line.set_data([], [])
             for line in self.pace_lines:
                 line.set_data([], [])
+            self.pace_mark_capture.set_data([], [])
+            self.pace_mark_fail.set_data([], [])
 
         # Show the time axis only on the bottom-most visible subplot: the pace
         # ADC panel in pace_sim mode, else the PPG panel when the project
@@ -3333,9 +3717,13 @@ class ECGApp:
                 sub = plot_win[-200:, vis]
                 ymin, ymax = float(sub.min()), float(sub.max())
                 margin = max(0.1, (ymax - ymin) * 0.15)
-                self.ax.set_ylim(ymin - margin, ymax + margin)
+                lower = 0.0 if self.project_type == PACE_SIM_9_KEY else ymin - margin
+                self.ax.set_ylim(lower, ymax + margin)
         else:
-            self.ax.set_ylim(-self.amplitude_scale, self.amplitude_scale)
+            if self.project_type == PACE_SIM_9_KEY:
+                self.ax.set_ylim(0.0, self.amplitude_scale)
+            else:
+                self.ax.set_ylim(-self.amplitude_scale, self.amplitude_scale)
 
         # --- Real-time HR estimation (~1 s cadence, on the FULL-rate deque so
         # decimation does not clip the R spike below the threshold) ---
@@ -3349,7 +3737,18 @@ class ECGApp:
                            if cur >= rate // 2 else [])
             if seg_raw:
                 self._detect_hr(seg_raw)
-        if self._hr_measured > 0:
+        if self.project_type in (PACE_SIM_IC_KEY, PACE_SIM_9_KEY):
+            parts = []
+            prog = self._programmed_hr()
+            if prog > 0:
+                parts.append(f'Prog {prog}')
+            if self._ra_rate_measured > 0:
+                parts.append(f'RA-RA {self._ra_rate_measured}')
+            if self._hr_measured > 0:
+                parts.append(f'RV-RV {self._hr_measured}')
+            self._hr_text.set_text(
+                ('  |  '.join(parts) + ' bpm') if parts else '')
+        elif self._hr_measured > 0:
             self._hr_text.set_text(f'{self._hr_measured} bpm')
         else:
             self._hr_text.set_text('')
@@ -3369,6 +3768,8 @@ class ECGApp:
                         np.asarray(sample, dtype=float).reshape(1, -1))[0])
                 else:
                     row = [ts] + list(sample[:self.num_leads])
+                if self.egm_indexes:
+                    row += [sample[i] for i in self.egm_indexes]
                 if self.ppg_index is not None and len(sample) > self.ppg_index:
                     row.append(sample[self.ppg_index])
                 if self.pace_mode and self.pace_indexes is not None and len(sample) > self.pace_indexes[-1]:
@@ -3383,7 +3784,33 @@ class ECGApp:
 # =============================================================================
 
 def main():
+    if sys.platform == "win32":
+        try:
+            import ctypes
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("ecg_phantom.gui.streaming.1")
+        except Exception:
+            pass
+
     root = tk.Tk()
+
+    # Set window icon from images/icono.png and images/icono.ico.
+    # When running as a PyInstaller --onefile bundle, sys._MEIPASS points to the
+    # temporary extraction directory; fall back to the script directory otherwise.
+    try:
+        _base = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+        _ico_path = os.path.join(_base, "images", "icono.ico")
+        if os.path.isfile(_ico_path):
+            try:
+                root.iconbitmap(default=_ico_path)
+            except Exception:
+                pass
+        _icon_path = os.path.join(_base, "images", "icono.png")
+        if os.path.isfile(_icon_path):
+            _icon_img = tk.PhotoImage(file=_icon_path)
+            root.iconphoto(True, _icon_img)
+    except Exception:
+        pass  # Icon is optional; do not crash if file is missing or format unsupported
+
     app = ECGApp(root)
 
     def on_closing():
