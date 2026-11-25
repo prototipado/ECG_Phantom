@@ -41,7 +41,9 @@ flowchart TD
 * [`simulaciones/`](./simulaciones/): Circuitos LTSpice para filtrado analógico (PWM a voltaje), detección de impulsos y scripts en Python.
 * [`firmware/`](./firmware/): Código para Raspberry Pi Pico y Pico 2:
   * [`01_pico_ecg`](./firmware/01_pico_ecg/): Reproductor de registros clínicos guardados en memoria Flash.
-  * Módulos adicionales en desarrollo (`02_pico_conduction_model` a `05_pace_sim_intracardiac_9_nodes`).
+  * [`02_pico_conduction_model`](./firmware/02_pico_conduction_model/): Modelo biofísico de conducción cardíaca (Van der Pol + FitzHugh-Nagumo, 12 derivaciones).
+  * [`03_pico_ecg_gaussian_ppg`](./firmware/03_pico_ecg_gaussian_ppg/): Síntesis analítica evento-driven (kernels Gaussianos) de ECG 12 derivaciones + pulso óptico PPG.
+  * Módulos avanzados en desarrollo (`04_pico_multimodel` y `05_pace_sim_intracardiac_9_nodes`).
 * [`software/`](./software/): Interfaz de escritorio en Python para visualización multicanal, registro de datos y control remoto.
 * [`datasets/`](./datasets/): Registros de bases clínicas (PhysioNet, LUDB) y scripts para convertirlos a arreglos en C (`.h`).
 * [`docs/`](./docs/): Protocolo de comunicación, referencias bibliográficas y notas de diseño.
@@ -81,7 +83,9 @@ python ecg_gui.py
 
 - [x] Caracterización y simulación de filtros pasa-bajos en LTSpice.
 - [x] Firmware base `01_pico_ecg` para reproducción de registros clínicos.
-- [ ] Desarrollo e integración de firmwares sintéticos (`02_pico_conduction_model` a `05_pace_sim_intracardiac_9_nodes`).
+- [x] Firmware `02_pico_conduction_model` (modelo electrofisiológico VdP + FHN).
+- [x] Firmware `03_pico_ecg_gaussian_ppg` (síntesis Gaussiana ECG de 12 derivaciones + pulso óptico PPG).
+- [ ] Suite de firmwares avanzados (`04_pico_multimodel` y `05_pace_sim_intracardiac_9_nodes`).
 - [x] Diseños finales de PCB y acondicionamiento de señal en KiCad.
 - [x] GUI en Python para captura en tiempo real, registro a CSV y compilación a ejecutable.
 
